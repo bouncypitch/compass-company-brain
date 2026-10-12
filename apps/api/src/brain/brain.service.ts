@@ -118,8 +118,15 @@ export class BrainService {
 
   // ---------- recommendations ----------
 
-  async acceptRecommendation(userId: string, organizationId: string, gapId: string): Promise<AcceptRecommendationResult> {
+  async acceptRecommendation(userId: string, organizationId: string, gapId: string, fresh = false): Promise<AcceptRecommendationResult> {
     await this.requireMember(userId, organizationId);
+    if (!fresh) {
+      // Live demos replay the last drafted PR instantly; ?fresh=true re-drafts.
+      const prior = await this.latest<AcceptRecommendationResult & { gap?: unknown }>(organizationId, BrainInsightKind.RECOMMENDATION, gapId);
+      if (prior && prior.diff?.length) {
+        return { gapId, priorityId: prior.priorityId, diff: prior.diff, indexingStatus: await this.hydra.status('company', prior.priorityId) };
+      }
+    }
     const radar = await this.latest<RadarResult>(organizationId, BrainInsightKind.RADAR, 'live');
     const gap = radar?.gaps.find((g) => g.id === gapId);
     if (!gap) throw new NotFoundException(`Recommendation not found: ${gapId}`);

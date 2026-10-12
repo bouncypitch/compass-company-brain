@@ -1,0 +1,236 @@
+/* Keyframes and transitions for the /demo keynote deck. Everything is CSS-only
+   so the screen recorder captures smooth motion without JS animation loops. */
+
+.demo-root {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, 'Helvetica Neue', sans-serif;
+  background-color: #fbfbfd;
+  background-image:
+    radial-gradient(60% 55% at 12% 8%, #e9ecff 0%, rgba(233, 236, 255, 0) 70%),
+    radial-gradient(50% 50% at 92% 18%, #fde7f3 0%, rgba(253, 231, 243, 0) 70%),
+    radial-gradient(55% 60% at 70% 100%, #dcfaf1 0%, rgba(220, 250, 241, 0) 70%),
+    radial-gradient(40% 40% at 0% 100%, #f1ecff 0%, rgba(241, 236, 255, 0) 70%);
+  -webkit-font-smoothing: antialiased;
+  color: #0b0b0f;
+}
+
+/* Slide stage: active slide fades/scales in, others rest slightly offset. */
+.demo-slide {
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.demo-slide[data-state='before'] {
+  opacity: 0;
+  transform: translate3d(-28px, 0, 0) scale(0.985);
+}
+.demo-slide[data-state='after'] {
+  opacity: 0;
+  transform: translate3d(28px, 0, 0) scale(0.985);
+}
+.demo-slide[data-state='active'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered entrance for children of the active slide. */
+.demo-rise {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+[data-state='active'] .demo-rise {
+  animation: demo-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes demo-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.demo-gradient-text {
+  background: linear-gradient(100deg, #4f46e5 0%, #8b5cf6 35%, #ec4899 70%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Floating orbs on the title and closing slides. */
+.demo-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.75;
+  animation: demo-orb 18s ease-in-out infinite alternate;
+}
+@keyframes demo-orb {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(60px, -40px, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-40px, 30px, 0) scale(0.95);
+  }
+}
+
+.demo-float {
+  animation: demo-float 6s ease-in-out infinite;
+  animation-delay: var(--fd, 0s);
+}
+@keyframes demo-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+/* Problem slide: chips start scattered and converge to their orbit. */
+.demo-converge {
+  transform: translate(-50%, -50%) translate(var(--sx), var(--sy)) rotate(var(--sr));
+  opacity: 0.55;
+  transition:
+    transform 1800ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1200ms ease;
+  transition-delay: var(--d, 0ms);
+}
+[data-state='active'] .demo-converge {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+/* Lines that draw themselves in once the slide is active. */
+.demo-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+[data-state='active'] .demo-draw {
+  animation: demo-draw 1400ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes demo-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Flowing dashes along converging lines. */
+.demo-flow {
+  stroke-dasharray: 2 6;
+  animation: demo-flow 1.6s linear infinite;
+}
+@keyframes demo-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+.demo-glow {
+  animation: demo-glow 3.2s ease-in-out infinite;
+}
+@keyframes demo-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(139, 92, 246, 0.35),
+      0 30px 80px -20px rgba(99, 102, 241, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 0 0 18px rgba(139, 92, 246, 0),
+      0 30px 90px -16px rgba(236, 72, 153, 0.5);
+  }
+}
+
+.demo-pulse-ring {
+  animation: demo-pulse-ring 1.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes demo-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.demo-shimmer {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0) 0%, rgba(99, 102, 241, 0.9) 50%, rgba(99, 102, 241, 0) 100%);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: demo-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes demo-shimmer {
+  0% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.demo-caret::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: #6366f1;
+  animation: demo-caret 1s steps(1) infinite;
+}
+@keyframes demo-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* React Flow inside the deck: softer edges, no default node chrome. */
+.demo-root .react-flow__node {
+  font-family: inherit;
+}
+.demo-root .react-flow__controls {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-slide,
+  .demo-converge {
+    transition: opacity 200ms linear;
+  }
+  .demo-slide[data-state],
+  [data-state] .demo-converge,
+  .demo-converge {
+    transform: none;
+  }
+  .demo-converge {
+    transform: translate(-50%, -50%);
+  }
+  .demo-rise,
+  [data-state='active'] .demo-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .demo-draw,
+  [data-state='active'] .demo-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .demo-orb,
+  .demo-float,
+  .demo-flow,
+  .demo-glow,
+  .demo-pulse-ring,
+  .demo-shimmer,
+  .demo-caret::after {
+    animation: none;
+  }
+}

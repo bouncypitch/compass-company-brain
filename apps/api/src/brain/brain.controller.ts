@@ -49,8 +49,9 @@ export class BrainController {
     @Request() req: { user: TokenPayload },
     @Param('organizationId') organizationId: string,
     @Param('gapId') gapId: string,
+    @Query('fresh') fresh?: string,
   ): Promise<AcceptRecommendationResult> {
-    return this.brainService.acceptRecommendation(req.user.sub, organizationId, gapId);
+    return this.brainService.acceptRecommendation(req.user.sub, organizationId, gapId, fresh === 'true');
   }
 
   @Get('priorities/:priorityId/status')

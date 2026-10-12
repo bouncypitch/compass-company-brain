@@ -13,3 +13,9 @@ Each checkpoint = something we can show on screen. Screenshots/clips live in `de
 | 7 | 15:14 | Time machine (61 pre-Aug-1 signals): predicted Cursor agent-to-merge pipeline (→ Rollouts/Security Review 9/23) and Replit governed enterprise (→ governance tools 8/16) | Trust beat |
 | 8 | 15:14 | Compass for Jordan: "Claim R-14 Agent Memory as its named owner…", level-gap table w/ cited reviews, 3 ranked bets | Promotion beat |
 | 9 | 15:20 | ElevenLabs narration working (voices: George / Sarah) | Voiceover |
+| 10 | 15:35 | Company knowledge graph: 25 people, 9 teams, 15 KRs, 18 roadmap items, 15 code modules, 11 conversations, 267 relations → HydraDB BYOG; Org map tab with focus mode | Graph beat |
+| 11 | 15:30 | Ask the brain: "Who owns agent memory…?" → cited answer + 12 HydraDB graph paths in 16s | Ask beat |
+| 12 | 15:55 | Market expanded to 235 signals / 7 competitors (Codex, Google, Amazon added; leadership, contracts, research, market entry) | Market beat |
+| 13 | 16:00 | Re-run radar: 9 moves; 5/7 converging on codebase memory. Time machine on 166 pre-Aug-1 signals: hits on Cursor Rollouts, Google Antigravity Enterprise, Replit governance, Codex team workspaces | Trust beat |
+| 14 | 16:05 | Accept → 4-file PR drafted against forgeline-core (memoryStore.ts + config/contextBuilder/agentLoop), priority written back to HydraDB | PR beat |
+| 15 | 16:05 | Narration: 10/13 clips generated in Sarah's voice (ElevenLabs quota hit) | Voiceover |

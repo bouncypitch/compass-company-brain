@@ -1,0 +1,14 @@
+import { launch, login, BASE } from './lib.mjs';
+const { browser, page } = await launch();
+await login(page);
+await page.goto(`${BASE}/brain`);
+await page.waitForURL(/\/brain$/);
+await page.getByRole('tab', { name: 'Org map' }).click();
+await page.getByText('relationships').waitFor({ timeout: 20000 });
+await page.waitForTimeout(2000);
+await page.mouse.wheel(0, 380);
+await page.waitForTimeout(600);
+await page.locator('.react-flow__node', { hasText: 'Jordan Rivera' }).first().click();
+await page.waitForTimeout(1500);
+await page.screenshot({ path: 'checkpoints/14-org-focus-jordan.png' });
+await browser.close();

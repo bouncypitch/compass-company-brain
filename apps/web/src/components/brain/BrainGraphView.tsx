@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo } from 'react';
-import { Background, Controls, MarkerType, ReactFlow, type Edge, type Node } from '@xyflow/react';
+import { useEffect, useMemo, useRef } from 'react';
+import { Background, Controls, MarkerType, ReactFlow, type Edge, type Node, type ReactFlowInstance } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import type { BrainGraph, BrainGraphNode } from '@app-starter/shared';
 import { cn } from '@/lib/utils';
@@ -74,15 +74,42 @@ interface BrainGraphViewProps {
 }
 
 export const BrainGraphView = ({ graph, highlight = [], onSelect, className, columns, isDense = false }: BrainGraphViewProps) => {
+  const instance = useRef<ReactFlowInstance | null>(null);
+  const highlightKey = highlight.join('|');
+
+  // Dense graphs: fly the camera to the highlighted neighborhood (or back out when cleared).
+  useEffect(() => {
+    const flow = instance.current;
+    if (!flow || !isDense) return;
+    const ids = highlightKey ? highlightKey.split('|') : [];
+    const timer = setTimeout(() => {
+      void flow.fitView(ids.length ? { nodes: ids.map((id) => ({ id })), padding: 0.25, duration: 700 } : { padding: 0.08, duration: 700 });
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [highlightKey, isDense]);
+
   const { nodes, edges } = useMemo(() => {
-    const rows: Record<number, number> = {};
     const lit = new Set(highlight);
+    // Dense graphs wrap each column into sub-columns of MAX_ROWS so the canvas stays readable.
+    const maxRows = isDense ? 9 : Number.POSITIVE_INFINITY;
+    const colOf = (n: BrainGraphNode): number => columns?.[n.type] ?? COLUMN[n.type] ?? 3;
+    const byCol = new Map<number, BrainGraphNode[]>();
+    graph.nodes.forEach((n) => byCol.set(colOf(n), [...(byCol.get(colOf(n)) ?? []), n]));
+    const positions = new Map<string, { x: number; y: number }>();
+    let cursorX = 0;
+    [...byCol.keys()].sort((a, b) => a - b).forEach((col) => {
+      const list = byCol.get(col)!;
+      list.forEach((n, i) => {
+        const sub = Math.floor(i / maxRows);
+        const row = i % maxRows;
+        positions.set(n.id, { x: cursorX + sub * 235, y: row * (isDense ? 92 : 104) + (!isDense && col % 2 ? 40 : 0) });
+      });
+      cursorX += Math.max(1, Math.ceil(list.length / maxRows)) * 235 + (isDense ? 90 : 25);
+    });
     const flowNodes: Node[] = graph.nodes.map((n) => {
-      const col = columns?.[n.type] ?? COLUMN[n.type] ?? 3;
-      const row = (rows[col] = (rows[col] ?? -1) + 1);
       return {
         id: n.id,
-        position: { x: col * (isDense ? 300 : 260), y: row * (isDense ? 92 : 104) + (col % 2) * 40 },
+        position: positions.get(n.id)!,
         data: {
           label: (
             <div className="text-left">
@@ -139,7 +166,10 @@ export const BrainGraphView = ({ graph, highlight = [], onSelect, className, col
         proOptions={{ hideAttribution: true }}
         style={{ background: 'transparent' }}
         nodesConnectable={false}
-        onInit={(instance) => setTimeout(() => void instance.fitView({ padding: 0.08 }), 60)}
+        onInit={(flow) => {
+          instance.current = flow;
+          setTimeout(() => void flow.fitView({ padding: 0.08 }), 60);
+        }}
         onNodeClick={(_, node) => onSelect?.((node.data as { raw: BrainGraphNode }).raw)}
       >
         <Background gap={22} size={1.2} color="#d9dbe8" />

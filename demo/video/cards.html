@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;
+       background:radial-gradient(1200px 700px at 15% 10%,#e9ecff 0%,transparent 60%),radial-gradient(1000px 700px at 90% 20%,#fde7f3 0%,transparent 55%),radial-gradient(1100px 800px at 70% 100%,#dcfaf1 0%,transparent 60%),#fbfbfd;
+       display:flex;align-items:center;justify-content:center;color:#1d1d1f}
+  .wrap{text-align:center;max-width:1500px;padding:0 120px}
+  .eyebrow{font-size:26px;letter-spacing:.32em;text-transform:uppercase;color:#6e6e73;font-weight:600;margin-bottom:34px}
+  h1{font-size:128px;line-height:1.02;letter-spacing:-.035em;margin:0;font-weight:700}
+  h2{font-size:76px;line-height:1.08;letter-spacing:-.03em;margin:0;font-weight:700}
+  .grad{background:linear-gradient(90deg,#5b5bf0 0%,#a050e6 45%,#e0508f 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{font-size:38px;line-height:1.35;color:#6e6e73;margin:36px auto 0;max-width:1300px;font-weight:500}
+  .row{display:flex;gap:22px;justify-content:center;margin-top:56px;flex-wrap:wrap}
+  .chip{font-size:28px;padding:16px 30px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 30px -18px rgba(15,23,42,.35);color:#1d1d1f;font-weight:600}
+  .stat{font-size:92px;font-weight:700;letter-spacing:-.03em}
+  .lbl{font-size:26px;color:#6e6e73;font-weight:600;margin-top:6px}
+  .stats{display:flex;gap:90px;justify-content:center;margin-top:64px}
+</style></head>
+<body><div class="wrap" id="card"></div>
+<script>
+const cards = {
+  title: `<div class="eyebrow">Company Brain Hackathon</div><h1>Compass</h1><p>The company brain that turns market moves into <span class="grad">roadmaps and promotions.</span></p>`,
+  problem: `<h2>Every company already has a brain.</h2><p>It's scattered across Slack, roadmaps, code, reviews and the market. And every engineer asks the same question: <span class="grad">what will get me promoted?</span></p>`,
+  market: `<div class="eyebrow">01 · Radar</div><h2>It reads the market.</h2><div class="stats" id="mstats"></div>`,
+  trust: `<div class="eyebrow">02 · Time machine</div><h2>Can you trust it?</h2><p>We hid everything after August 1 and asked it to predict.</p>`,
+  act: `<div class="eyebrow">03 · Strategy</div><h2>From a competitor's launch<br/>to <span class="grad">our pull request.</span></h2>`,
+  people: `<div class="eyebrow">04 · Compass</div><h2>Then it turns strategy<br/>into <span class="grad">someone's promotion.</span></h2>`,
+  graph: `<div class="eyebrow">05 · Company graph</div><h2>One brain. Everything connected.</h2><div class="row"><span class="chip">People</span><span class="chip">Goals & KRs</span><span class="chip">Roadmap</span><span class="chip">Code</span><span class="chip">Conversations</span><span class="chip">Customers</span><span class="chip">Competitors</span></div>`,
+  close: `<h2>The brain saw the market move,<br/>changed the roadmap, and told every engineer<br/><span class="grad">which part is their promotion.</span></h2><div class="row"><span class="chip">HydraDB</span><span class="chip">Claude</span><span class="chip">App-Starter</span></div>`,
+};
+const q = new URLSearchParams(location.search);
+document.getElementById('card').innerHTML = cards[q.get('c')] || cards.title;
+const ms = document.getElementById('mstats');
+if (ms) ms.innerHTML = (q.get('stats') || '').split(';').filter(Boolean).map(s => { const [v,l] = s.split(':'); return `<div><div class="stat">${v}</div><div class="lbl">${l}</div></div>`; }).join('');
+</script></body></html>

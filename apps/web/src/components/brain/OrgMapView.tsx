@@ -55,6 +55,20 @@ export const OrgMapView = ({ organizationId }: { organizationId: string }) => {
     return [...ids];
   }, [selected, graph]);
 
+  /** Focus mode: redraw only the selected node and its direct connections. */
+  const focused = useMemo<BrainGraph | null>(() => {
+    if (!selected || !topology.data) return null;
+    const ids = new Set(neighborhood);
+    topology.data.graph.edges.forEach((e) => {
+      if (e.source === selected.id) ids.add(e.target);
+      if (e.target === selected.id) ids.add(e.source);
+    });
+    const types = new Set(LAYERS.filter((l) => layers.has(l.value)).flatMap((l) => l.types));
+    const nodes = topology.data.graph.nodes.filter((n) => ids.has(n.id) && (types.has(n.type) || n.id === selected.id));
+    const kept = new Set(nodes.map((n) => n.id));
+    return { nodes, edges: topology.data.graph.edges.filter((e) => kept.has(e.source) && kept.has(e.target)) };
+  }, [selected, neighborhood, topology.data, layers]);
+
   const relations = useMemo(() => {
     if (!selected || !topology.data) return [];
     const label = new Map(topology.data.graph.nodes.map((n) => [n.id, n.label]));
@@ -115,7 +129,7 @@ export const OrgMapView = ({ organizationId }: { organizationId: string }) => {
       {topology.isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : null}
       {graph ? (
         <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
-          <BrainGraphView graph={graph} columns={COLUMNS} isDense highlight={neighborhood} onSelect={setSelected} className="h-[640px]" />
+          <BrainGraphView key={selected?.id ?? 'all'} graph={focused ?? graph} columns={COLUMNS} isDense={!selected} highlight={selected ? [] : neighborhood} onSelect={setSelected} className="h-[640px]" />
           <GlassCard className="max-h-[640px] space-y-3 overflow-auto p-5">
             {selected ? (
               <>
