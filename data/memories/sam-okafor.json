@@ -1,0 +1,33 @@
+{
+  "employeeId": "sam-okafor",
+  "items": [
+    {
+      "id": "so-shipped-agent-loop",
+      "title": "Shipped: agent-loop v1 (planner/executor)",
+      "text": "Designed and wrote forgeline-core/agent-loop, the plan -> act -> verify loop behind the fl CLI. RFC-007 adopted by Agent Eng and IDE teams. Took FL-Bench task success from 31% to 48% in 2025.",
+      "date": "2025-09-30",
+      "kind": "shipped"
+    },
+    {
+      "id": "so-review-h1-2026",
+      "title": "H1 2026 review (L5) — Exceeds",
+      "text": "Reviewer: Marcus Oyelaran. Strong technical direction-setter on agent architecture; RFCs are the team's reference. Growth: broaden mentoring beyond Agent Eng; reduce single-point-of-failure risk on agent-loop.",
+      "date": "2026-06-25",
+      "kind": "review"
+    },
+    {
+      "id": "so-spike-transcript-memory",
+      "title": "Spike: transcript carry-over as memory (FL-3977) — rejected",
+      "text": "Tried carrying the previous session transcript into context. Cost +2.4x, context bloat, propagated wrong assumptions. Conclusion: need distilled, retrievable memory records keyed to repo/path with provenance — a retrieval/storage problem. Recommended Platform own the store with Agent Eng owning loop integration.",
+      "date": "2026-07-18",
+      "kind": "shipped"
+    },
+    {
+      "id": "so-feedback-peer",
+      "title": "Peer feedback",
+      "text": "Tobias Greer: 'Sam's failure analyses are the clearest thinking on the team.' Jordan Rivera: 'Sam makes cross-team collaboration easy; always willing to co-design.'",
+      "date": "2026-06-05",
+      "kind": "feedback"
+    }
+  ]
+}

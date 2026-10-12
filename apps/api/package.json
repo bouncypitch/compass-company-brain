@@ -26,9 +26,11 @@
     "prisma:seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
     "@app-starter/shared": "workspace:*",
     "@aws-sdk/client-s3": "^3.974.0",
     "@aws-sdk/s3-request-presigner": "^3.974.0",
+    "@hydradb/sdk": "^2.1.7",
     "@nestjs/common": "^11.0.14",
     "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^11.0.14",
@@ -53,6 +55,7 @@
     "ioredis": "^5.8.2",
     "multer": "^2.0.2",
     "nodemailer": "^7.0.11",
+    "openai": "^7.32.0",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
@@ -63,7 +66,8 @@
     "sanitize-html": "2.17.5",
     "socket.io": "^4.8.3",
     "swagger-ui-express": "^5.0.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

@@ -1,0 +1,26 @@
+{
+  "employeeId": "nadia-haddad",
+  "items": [
+    {
+      "id": "nh-review-h1-2026",
+      "title": "H1 2026 review (L5) — Meets+",
+      "text": "Reviewer: Priya Shah. Wrote RFC-019 'Cloud sandboxes for background agents' (Firecracker microVMs, per-tenant images), adopted by Platform and Security. Growth: delegate more; R-09 risks bottlenecking on Nadia alone.",
+      "date": "2026-06-26",
+      "kind": "review"
+    },
+    {
+      "id": "nh-shipped-sandbox-alpha",
+      "title": "Shipped: cloud sandbox alpha with Ostrander Games (R-09)",
+      "text": "First design partner live in us-west-2; 214 background-agent runs/week, 98.6% success. PE-KR4 at 1/5 partners.",
+      "date": "2026-09-29",
+      "kind": "shipped"
+    },
+    {
+      "id": "nh-self-reflection-staffing",
+      "title": "Self-reflection: R-09 is understaffed",
+      "text": "With 1.5 engineers (me + Farah at 50%) I forecast 2-3 design partners by EOQ, not 5. VPC peering, secrets injection, and per-tenant image builds are each ~2 weeks. Sandbox cold start (~9 min) is dominated by re-indexing the repo; a persistent commit-keyed index (R-14/R-01 overlap) would cut it below a minute.",
+      "date": "2026-10-08",
+      "kind": "self_reflection"
+    }
+  ]
+}

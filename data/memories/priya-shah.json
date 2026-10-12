@@ -1,0 +1,33 @@
+{
+  "employeeId": "priya-shah",
+  "items": [
+    {
+      "id": "ps-review-h1-2026",
+      "title": "H1 2026 manager review — Meets+",
+      "text": "Reviewer: Arjun Malhotra. Platform hit 99.84% enterprise uptime and shipped retrieval v2. Strong at developing senior ICs and protecting focus time. Growth area: cross-org influence — Platform's needs (headcount for sandbox, ownership of shared problems like agent memory) are raised but not resolved. Goal: get clear ownership for cross-team items that touch Platform KRs.",
+      "date": "2026-06-26",
+      "kind": "review"
+    },
+    {
+      "id": "ps-feedback-skip-level",
+      "title": "Skip-level feedback from Platform team",
+      "text": "Team says Priya is a great advocate and gives honest career feedback. Asks: more visibility into how Platform work maps to company goals; clearer path to Staff for L4s (Jordan Rivera and Luis Romero both mentioned).",
+      "date": "2026-08-14",
+      "kind": "feedback"
+    },
+    {
+      "id": "ps-self-reflection-q4-kr",
+      "title": "Self-reflection: Q4 KRs are coupled to an unowned problem",
+      "text": "PE-KR1 (indexing latency) and PE-KR2 (retrieval contribution to agent task success) are both capped by the same root cause: nothing persists between agent sessions. That's R-14, unowned since July. PE-KR4 (sandbox) is understaffed and waiting on Q1 headcount. Best move: get Jordan to lead R-14 with Agent Eng partnership — it unblocks my KRs and is Jordan's Staff case.",
+      "date": "2026-10-08",
+      "kind": "self_reflection"
+    },
+    {
+      "id": "ps-shipped-oncall-revamp",
+      "title": "Shipped: Platform on-call revamp",
+      "text": "Reduced pages per on-call week from 31 to 9 by tiering alerts and adding runbooks in Hearth. Sev-1 MTTR down from 3.1h to 1.4h.",
+      "date": "2026-04-30",
+      "kind": "shipped"
+    }
+  ]
+}

@@ -2,11 +2,12 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Building2, LayoutDashboard, Settings } from 'lucide-react';
+import { BrainCircuit, Building2, LayoutDashboard, Settings } from 'lucide-react';
 import SidebarNav from '@/components/ui/SidebarNav';
 
 const SIDE_NAV_ITEMS = [
   { path: '/dashboard', label: 'Home', icon: LayoutDashboard },
+  { path: '/brain', label: 'Brain', icon: BrainCircuit },
   { path: '/organizations', label: 'Organizations', icon: Building2 },
   { path: '/settings', label: 'Settings', icon: Settings },
 ];

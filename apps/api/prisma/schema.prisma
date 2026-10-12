@@ -153,6 +153,7 @@ model Organization {
   notifications           Notification[]
   notificationPreferences NotificationPreference[]
   projects                Project[]
+  brainInsights           BrainInsight[]
 
   @@map("organizations")
 }
@@ -418,4 +419,30 @@ model Project {
   @@index([organizationId, archivedAt])
   @@index([createdById])
   @@map("projects")
+}
+
+enum BrainInsightKind {
+  RADAR
+  COMPASS
+  RECOMMENDATION
+  TIME_MACHINE
+}
+
+/// Cached output of the company brain (radar runs, compass plans, accepted
+/// recommendations). Cached so the demo can replay instantly if a live call is slow.
+model BrainInsight {
+  id             String           @id @default(uuid())
+  organizationId String           @map("organization_id")
+  kind           BrainInsightKind
+  subjectKey     String?          @map("subject_key")
+  payload        Json
+  status         String           @default("ready")
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, kind, subjectKey])
+  @@map("brain_insights")
 }

@@ -1,0 +1,54 @@
+{
+  "employeeId": "jordan-rivera",
+  "items": [
+    {
+      "id": "jr-review-h2-2025",
+      "title": "H2 2025 performance review (L4) — Exceeds",
+      "text": "Rating: Exceeds expectations. Manager: Priya Shah. Jordan rebuilt forgeline-core/ingest around tree-sitter chunking (ingest v2), cutting index build time on 500K LOC repos from 22 min to 8 min and halving embedding cost. Go-to expert on retrieval quality. Strengths: deep debugging, rigorous measurement, calm under pressure. Growth areas: work is scoped by tickets others write; rarely proposes new initiatives; communicates in PRs rather than docs. Goal for H1 2026: write at least one design doc reviewed outside Platform.",
+      "date": "2025-12-15",
+      "kind": "review"
+    },
+    {
+      "id": "jr-shipped-retrieval-v2",
+      "title": "Shipped: hybrid retrieval v2 (BM25 + embeddings + symbol graph)",
+      "text": "Designed and shipped forgeline-core/retrieval v2: hybrid lexical + dense search with a symbol-graph expansion step. Context hit@10 on FL-Bench-Enterprise went 58% -> 71%. Agent Eng credited it with ~6 points of task success in Q1 2026. Design notes lived only in the PR description (FL-2811).",
+      "date": "2026-02-20",
+      "kind": "shipped"
+    },
+    {
+      "id": "jr-shipped-inc-188",
+      "title": "Untangled INC-188 cross-team incident",
+      "text": "INC-188 (2026-03-11): enterprise agents silently returned stale code for ~6 hours across 4 tenants. Three teams (Platform, Agent Eng, IDE) each believed the bug was elsewhere. Jordan traced it through ingest -> retrieval -> agent-loop to a cache invalidation race on branch switches combined with an IDE-side retry, wrote the timeline, and coordinated the fix across all three teams in 9 hours. Arjun called it out at all-hands. Postmortem follow-ups were assigned to others; Jordan did not drive the systemic follow-up program.",
+      "date": "2026-03-12",
+      "kind": "shipped"
+    },
+    {
+      "id": "jr-peer-feedback-h1-2026",
+      "title": "Peer feedback summary — H1 2026 cycle",
+      "text": "Luis Romero: 'The person I page when nobody knows what's going on. INC-188 would've been a 2-day outage without Jordan.' Sam Okafor: 'Jordan knows retrieval better than anyone. I wish they'd weigh in earlier on roadmap — they often have the right answer but only share it when asked.' Wei Chen: 'Great code reviewer, patient pairing partner.' Kai Nakamura: 'Would love Jordan to write down the vision for retrieval; I can't find a doc to point customers or PMs at.' Grace Liu: 'Technically operating at Staff. Organizationally operating at Senior.'",
+      "date": "2026-06-05",
+      "kind": "feedback"
+    },
+    {
+      "id": "jr-review-h1-2026",
+      "title": "H1 2026 performance review (L4) — Exceeds; not yet ready for L5",
+      "text": "Rating: Exceeds expectations. Promotion to L5 discussed at calibration; not advanced. Committee notes: technical depth clearly at L5 (retrieval v2, INC-188). Gaps vs L5 ladder: (1) no cross-team initiative led from proposal to delivery; (2) zero cross-team design docs/RFCs — the H2 2025 goal was not met; (3) impact framed in latency and hit-rate metrics, not business outcomes (win rate, churn, task success). Recommendation: pick an ambiguous cross-team problem in H2 2026, write the RFC, get it onto the roadmap with an owner, and lead people outside Platform. Mentoring of Wei Chen noted positively but is within-team.",
+      "date": "2026-06-24",
+      "kind": "review"
+    },
+    {
+      "id": "jr-shipped-incremental-indexing",
+      "title": "In progress: R-01 incremental indexing (PE-KR1)",
+      "text": "Reduced p95 index time on >1M LOC repos from 14 min to 9.5 min within a session. Identified that the remaining gap is architectural: the chunk/embedding cache is keyed on session_id, so every new agent session re-indexes from scratch (Halvorsen: 1,904 full re-indexes from 1,912 sessions in one week). Shipped FL-4398 band-aid (jitter + per-tenant concurrency cap).",
+      "date": "2026-10-01",
+      "kind": "shipped"
+    },
+    {
+      "id": "jr-self-reflection-q3-2026",
+      "title": "Self-reflection: what Staff would mean for me",
+      "text": "I like being the person who fixes the hard thing. But looking at the INC-188 follow-ups and the session-cache problem, I keep seeing the systemic fix and then leaving it for someone else to prioritize. I avoid design docs because they feel slow and I'm worried they'll be ignored. Strengths: debugging across services, retrieval/indexing depth, measurement. Weaknesses: I don't push on roadmap, I under-communicate impact in business terms, I'm uncomfortable directing people who don't report to my manager. Goal: own one thing end-to-end that two teams depend on.",
+      "date": "2026-09-30",
+      "kind": "self_reflection"
+    }
+  ]
+}

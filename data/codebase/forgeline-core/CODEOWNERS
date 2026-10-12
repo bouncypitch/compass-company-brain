@@ -1,0 +1,21 @@
+# Forgeline core — code owners
+# Order matters: the last matching pattern takes precedence.
+
+*                       @forgeline/core-maintainers
+
+/src/ingest/            @jordan-rivera @priya-shah
+/src/retrieval/         @jordan-rivera @priya-shah
+
+/src/agent/             @marcus-oyelaran @sam-okafor @forgeline/agent-eng
+
+/src/sandbox/           @nadia-haddad
+
+/src/telemetry/         @ian-fletcher
+
+/src/config.ts          @marcus-oyelaran
+/src/index.ts           @marcus-oyelaran
+
+/tests/                 @forgeline/core-maintainers
+
+# NOTE: no owner for agent memory (R-14). If a /src/memory/ module lands,
+# someone needs to claim it here.

@@ -1,0 +1,251 @@
+{
+  "company": "Replit",
+  "slug": "replit",
+  "collectedAt": "2026-10-12",
+  "signals": [
+    {
+      "id": "replit-01",
+      "company": "Replit",
+      "kind": "pricing",
+      "title": "Effort-based pricing for Replit Agent",
+      "date": "2025-06-18",
+      "url": "https://replit.com/blog/effort-based-pricing",
+      "summary": "Replit replaced its flat $0.25-per-checkpoint Agent charge with effort-based pricing, where simple changes may cost less and complex tasks bundled into one checkpoint may cost more. It also added per-request controls (a more capable model, extended thinking) to choose how much effort the Agent spends.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-02",
+      "company": "Replit",
+      "kind": "funding",
+      "title": "Replit raises $250M at $3B valuation; ~$150M annualized revenue",
+      "date": "2025-09-10",
+      "url": "https://techcrunch.com/2025/09/10/replit-hits-3b-valuation-on-150m-annualized-revenue",
+      "summary": "TechCrunch reported a $250M round led by Prysm Capital at a $3B valuation. The article says annualized revenue grew from $2.8M to $150M in less than a year, citing $100M ARR in June per Amjad Masad.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-03",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Agent 3 launch",
+      "date": "2025-09-12",
+      "url": "https://docs.replit.com/updates/2025/09/12/changelog",
+      "summary": "Replit's changelog announced Agent 3 with upgrades to autonomy, reliability and speed, including unattended runs of up to 200 minutes and App Testing in a real browser with a self-review fix loop. It also introduced Agents & Automations (beta) that run on schedules or connect to Slack and Telegram.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "replit-04",
+      "company": "Replit",
+      "kind": "acquisition",
+      "title": "Replit acquires OpenInt (first acquisition)",
+      "date": "2025-09-30",
+      "url": "https://replit.com/blog/replit-acquires-openint",
+      "summary": "Replit announced its first acquisition, OpenInt, an integration platform for coding agents that now underpins Replit Connectors. OpenInt Cloud was set to shut down on December 31, 2025, with customers moved to self-hosted solutions.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-05",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Replit app inside ChatGPT",
+      "date": "2025-12-19",
+      "url": "https://itbrief.com.au/story/replit-brings-app-building-tools-directly-into-chatgpt",
+      "summary": "IT Brief reported Replit launched an integration letting ChatGPT users create, preview and refine apps within the chat, built by Replit Agent, alongside a revamped free tier with daily credits. Replit docs (https://docs.replit.com/getting-started/quickstarts/build-in-chatgpt) note each conversation can only work on the one app it created; date is the trade-press publication date.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-06",
+      "company": "Replit",
+      "kind": "job_posting",
+      "title": "Enterprise engineering roles opened (Enterprise, Enterprise Platform, Enterprise PM)",
+      "date": "2026-01-24",
+      "url": "https://jobs.ashbyhq.com/replit",
+      "summary": "Replit's Ashby job board lists still-open enterprise-focused roles first published 2026-01-24 (Software Engineer, Enterprise), 2026-02-04 and 2026-03-24 (Enterprise Platform), and 2026-06-18 (Enterprise Product Manager). Dates are Ashby publishedAt values as of 2026-10-12.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-07",
+      "company": "Replit",
+      "kind": "funding",
+      "title": "$400M Series D at $9B valuation, led by Georgian",
+      "date": "2026-03-11",
+      "url": "https://pulse2.com/replit-400-million-series-d-9-billion-valuation/",
+      "summary": "Replit raised a $400M Series D at a $9B valuation led by Georgian, with strategic investors including Accenture Ventures, Databricks Ventures and Okta Ventures. It reported 50M+ users, users from 85% of the Fortune 500, and a target of $1B run-rate revenue by end of 2026.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-08",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Agent 4 launch: Design Canvas, Plan mode, parallel tasks",
+      "date": "2026-03-13",
+      "url": "https://docs.replit.com/updates/2026/03/13/changelog",
+      "summary": "Replit's changelog announced Agent 4 as an 'AI creative partner' for apps, designs and slides, with a Design Canvas for mockups before code, Plan mode, parallel task execution and multiplayer collaboration. It also lets users pull data from BigQuery, Linear, Slack and Notion directly from chat.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "replit-09",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Databricks U2M connector live; integration in public preview",
+      "date": "2026-06-10",
+      "url": "https://replit.com/blog/databricksjune2026",
+      "summary": "Replit launched a user-to-machine connector for its Databricks integration so Unity Catalog applies individual user permissions to deployed Replit apps, and opened the integration for public preview sign-up.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-10",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Agent Skills & Custom Instructions",
+      "date": "2026-06-10",
+      "url": "https://replit.com/blog/custom-skills",
+      "summary": "Custom Instructions are persistent workspace-wide guidelines Replit Agent applies to every project, and Skills are reusable instruction files loaded only when a task matches. Together they give the agent standing knowledge of team conventions such as security rules and design systems.",
+      "capability": "codebase_memory",
+      "verified": true
+    },
+    {
+      "id": "replit-11",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Replit is now available in Claude",
+      "date": "2026-06-17",
+      "url": "https://replit.com/blog/replit-claude",
+      "summary": "Replit became accessible inside Claude: users can send a design from Claude Design to Replit to continue building, or have Claude delegate development tasks to Replit via an official connector.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-12",
+      "company": "Replit",
+      "kind": "research",
+      "title": "Closing the loop: evaluating and improving Replit Agent at scale",
+      "date": "2026-06-23",
+      "url": "https://replit.com/blog/evaluating-and-improving-agent-at-scale",
+      "summary": "Replit described moving Agent evaluation from a pre-release gate to a continuous loop combining offline benchmarks (ViBench), production A/B tests and trace clustering (Telescope). An agent-driven process proposes and tests fixes that engineers review before release.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "replit-13",
+      "company": "Replit",
+      "kind": "blog",
+      "title": "The Self-Driving Company",
+      "date": "2026-07-16",
+      "url": "https://replit.com/blog/self-driving-company",
+      "summary": "Replit reported its engineers roughly tripled code output over about six months while review times, reversions and incidents held steady or improved. It attributes this to internal AI agents that investigate incidents, review code and handle business tasks.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "replit-14",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Introducing Replit Design",
+      "date": "2026-07-29",
+      "url": "https://replit.com/blog/introducing-replit-design",
+      "summary": "Replit launched Replit Design, a creative suite with AI-suggested variations, templates, a Mobbin UI reference library and brand design systems. It lets users choose among models including Claude, GPT-5, Gemini, Kimi and GLM, and launched for all users.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "replit-15",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Govern Replit at scale: enterprise governance tools",
+      "date": "2026-08-16",
+      "url": "https://replit.com/blog/new-enterprise-governance-tools",
+      "summary": "Replit announced audit logs with 50+ events and SIEM streaming, a beta Admin API, Workspace Settings for company-wide policy baselines, and a Compliance API. Audit logs and the Admin API were available at announcement; the other two were slated for later rollout.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-16",
+      "company": "Replit",
+      "kind": "pricing",
+      "title": "Free Mode for Core and Pro subscribers",
+      "date": "2026-08-18",
+      "url": "https://replit.com/blog/replit-introduces-free-mode",
+      "summary": "Free Mode, powered by OpenAI's GPT-5.6 Luna, lets Core and Pro subscribers run everyday Agent tasks without spending credits, with limits resetting every 5 hours. Users can switch to Power or Max Mode for complex work; Replit says Core users get about 30x previous creation capacity for $20/month.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-17",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Intelligent Model Routing open to all users",
+      "date": "2026-08-26",
+      "url": "https://replit.com/blog/intelligent-model-routing",
+      "summary": "Replit made Intelligent Model Routing available to all users; it automatically picks the model best suited to each job, balancing quality, speed and cost.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "replit-18",
+      "company": "Replit",
+      "kind": "acquisition",
+      "title": "Replit acquires Atta (business analysis & charting)",
+      "date": "2026-09-25",
+      "url": "https://replit.com/blog/replit-acquires-atta",
+      "summary": "Replit acquired San Francisco-based Atta, a business analysis and charting company. Atta's interactive charts are integrated into Replit chat so users can ask Agent to visualize data without writing SQL.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-19",
+      "company": "Replit",
+      "kind": "research",
+      "title": "Free the models: Harness design at the frontier",
+      "date": "2026-09-29",
+      "url": "https://replit.com/blog/free-the-models",
+      "summary": "Replit argues agent harnesses should let strong models decide when to delegate and how hard to think rather than prescribe workflows. It reports Replit Agent (on GPT-6 Astra) beat a single long-lived 'sidekick' worker setup by 11 and 16 points on DeepSWE and Terminal-Bench.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "replit-20",
+      "company": "Replit",
+      "kind": "job_posting",
+      "title": "Open roles snapshot: 69 postings; payments/commerce, international GTM, security",
+      "date": "2026-10-12",
+      "url": "https://jobs.ashbyhq.com/replit",
+      "summary": "Replit's Ashby board listed 69 open roles on 2026-10-12, led by Product Engineering (13), Support Delivery (8), Platform (6), SRE (6) and Sales (5). Titles include Agentic Commerce & Payments, Agentic Ads, Money Infrastructure, AI Agent Security Architect, Forward Deployed Engineer, Head of Corporate Development, and Japan/Tokyo/Singapore/London roles.",
+      "capability": "enterprise",
+      "verified": true
+    }
+  ],
+  "timeMachine": [
+    {
+      "announcement": "Agent 4 launch with parallel tasks and in-chat integrations (BigQuery, Linear, Slack, Notion)",
+      "date": "2026-03-13",
+      "url": "https://docs.replit.com/updates/2026/03/13/changelog",
+      "precedingSignalIds": [
+        "replit-03",
+        "replit-04"
+      ],
+      "why": "Agent 3 (2025-09-12) already pushed long-running autonomous work and agents connected to Slack/Telegram, and the OpenInt acquisition (2025-09-30) gave Replit an integration platform as the base of Replit Connectors, pointing toward an agent that runs more work at once and pulls in third-party data from chat."
+    },
+    {
+      "announcement": "Enterprise governance tools: audit logs, Admin API, Workspace Settings, Compliance API",
+      "date": "2026-08-16",
+      "url": "https://replit.com/blog/new-enterprise-governance-tools",
+      "precedingSignalIds": [
+        "replit-06",
+        "replit-07",
+        "replit-09",
+        "replit-10"
+      ],
+      "why": "Enterprise and Enterprise Platform engineering roles opened from January 2026, the March Series D brought in Okta, Databricks and Accenture as strategic investors and cited Fortune 500 usage, and June shipped Databricks per-user permissions and workspace-wide Custom Instructions, all ahead of company-wide admin and compliance controls."
+    }
+  ]
+}

@@ -126,3 +126,8 @@ apps/web/next-env.d.ts
 apps/api/.env.test
 *.pem
 /.claude/worktrees
+
+# Compass
+data/external/talk/raw/
+data/.ingest-tmp/
+apps/web/public/talk.m4a
