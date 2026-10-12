@@ -131,3 +131,7 @@ apps/api/.env.test
 data/external/talk/raw/
 data/.ingest-tmp/
 apps/web/public/talk.m4a
+demo/clips/
+demo/narration/*.mp3
+demo/out/
+demo/node_modules/

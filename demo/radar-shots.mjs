@@ -1,0 +1,16 @@
+import { launch, login, BASE } from './lib.mjs';
+const { browser, page } = await launch();
+await login(page);
+await page.goto(`${BASE}/brain`);
+await page.waitForURL(/\/brain$/);
+await page.getByText('Competitive landscape').waitFor({ timeout: 20000 });
+await page.screenshot({ path: 'checkpoints/06-radar-top.png' });
+await page.getByText('Competitive landscape').scrollIntoViewIfNeeded();
+await page.mouse.wheel(0, 300);
+await page.waitForTimeout(500);
+await page.screenshot({ path: 'checkpoints/07-radar-landscape.png' });
+await page.getByText('What Forgeline should do').scrollIntoViewIfNeeded();
+await page.waitForTimeout(500);
+await page.screenshot({ path: 'checkpoints/08-radar-gaps.png' });
+await browser.close();
+console.log('ok');

@@ -158,7 +158,7 @@ async function waitForIndexing(collection: string, ids: string[]): Promise<void>
       const res = await client.context.status({ database: DB, collection, ids: ids.slice(i, i + 50) });
       for (const s of ((res as any)?.data?.statuses ?? []) as any[]) {
         if (s.indexingStatus === 'failed') console.log(`  FAILED ${s.id}: ${s.errorMessage}`);
-        else if (s.indexingStatus !== 'completed') pending.push(s.id);
+        else if (s.indexingStatus !== 'completed' && s.indexingStatus !== 'graph_creation') pending.push(s.id);
       }
     }
     if (!pending.length) return console.log(`${collection}: all ${ids.length} sources completed`);

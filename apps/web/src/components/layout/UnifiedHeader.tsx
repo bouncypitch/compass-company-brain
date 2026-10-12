@@ -48,7 +48,7 @@ export function UnifiedHeader({
             href="/"
             logoSrc={customLogoUrl || LOGO_PATH}
             logoAlt="App Starter"
-            brandName={customLogoUrl ? '' : 'app-starter'}
+            brandName={customLogoUrl ? '' : 'Compass'}
             logoHeight={logoHeight}
             isCustomLogo={!!customLogoUrl}
             className={customLogoUrl && !logoHeight ? 'max-h-10 w-auto' : ''}
