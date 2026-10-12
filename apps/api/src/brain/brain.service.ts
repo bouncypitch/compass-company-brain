@@ -241,6 +241,10 @@ export class BrainService {
 
   async ask(userId: string, organizationId: string, question: string): Promise<AskResult> {
     await this.requireMember(userId, organizationId);
+    // Same question, same org: replay the last answer instantly (demo-safe); new questions run live.
+    const askKey = question.trim().toLowerCase().replace(/\s+/g, ' ').slice(0, 200);
+    const cachedAnswer = await this.latest<AskResult>(organizationId, BrainInsightKind.ASK, askKey);
+    if (cachedAnswer) return cachedAnswer;
     const topology = buildTopology();
     const hydra = await this.hydra.query(question, { company: 1, market: 0.6 }, 'knowledge');
     const signals = loadSignals();
@@ -252,7 +256,9 @@ export class BrainService {
       `<competitor_signals>\n${signals.map(signalLine).join('\n')}\n</competitor_signals>`,
     ].join('\n\n');
     const out = await this.llm.answer(context);
-    return { question, ...out, graphEvidence: hydra.triplets.slice(0, 12), usedHydra: hydra.ok };
+    const result: AskResult = { question, ...out, graphEvidence: hydra.triplets.slice(0, 12), usedHydra: hydra.ok };
+    await this.save(organizationId, BrainInsightKind.ASK, askKey, result);
+    return result;
   }
 
   // ---------- helpers ----------

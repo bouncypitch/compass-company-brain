@@ -1,0 +1,73 @@
+{
+  "trimStart": 3.8,
+  "slides": [
+    {
+      "id": "title",
+      "start": 3.8,
+      "wallStart": 3.645
+    },
+    {
+      "id": "problem",
+      "start": 13.3,
+      "wallStart": 11.781
+    },
+    {
+      "id": "market",
+      "start": 32.75,
+      "wallStart": 28.878
+    },
+    {
+      "id": "landscape",
+      "start": 52.75,
+      "wallStart": 48.678
+    },
+    {
+      "id": "convergence",
+      "start": 65.5,
+      "wallStart": 61.227
+    },
+    {
+      "id": "timemachine",
+      "start": 79.55,
+      "wallStart": 73.725
+    },
+    {
+      "id": "gap",
+      "start": 95.9,
+      "wallStart": 89.777
+    },
+    {
+      "id": "story",
+      "start": 119.1,
+      "wallStart": 112.619
+    },
+    {
+      "id": "compass",
+      "start": 133.9,
+      "wallStart": 125.866
+    },
+    {
+      "id": "plan",
+      "start": 156.3,
+      "wallStart": 148.057
+    },
+    {
+      "id": "ask",
+      "start": 163,
+      "wallStart": 154.507
+    },
+    {
+      "id": "org",
+      "start": 178.9,
+      "wallStart": 169.822
+    },
+    {
+      "id": "close",
+      "start": 194.5,
+      "wallStart": 184.136
+    }
+  ],
+  "askAnswerAt": 155.765,
+  "end": 209.28,
+  "wallTrimStart": 3.645
+}

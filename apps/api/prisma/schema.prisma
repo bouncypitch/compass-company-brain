@@ -426,6 +426,7 @@ enum BrainInsightKind {
   COMPASS
   RECOMMENDATION
   TIME_MACHINE
+  ASK
 }
 
 /// Cached output of the company brain (radar runs, compass plans, accepted
