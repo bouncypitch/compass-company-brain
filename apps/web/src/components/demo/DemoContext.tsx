@@ -2,7 +2,12 @@
 
 import { createContext, useContext, type ReactNode } from 'react';
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
-import type { CompassResult, RadarResult, TimeMachineResult, TopologyResult } from '@app-starter/shared';
+import type {
+  CompassResult,
+  RadarResult,
+  TimeMachineResult,
+  TopologyResult,
+} from '@app-starter/shared';
 import { brainApi, brainApiExtras } from '@/lib/brain-api';
 
 export const DEMO_EMPLOYEE = 'jordan-rivera';
@@ -21,8 +26,18 @@ const DemoContext = createContext<DemoData | null>(null);
  * Prefetches every cached brain payload on mount so each slide renders
  * instantly. Query keys match the brain screens so their caches are shared.
  */
-export const DemoDataProvider = ({ organizationId, children }: { organizationId: string; children: ReactNode }) => {
-  const radar = useQuery({ queryKey: ['brain-radar', organizationId], queryFn: () => brainApi.getRadar(organizationId), staleTime: Infinity });
+export const DemoDataProvider = ({
+  organizationId,
+  children,
+}: {
+  organizationId: string;
+  children: ReactNode;
+}) => {
+  const radar = useQuery({
+    queryKey: ['brain-radar', organizationId],
+    queryFn: () => brainApi.getRadar(organizationId),
+    staleTime: Infinity,
+  });
   const timeMachine = useQuery({
     queryKey: ['brain-time-machine', organizationId],
     queryFn: () => brainApi.timeMachine(organizationId),
@@ -38,7 +53,11 @@ export const DemoDataProvider = ({ organizationId, children }: { organizationId:
     queryFn: () => brainApiExtras.topology(organizationId),
     staleTime: Infinity,
   });
-  return <DemoContext.Provider value={{ organizationId, radar, timeMachine, compass, topology }}>{children}</DemoContext.Provider>;
+  return (
+    <DemoContext.Provider value={{ organizationId, radar, timeMachine, compass, topology }}>
+      {children}
+    </DemoContext.Provider>
+  );
 };
 
 export const useDemo = (): DemoData => {

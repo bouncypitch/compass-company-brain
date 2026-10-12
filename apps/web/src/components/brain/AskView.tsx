@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
-import { ArrowUp, Loader2, Network, Sparkles } from 'lucide-react';
+import { ArrowUp, Loader2, Mic, Network, Sparkles } from 'lucide-react';
+import { useSpeechInput } from '@/components/demo/useSpeechInput';
 import type { AskResult } from '@app-starter/shared';
 import { brainApiExtras } from '@/lib/brain-api';
 import { cn } from '@/lib/utils';
@@ -26,6 +27,8 @@ export const AskView = ({ organizationId }: { organizationId: string }) => {
     onSuccess: (r) => setHistory((h) => [r, ...h]),
     onError: (e: Error) => toast.error(e.message),
   });
+
+  const speech = useSpeechInput({ onFinal: (transcript) => handleAsk(transcript), onError: (e) => toast.error(`Voice input: ${e}`) });
 
   const handleAsk = (q: string): void => {
     const trimmed = q.trim();
@@ -53,11 +56,26 @@ export const AskView = ({ organizationId }: { organizationId: string }) => {
           <label htmlFor="brain-ask" className="sr-only">Ask the company brain</label>
           <input
             id="brain-ask"
-            value={question}
+            value={speech.isListening && speech.interim ? speech.interim : question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Ask about people, goals, customers, code or competitors…"
             className="h-12 flex-1 bg-transparent text-[17px] outline-none placeholder:text-neutral-400"
           />
+          {speech.isSupported ? (
+            <button
+              type="button"
+              onClick={speech.toggle}
+              className={cn(
+                'relative flex h-10 w-10 items-center justify-center rounded-full border border-black/[0.08] bg-white text-neutral-700 transition hover:bg-neutral-50',
+                speech.isListening && 'border-rose-300 bg-rose-50 text-rose-600',
+              )}
+              aria-label={speech.isListening ? 'Stop voice input' : 'Ask by voice'}
+              aria-pressed={speech.isListening}
+            >
+              {speech.isListening ? <span className="absolute inset-0 animate-ping rounded-full bg-rose-300/40" aria-hidden /> : null}
+              <Mic className="relative h-4 w-4" />
+            </button>
+          ) : null}
           <button
             type="submit"
             disabled={ask.isPending || !question.trim()}

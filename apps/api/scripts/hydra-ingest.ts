@@ -126,8 +126,8 @@ function talkDocs(): Doc[] {
   fs.mkdirSync(dir, { recursive: true });
   return loadTalkClips().map((c) => {
     const file = path.join(dir, `${c.id}.md`);
-    fs.writeFileSync(file, `# Company Brain Hackathon talk, ${fmt(c.startSec)}\n\nSpeaker: Dave Nielsen (hackathon MC)\n\n${c.text}\n`);
-    return { id: c.id, file, metadata: { kind: 'talk', speaker: 'Dave Nielsen', startSec: c.startSec, endSec: c.endSec, source: 'market', company: 'Industry' } };
+    fs.writeFileSync(file, `# Company Brain Hackathon talk, ${fmt(c.startSec)}\n\nSource: Company Brain Hackathon keynote and panel, 2026-10-12\n\n${c.text}\n`);
+    return { id: c.id, file, metadata: { kind: 'talk', speaker: 'Hackathon keynote', startSec: c.startSec, endSec: c.endSec, source: 'market', company: 'Industry' } };
   });
 }
 

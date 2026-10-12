@@ -34,13 +34,13 @@ export const ClipPlayer = ({ clip }: { clip: BrainTalkClip }) => {
       </button>
       <div className="min-w-0 space-y-0.5">
         <div className="font-semibold text-neutral-900">
-          Dave Nielsen, hackathon talk <span className="font-normal tabular-nums text-fuchsia-600">· {fmt(clip.startSec)}</span>
+          Hackathon keynote <span className="font-normal tabular-nums text-fuchsia-600">· {fmt(clip.startSec)}</span>
         </div>
         <q className="leading-relaxed text-neutral-600">{clip.text.length > 220 ? `${clip.text.slice(0, 220)}…` : clip.text}</q>
       </div>
       <audio
         ref={audio}
-        src="/talk.m4a"
+        src="/talk.mp3"
         preload="none"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

@@ -135,3 +135,9 @@ demo/clips/
 demo/narration/*.mp3
 demo/out/
 demo/node_modules/
+talk-16k.mp3
+talk-16k.wav
+apps/web/public/talk.mp3
+data/external/talk/transcript.json
+data/external/talk/clips.json
+data/external/talk/whisper.log

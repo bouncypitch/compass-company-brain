@@ -9,7 +9,15 @@ export interface SlideProps {
   isActive: boolean;
 }
 
-export const Glass = ({ children, className, style }: { children: ReactNode; className?: string; style?: CSSProperties }) => (
+export const Glass = ({
+  children,
+  className,
+  style,
+}: {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+}) => (
   <div
     style={style}
     className={cn(
@@ -22,7 +30,15 @@ export const Glass = ({ children, className, style }: { children: ReactNode; cla
 );
 
 /** Staggered entrance; `delay` in ms. Animates each time the slide becomes active. */
-export const Rise = ({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) => (
+export const Rise = ({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) => (
   <div className={cn('demo-rise', className)} style={{ '--d': `${delay}ms` } as CSSProperties}>
     {children}
   </div>
@@ -42,8 +58,14 @@ export const SlideFrame = ({ eyebrow, title, children, className, aside }: Slide
   <div className={cn('flex h-full w-full flex-col px-20 pb-20 pt-[72px]', className)}>
     <Rise className="flex items-end justify-between gap-8">
       <div>
-        {eyebrow ? <p className="mb-2 text-[15px] font-semibold uppercase tracking-[0.18em] text-indigo-500/80">{eyebrow}</p> : null}
-        <h2 className="text-[52px] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-950">{title}</h2>
+        {eyebrow ? (
+          <p className="mb-2 text-[15px] font-semibold uppercase tracking-[0.18em] text-indigo-500/80">
+            {eyebrow}
+          </p>
+        ) : null}
+        <h2 className="text-[52px] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-950">
+          {title}
+        </h2>
       </div>
       {aside}
     </Rise>
@@ -62,7 +84,17 @@ const prefersReducedMotion = (): boolean =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /** Counts from 0 to `target` each time the slide becomes active. */
-export const CountUp = ({ target, isActive, duration = 1400, className }: { target: number; isActive: boolean; duration?: number; className?: string }) => {
+export const CountUp = ({
+  target,
+  isActive,
+  duration = 1400,
+  className,
+}: {
+  target: number;
+  isActive: boolean;
+  duration?: number;
+  className?: string;
+}) => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     if (!isActive) {
@@ -87,7 +119,16 @@ export const CountUp = ({ target, isActive, duration = 1400, className }: { targ
 };
 
 /** Stable accent per competitor so a company keeps its color across slides. */
-const COMPANY_PALETTE = ['#6366f1', '#ec4899', '#14b8a6', '#f59e0b', '#8b5cf6', '#0ea5e9', '#f43f5e', '#10b981'];
+const COMPANY_PALETTE = [
+  '#6366f1',
+  '#ec4899',
+  '#14b8a6',
+  '#f59e0b',
+  '#8b5cf6',
+  '#0ea5e9',
+  '#f43f5e',
+  '#10b981',
+];
 const KNOWN_COMPANY_COLOR: Record<string, string> = {
   'GitHub Copilot': '#6366f1',
   Cursor: '#0f172a',
@@ -105,7 +146,11 @@ export const companyColor = (company: string): string => {
 };
 
 export const CompanyDot = ({ company, className }: { company: string; className?: string }) => (
-  <span aria-hidden className={cn('inline-block h-2.5 w-2.5 shrink-0 rounded-full', className)} style={{ background: companyColor(company) }} />
+  <span
+    aria-hidden
+    className={cn('inline-block h-2.5 w-2.5 shrink-0 rounded-full', className)}
+    style={{ background: companyColor(company) }}
+  />
 );
 
 /** Cuts text at a word boundary so it never wraps past its slot. */

@@ -1,0 +1,54 @@
+{
+  "title": {
+    "file": "audio/00-title.mp3",
+    "duration": 6.548027
+  },
+  "problem": {
+    "file": "audio/01-problem.mp3",
+    "duration": 15.51093
+  },
+  "market": {
+    "file": "audio/02-market.mp3",
+    "duration": 18.204444
+  },
+  "landscape": {
+    "file": "audio/03-landscape.mp3",
+    "duration": 10.959819
+  },
+  "convergence": {
+    "file": "audio/04-convergence.mp3",
+    "duration": 10.913379
+  },
+  "timemachine": {
+    "file": "audio/05-timemachine.mp3",
+    "duration": 14.442812
+  },
+  "gap": {
+    "file": "audio/06-gap.mp3",
+    "duration": 21.223039
+  },
+  "story": {
+    "file": "audio/07-story.mp3",
+    "duration": 11.656417
+  },
+  "compass": {
+    "file": "audio/08-compass.mp3",
+    "duration": 20.61932
+  },
+  "plan": {
+    "file": "audio/09-plan.mp3",
+    "duration": 4.87619
+  },
+  "ask": {
+    "file": "audio/10-ask.mp3",
+    "duration": 13.699773
+  },
+  "org": {
+    "file": "audio/11-org.mp3",
+    "duration": 12.817415
+  },
+  "close": {
+    "file": "audio/12-close.mp3",
+    "duration": 10.588299
+  }
+}

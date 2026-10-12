@@ -2,7 +2,9 @@
    so the screen recorder captures smooth motion without JS animation loops. */
 
 .demo-root {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, 'Helvetica Neue', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', Inter, 'Helvetica Neue',
+    sans-serif;
   background-color: #fbfbfd;
   background-image:
     radial-gradient(60% 55% at 12% 8%, #e9ecff 0%, rgba(233, 236, 255, 0) 70%),
@@ -119,6 +121,20 @@
   }
 }
 
+/* Percentage-based SVGs use non-scaling strokes, which break pathLength, so they fade. */
+.demo-fade {
+  opacity: 0;
+}
+[data-state='active'] .demo-fade {
+  animation: demo-fade 900ms ease forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes demo-fade {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Flowing dashes along converging lines. */
 .demo-flow {
   stroke-dasharray: 2 6;
@@ -162,7 +178,12 @@
 }
 
 .demo-shimmer {
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0) 0%, rgba(99, 102, 241, 0.9) 50%, rgba(99, 102, 241, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0) 0%,
+    rgba(99, 102, 241, 0.9) 50%,
+    rgba(99, 102, 241, 0) 100%
+  );
   background-size: 50% 100%;
   background-repeat: no-repeat;
   animation: demo-shimmer 1.4s ease-in-out infinite;
@@ -223,6 +244,11 @@
   [data-state='active'] .demo-draw {
     animation: none;
     stroke-dashoffset: 0;
+  }
+  .demo-fade,
+  [data-state='active'] .demo-fade {
+    animation: none;
+    opacity: 1;
   }
   .demo-orb,
   .demo-float,

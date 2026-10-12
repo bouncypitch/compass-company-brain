@@ -91,7 +91,7 @@ export class BrainService {
     const context = [
       `<competitor_signals count="${signals.length}">\n${signals.map(signalLine).join('\n')}\n</competitor_signals>`,
       talkClips.length
-        ? `<talk_clips speaker="Dave Nielsen, Company Brain Hackathon MC" date="2026-10-12">\n${talkClips.map((c) => `[${c.id} @${c.startSec}s] ${c.text}`).join('\n')}\n</talk_clips>`
+        ? `<talk_clips source="Company Brain Hackathon keynote and panel (organizers and partners)" date="2026-10-12">\n${talkClips.map((c) => `[${c.id} @${c.startSec}s] ${c.text}`).join('\n')}\n</talk_clips>`
         : '',
       hydra.text ? `<hydradb_retrieval>\n${hydra.text}\n</hydradb_retrieval>` : '',
       `<forgeline_internal>\n${readDataFile('internal/company.md')}\n\n${readDataFile('internal/okrs.md')}\n\n${readDataFile('internal/roadmap.md')}\n</forgeline_internal>`,
