@@ -1,0 +1,328 @@
+{
+  "company": "Amazon",
+  "slug": "amazon",
+  "collectedAt": "2026-10-12",
+  "signals": [
+    {
+      "id": "amazon-01",
+      "company": "Amazon",
+      "kind": "research",
+      "title": "SWE-PolyBench multilingual coding-agent benchmark released",
+      "date": "2025-04-23",
+      "url": "https://aws.amazon.com/blogs/devops/amazon-introduces-swe-polybench-a-multi-lingual-benchmark-for-ai-coding-agents",
+      "summary": "AWS published SWE-PolyBench: 2,110 instances from 21 repos across Java, JavaScript, TypeScript and Python, with a 500-issue subset, open evaluation harness and retrieval-level metrics.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "amazon-02",
+      "company": "Amazon",
+      "kind": "market_entry",
+      "title": "Kiro agentic IDE announced in public preview (spec-driven development)",
+      "date": "2025-07-14",
+      "url": "https://www.theregister.com/2025/07/14/aws_kiro_agentic_ide/",
+      "summary": "AWS previewed Kiro, a VS Code-based agentic IDE that starts from specs rather than code, with waitlist access and Claude Sonnet 4 / 3.7 models.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "amazon-03",
+      "company": "Amazon",
+      "kind": "pricing",
+      "title": "Kiro pricing revised to vibe/spec requests, then billing bug acknowledged",
+      "date": "2025-08-18",
+      "url": "https://www.theregister.com/2025/08/18/aws_updated_kiro_pricing/",
+      "summary": "The Register reported Kiro's revised plans (Pro $20, Power $200, $0.04 per extra vibe request) drew user complaints; AWS said a bug over-consumed requests, reset limits and waived August charges.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "amazon-04",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Amazon Bedrock AgentCore generally available",
+      "date": "2025-10-13",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available",
+      "summary": "AgentCore went GA with Runtime (8-hour executions, A2A support), Memory, Gateway (MCP), Identity and Observability, in nine AWS Regions.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "amazon-05",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro generally available with CLI, property-based testing, checkpoints and team plans",
+      "date": "2025-11-24",
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-how-to-join-aws-reinvent-2025-plus-kiro-ga-and-lots-of-launches-nov-24-2025",
+      "summary": "AWS's weekly roundup states Kiro reached GA the prior week, adding property-based testing, checkpointing, Kiro CLI and enterprise team plans; 250,000+ developers had used it since preview.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-06",
+      "company": "Amazon",
+      "kind": "leadership",
+      "title": "Reuters-reported internal memo names Kiro Amazon's recommended AI development tool",
+      "date": "2025-11-25",
+      "url": "https://www.peoplematters.in/news/ai-and-emerging-tech/amazon-memo-reveals-push-for-employees-to-use-only-kiro-its-in-house-ai-tool-47390",
+      "summary": "Reuters reported a memo signed by Peter DeSantis and Dave Treadwell (confirmed by Amazon) telling engineers not to adopt new third-party AI coding tools and to use Kiro; existing tools remain supported.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-07",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "AWS Transform custom generally available",
+      "date": "2025-12-01",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/12/transform-custom-organization-wide-modernization",
+      "summary": "Agentic service for repeatable code transformations (runtime upgrades, framework shifts, language translation) with prebuilt and natural-language-defined transformations; initially US East (N. Virginia) only.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-08",
+      "company": "Amazon",
+      "kind": "customer",
+      "title": "AWS Transform named customers: Air Canada, Experian, QAD, Teamfront, Thomson Reuters, Verisk",
+      "date": "2025-12-01",
+      "url": "https://press.aboutamazon.com/2025/12/new-agentic-capabilities-in-aws-transform-enable-rapid-modernization-of-any-code-or-application",
+      "summary": "Amazon's re:Invent press release names these customers as using AWS Transform to reduce technical debt and claims up to 5x faster full-stack Windows modernization; no per-customer metrics given.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-09",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro autonomous agent launched in preview as an AWS frontier agent",
+      "date": "2025-12-02",
+      "url": "https://kiro.dev/blog/introducing-kiro-autonomous-agent/",
+      "summary": "Preview for Pro/Pro+/Power: runs up to 10 concurrent tasks in isolated sandboxes, uses sub-agents for research, coding and verification, learns from code review feedback, and opens PRs via GitHub issues.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "amazon-10",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Amazon Nova 2 foundation models announced on Bedrock (coding among target areas)",
+      "date": "2025-12-02",
+      "url": "https://aws-news.com/article/2025-12-02-announcing-amazon-nova-2-foundation-models-now-available-in-amazon-bedrock",
+      "summary": "Nova 2 Lite and Nova 2 Pro (preview) were introduced, with AWS highlighting multimodal, coding and agentic workloads.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "amazon-11",
+      "company": "Amazon",
+      "kind": "partnership",
+      "title": "AWS Transform Composability lets partners build mainframe modernization agents",
+      "date": "2025-12-17",
+      "url": "https://www.channeldive.com/news/aws-deploys-mainframe-modernization-ai-agent-platform/808163/",
+      "summary": "ChannelDive reported the platform where service providers containerize agents for multi-agent workflows; early contributors named as Accenture, Capgemini, IBM, Infosys, Deloitte and TCS.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "amazon-12",
+      "company": "Amazon",
+      "kind": "contract",
+      "title": "Kiro available in AWS GovCloud (US) Regions",
+      "date": "2026-02-16",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/02/kiro-launch-aws-govcloud-us/",
+      "summary": "Kiro IDE and CLI became available in GovCloud US-East and US-West, with IAM Identity Center authentication and MCP support.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-13",
+      "company": "Amazon",
+      "kind": "partnership",
+      "title": "Kiro student program pilot with 11 universities (March 2026)",
+      "date": "2026-03-01",
+      "url": "https://www.aboutamazon.com/news/aws/amazon-expands-free-kiro-access-students-universities",
+      "summary": "Amazon later described the program as beginning as a March 2026 pilot with 11 universities in two countries; exact day not given, month used.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "amazon-14",
+      "company": "Amazon",
+      "kind": "pricing",
+      "title": "Kiro startup credits program relaunched (up to one year of Pro+)",
+      "date": "2026-04-07",
+      "url": "https://kiro.dev/blog/bringing-back-startup-credits/",
+      "summary": "Announced by Deepak Singh (VP DevEx & Agents): early-stage to Series A startups can get up to a year of Kiro Pro+ free, in tiers of up to 2, 10 or 30 users.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "amazon-15",
+      "company": "Amazon",
+      "kind": "pricing",
+      "title": "Amazon Q Developer IDE plugins end-of-support announced; Kiro named successor",
+      "date": "2026-04-30",
+      "url": "https://aws.amazon.com/jp/blogs/news/amazon-q-developer-end-of-support-announcement/",
+      "summary": "AWS announced new Q Developer sign-ups close May 15, 2026, Opus 4.6 leaves Q Developer Pro May 29, and IDE plugins and paid subscriptions end support April 30, 2027.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "amazon-16",
+      "company": "Amazon",
+      "kind": "market_entry",
+      "title": "Kiro Web launched in preview with autonomous mode",
+      "date": "2026-05-18",
+      "url": "https://kiro.dev/blog/introducing-kiro-web/",
+      "summary": "Browser-based Kiro for paid subscribers: multi-repo sessions, GitHub label/`/kiro` triggers, sub-agent autonomous mode, per-task cloud sandboxes and Identity Center controls.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "amazon-17",
+      "company": "Amazon",
+      "kind": "contract",
+      "title": "Kiro achieves FedRAMP High and DoD IL-4/5 in AWS GovCloud (US)",
+      "date": "2026-06-25",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/kiro-fedramp-high-dod-il-4-5-govcloud-us/",
+      "summary": "AWS announced Kiro IDE and CLI hold FedRAMP High and DoD CC SRG IL-4 and IL-5 authorizations in GovCloud (US) Regions.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-18",
+      "company": "Amazon",
+      "kind": "customer",
+      "title": "Kiro first-anniversary post cites customers and growth",
+      "date": "2026-07-14",
+      "url": "https://kiro.dev/blog/one-year/",
+      "summary": "Kiro states developer numbers double each quarter and cites Loyola Marymount (500 Lambda functions in half a day vs about two months) and Siemens (service built in 2 weeks); also lists four surfaces: IDE, CLI, Web, Mobile.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-19",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Claude Opus 5 added to Kiro; Opus 4.8 and Sonnet 5 reach GovCloud",
+      "date": "2026-07-24",
+      "url": "https://kiro.dev/changelog/models/claude-opus-5/",
+      "summary": "Opus 5 rolled out gradually in IDE, CLI and Web (1M context, 2.2x credit multiplier); a same-day changelog entry brought Opus 4.8 and Sonnet 5 to GovCloud (US).",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "amazon-20",
+      "company": "Amazon",
+      "kind": "open_source",
+      "title": "Kiro Crew introduced as open-source personal agent",
+      "date": "2026-08-04",
+      "url": "https://kiro.dev/changelog/crew/0-1/",
+      "summary": "Crew runs on the user's machine, drives kiro-cli over the Agent Client Protocol, keeps persistent memory, schedules recurring jobs and is available via web, desktop, CLI and chat bots.",
+      "capability": "codebase_memory",
+      "verified": true
+    },
+    {
+      "id": "amazon-21",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro cloud sessions arrive in IDE Agent Focus and CLI preview",
+      "date": "2026-08-11",
+      "url": "https://kiro.dev/changelog/ide/1-0-293/",
+      "summary": "IDE 1.0.293 and CLI 2.17.0 (Aug 11) bring cloud sessions; same day Kiro Web adds Configuration Sync for uploading local .kiro configuration.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "amazon-22",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro Web generally available",
+      "date": "2026-09-01",
+      "url": "https://kiro.dev/changelog/web/kiro-web-is-now-generally-available/",
+      "summary": "Kiro Web reached GA with collaborative, spec-driven and hand-off modes; a Sept 3 Kiro post adds cloud sessions GA, Okta/Entra sign-in, scheduled automations and a console toggle for admins.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "amazon-23",
+      "company": "Amazon",
+      "kind": "contract",
+      "title": "Kiro included in AWS ISO/IEC 27001:2022 certification scope",
+      "date": "2026-09-01",
+      "url": "https://kiro.dev/changelog/general/kiro-covered-by-aws-iso-27001-certification/",
+      "summary": "Kiro's changelog states it is within the defined scope of AWS's ISO/IEC 27001:2022 certification, verified by EY CertifyPoint.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-24",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Claude Fable 5.1 preview for Kiro Enterprise organizations",
+      "date": "2026-09-16",
+      "url": "https://kiro.dev/changelog/models/claude-fable-5-1-for-enterprise/",
+      "summary": "Limited preview with 1M context, 6x credit multiplier and us-east-1-only inference; requires model governance enabled by admins.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "amazon-25",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro Web Workflows: background multi-step agent plans",
+      "date": "2026-09-30",
+      "url": "https://kiro.dev/changelog/web/introducing-workflows/",
+      "summary": "Opt-in reusable multi-step plans in cloud sessions with bundled recipes (investigate, feature-pipeline, publish-pr); users can steer, pause or retry steps; CLI 2.26.0 and IDE 1.2.4 add Workflows the same day.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "amazon-26",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Kiro CLI 2.29 adds Memory for V3 local sessions",
+      "date": "2026-10-09",
+      "url": "https://kiro.dev/changelog/cli/2-29/",
+      "summary": "Kiro can learn repo commands and conventions and recall them in later sessions, with read/write, read-only and off controls (/memories).",
+      "capability": "codebase_memory",
+      "verified": true
+    },
+    {
+      "id": "amazon-27",
+      "company": "Amazon",
+      "kind": "changelog",
+      "title": "Claude Opus 5.5 and Sonnet 5.5 available in GovCloud (US)",
+      "date": "2026-10-09",
+      "url": "https://kiro.dev/changelog/models/claude-opus-5-5-now-available-in-aws-govcloud-us/",
+      "summary": "Both models available in Kiro IDE and CLI in both GovCloud (US) Regions, following Sonnet 5.5 general launch on Oct 2.",
+      "capability": "enterprise",
+      "verified": true
+    }
+  ],
+  "timeMachine": [
+    {
+      "announcement": "Kiro CLI 2.29 ships learned Memory for local sessions",
+      "date": "2026-10-09",
+      "url": "https://kiro.dev/changelog/cli/2-29/",
+      "precedingSignalIds": [
+        "amazon-09",
+        "amazon-04",
+        "amazon-20"
+      ],
+      "why": "The autonomous agent (Dec 2025) was pitched as learning from review feedback, AgentCore Memory went GA (Oct 2025), and Kiro Crew (Aug 2026) shipped persistent memory; productising memory in the main CLI followed."
+    },
+    {
+      "announcement": "Kiro Web and cloud sessions reach general availability",
+      "date": "2026-09-01",
+      "url": "https://kiro.dev/changelog/web/kiro-web-is-now-generally-available/",
+      "precedingSignalIds": [
+        "amazon-09",
+        "amazon-16",
+        "amazon-21"
+      ],
+      "why": "Autonomous agent preview (Dec 2025), Kiro Web preview (May 2026) said more was coming, and cloud sessions plus config sync (Aug 11) preceded GA by three weeks."
+    }
+  ]
+}

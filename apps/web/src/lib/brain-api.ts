@@ -1,5 +1,7 @@
 import type {
   AcceptRecommendationResult,
+  AskResult,
+  TopologyResult,
   BrainPerson,
   CompassResult,
   RadarResult,
@@ -44,5 +46,12 @@ export class BrainApi {
     );
   }
 }
+
+export const brainApiExtras = {
+  ask: (organizationId: string, question: string): Promise<AskResult> =>
+    apiClient.post<AskResult>(`${base(organizationId)}/ask`, { question }),
+  topology: (organizationId: string): Promise<TopologyResult> =>
+    apiClient.get<TopologyResult>(`${base(organizationId)}/topology`),
+};
 
 export const brainApi = new BrainApi();

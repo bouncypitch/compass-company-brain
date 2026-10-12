@@ -2,6 +2,8 @@ import { ForbiddenException, Injectable, Logger, NotFoundException } from '@nest
 import { BrainInsightKind, Prisma } from '@prisma/client';
 import {
   AcceptRecommendationResult,
+  AskResult,
+  TopologyResult,
   BrainGraph,
   BrainGraphEdge,
   BrainGraphNode,
@@ -19,6 +21,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { OrganizationsService } from '../organizations/organizations.service';
 import { HydraService } from './hydra.service';
 import { CompassSynthesis, LlmService, RadarSynthesis } from './llm.service';
+import { buildTopology, topologyText } from './topology';
 import {
   loadMemories,
   loadPeople,
@@ -220,6 +223,29 @@ export class BrainService {
     };
     await this.save(organizationId, BrainInsightKind.COMPASS, employeeId, result);
     return result;
+  }
+
+  // ---------- company knowledge ----------
+
+  async topology(userId: string, organizationId: string): Promise<TopologyResult> {
+    await this.requireMember(userId, organizationId);
+    return buildTopology();
+  }
+
+  async ask(userId: string, organizationId: string, question: string): Promise<AskResult> {
+    await this.requireMember(userId, organizationId);
+    const topology = buildTopology();
+    const hydra = await this.hydra.query(question, { company: 1, market: 0.6 }, 'knowledge');
+    const signals = loadSignals();
+    const context = [
+      `<question>${question}</question>`,
+      hydra.text ? `<hydradb_retrieval>\n${hydra.text}\n</hydradb_retrieval>` : '',
+      `<company_topology>\n${topologyText(topology)}\n</company_topology>`,
+      `<forgeline_internal>\n${readInternalDocs()}\n</forgeline_internal>`,
+      `<competitor_signals>\n${signals.map(signalLine).join('\n')}\n</competitor_signals>`,
+    ].join('\n\n');
+    const out = await this.llm.answer(context);
+    return { question, ...out, graphEvidence: hydra.triplets.slice(0, 12), usedHydra: hydra.ok };
   }
 
   // ---------- helpers ----------

@@ -23,18 +23,20 @@ export const ClipPlayer = ({ clip }: { clip: BrainTalkClip }) => {
   };
 
   return (
-    <div className="flex items-start gap-2 rounded-md border border-fuchsia-300 bg-fuchsia-50 p-2 text-xs text-fuchsia-950">
+    <div className="flex items-start gap-3 rounded-2xl border border-fuchsia-500/10 bg-gradient-to-br from-fuchsia-50/80 to-violet-50/50 p-3 text-[12px] text-neutral-700">
       <button
         type="button"
         onClick={handleToggle}
-        className="mt-0.5 rounded-full bg-fuchsia-600 p-1.5 text-white hover:bg-fuchsia-700"
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-white shadow-sm transition hover:scale-105 hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 motion-reduce:transition-none"
         aria-label={isPlaying ? 'Pause talk clip' : `Play talk clip at ${fmt(clip.startSec)}`}
       >
-        {isPlaying ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
+        {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="ml-0.5 h-3.5 w-3.5" />}
       </button>
-      <div>
-        <div className="font-semibold">Dave Nielsen, hackathon talk · {fmt(clip.startSec)}</div>
-        <q className="italic">{clip.text.length > 220 ? `${clip.text.slice(0, 220)}…` : clip.text}</q>
+      <div className="min-w-0 space-y-0.5">
+        <div className="font-semibold text-neutral-900">
+          Dave Nielsen, hackathon talk <span className="font-normal tabular-nums text-fuchsia-600">· {fmt(clip.startSec)}</span>
+        </div>
+        <q className="leading-relaxed text-neutral-600">{clip.text.length > 220 ? `${clip.text.slice(0, 220)}…` : clip.text}</q>
       </div>
       <audio
         ref={audio}

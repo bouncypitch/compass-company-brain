@@ -1,16 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { Compass, Loader2, RefreshCw, Users } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown, Compass, Loader2, RefreshCw, Target, Users } from 'lucide-react';
 import type { CompassResult } from '@app-starter/shared';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { brainApi } from '@/lib/brain-api';
 import { cn } from '@/lib/utils';
+import { GlassCard, Pill, Reveal, SECONDARY_PILL, SectionHeading } from './ui';
 
-const STATUS_STYLE = { met: 'bg-emerald-100 text-emerald-900', partial: 'bg-amber-100 text-amber-900', gap: 'bg-rose-100 text-rose-900' } as const;
+const STATUS_TONE = { met: 'emerald', partial: 'amber', gap: 'rose' } as const;
+const STATUS_LABEL = { met: 'Met', partial: 'Partial', gap: 'Gap' } as const;
 
 export const DEFAULT_EMPLOYEE = 'jordan-rivera';
 
@@ -20,6 +20,90 @@ interface CompassViewProps {
   onEmployeeChange: (id: string) => void;
   onLoaded?: (result: CompassResult) => void;
 }
+
+const LevelGapTable = ({ data }: { data: CompassResult }) => (
+  <GlassCard className="overflow-hidden">
+    <div className="hidden grid-cols-[200px_1fr_1fr_110px] gap-6 border-b border-black/[0.05] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-400 md:grid" aria-hidden>
+      <div>Dimension</div>
+      <div>Next level expects</div>
+      <div>Your evidence</div>
+      <div className="text-right">Status</div>
+    </div>
+    <ul>
+      {data.levelGaps.map((g) => (
+        <li
+          key={g.dimension}
+          className="grid gap-2 border-b border-black/[0.04] px-7 py-5 text-[14px] leading-relaxed last:border-b-0 md:grid-cols-[200px_1fr_1fr_110px] md:gap-6"
+        >
+          <div className="font-semibold text-neutral-900">{g.dimension}</div>
+          <div className="text-neutral-700">{g.expectation}</div>
+          <div className="text-neutral-500">{g.evidence}</div>
+          <div className="md:text-right">
+            <Pill tone={STATUS_TONE[g.status]}>
+              <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden />
+              {STATUS_LABEL[g.status]}
+            </Pill>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </GlassCard>
+);
+
+const OpportunityCard = ({ o }: { o: CompassResult['opportunities'][number] }) => {
+  const isTop = o.rank === 1;
+  return (
+    <GlassCard
+      className={cn(
+        'relative flex h-full flex-col gap-4 overflow-hidden p-6',
+        isTop && 'border-orange-300/60 bg-gradient-to-b from-orange-50/90 via-white/80 to-white/70 shadow-[0_1px_2px_rgba(0,0,0,0.03),0_20px_40px_-20px_rgba(249,115,22,0.35)]',
+      )}
+    >
+      <div className="flex items-center justify-between">
+        <span className={cn('text-[40px] font-semibold leading-none tracking-[-0.04em] text-neutral-200', isTop && 'bg-gradient-to-br from-orange-400 to-rose-500 bg-clip-text text-transparent')}>
+          {String(o.rank).padStart(2, '0')}
+        </span>
+        {isTop ? <Pill tone="orange"><Target className="h-3 w-3" aria-hidden />Best bet</Pill> : null}
+      </div>
+      <h3 className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-neutral-900">{o.title}</h3>
+      <div className="space-y-3 text-[14px] leading-relaxed">
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-400">Why you</div>
+          <p className="text-neutral-700">{o.whyYou}</p>
+        </div>
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-400">Your manager</div>
+          <p className="text-neutral-700">{o.managerImpact}</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-1.5 text-[12px] text-neutral-500">
+        <span>{o.companyGoal}</span>
+        <ArrowRight className="h-3 w-3 shrink-0" aria-hidden />
+        <span>{o.deptGoal}</span>
+      </div>
+      <div className="flex flex-wrap gap-1.5">{o.ladderGapsClosed.map((s) => <Pill key={s} tone="teal">{s}</Pill>)}</div>
+      {o.peopleToTalkTo.length ? (
+        <div className="text-[13px] text-neutral-600">
+          <span className="font-semibold text-neutral-800">Talk to </span>
+          {o.peopleToTalkTo.map((p) => `${p.name} (${p.why})`).join('; ')}
+        </div>
+      ) : null}
+      <details className="group mt-auto border-t border-black/[0.05] pt-3 text-[12px]">
+        <summary className="flex cursor-pointer list-none items-center gap-1 font-medium text-indigo-600">
+          Evidence ({o.evidence.length})
+          <ChevronDown className="h-3.5 w-3.5 transition group-open:rotate-180" aria-hidden />
+        </summary>
+        <ul className="mt-2 space-y-1.5 text-neutral-600">
+          {o.evidence.map((e, i) => (
+            <li key={i}>
+              {e.label} <code className="rounded-md bg-black/[0.04] px-1.5 py-0.5 font-mono text-[11px]">{e.source}</code>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </GlassCard>
+  );
+};
 
 export const CompassView = ({ organizationId, employeeId, onEmployeeChange }: CompassViewProps) => {
   const queryClient = useQueryClient();
@@ -40,114 +124,124 @@ export const CompassView = ({ organizationId, employeeId, onEmployeeChange }: Co
       setIsRefreshing(false);
     }
   };
+  const handleEmployeeChange = (e: ChangeEvent<HTMLSelectElement>): void => onEmployeeChange(e.target.value);
 
   const data = compass.data;
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap items-center gap-2">
-        <label htmlFor="compass-employee" className="text-sm font-medium">
-          <Users className="mr-1 inline h-4 w-4" aria-hidden /> Coach
-        </label>
-        <select
-          id="compass-employee"
-          value={employeeId}
-          onChange={(e) => onEmployeeChange(e.target.value)}
-          className="rounded-md border bg-background px-3 py-2 text-sm"
-        >
-          {(people.data ?? []).map((p) => (
-            <option key={p.id} value={p.id}>{p.name} · {p.level} · {p.team}</option>
-          ))}
-        </select>
-        <Button variant="outline" onClick={handleRefresh} disabled={isRefreshing || compass.isFetching}>
-          {isRefreshing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RefreshCw className="mr-2 h-4 w-4" />}
-          Re-think with latest priorities
-        </Button>
-        {data ? <span className="text-xs text-muted-foreground">{data.cached ? 'cached' : 'live'} · {new Date(data.generatedAt).toLocaleTimeString()}</span> : null}
-      </div>
+    <div className="space-y-14">
+      <Reveal>
+        <SectionHeading
+          eyebrow="Career compass"
+          title="Your next promotion, mapped to the company"
+          description={data ? `${data.cached ? 'Cached' : 'Live'} · ${new Date(data.generatedAt).toLocaleTimeString()}` : undefined}
+          action={
+            <>
+              <label htmlFor="compass-employee" className="sr-only">Coach</label>
+              <div className="relative">
+                <Users className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" aria-hidden />
+                <select
+                  id="compass-employee"
+                  value={employeeId}
+                  onChange={handleEmployeeChange}
+                  className="h-10 appearance-none rounded-full border border-black/[0.08] bg-white/80 pl-10 pr-10 text-[14px] font-medium text-neutral-800 shadow-[0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+                >
+                  {(people.data ?? []).map((p) => (
+                    <option key={p.id} value={p.id}>{p.name} · {p.level} · {p.team}</option>
+                  ))}
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400" aria-hidden />
+              </div>
+              <Button variant="outline" onClick={handleRefresh} disabled={isRefreshing || compass.isFetching} className={SECONDARY_PILL}>
+                {isRefreshing ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <RefreshCw className="mr-2 h-4 w-4" />}
+                Re-think with latest priorities
+              </Button>
+            </>
+          }
+        />
+      </Reveal>
 
       {compass.isLoading || isRefreshing ? (
-        <Card><CardContent className="flex items-center gap-2 p-6 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> Reading goals, the ladder, open gaps and this person&apos;s history…</CardContent></Card>
+        <GlassCard className="flex items-center gap-3 p-8 text-[15px] text-neutral-500">
+          <Loader2 className="h-5 w-5 animate-spin" aria-hidden /> Reading goals, the ladder, open gaps and this person&apos;s history…
+        </GlassCard>
       ) : null}
       {compass.error ? <p className="text-sm text-destructive">{(compass.error as Error).message}</p> : null}
 
       {data && !isRefreshing ? (
         <>
-          <Card className="bg-orange-50 border-orange-300">
-            <CardContent className="flex gap-3 p-5">
-              <Compass className="h-6 w-6 shrink-0 text-orange-600" aria-hidden />
-              <div>
-                <div className="text-sm text-orange-900">
-                  {data.employee.name} · {data.employee.title} ({data.employee.level}) → {data.targetLevel}
-                  {data.employee.managerName ? ` · manager ${data.employee.managerName}` : ''}
+          <Reveal delay={80}>
+            <div className="relative overflow-hidden rounded-3xl border border-orange-200/50 bg-gradient-to-br from-[#fff7ed] via-[#fff1f2] to-[#fdf4ff] p-8 shadow-[0_12px_32px_-16px_rgba(249,115,22,0.25)] md:p-11">
+              <div aria-hidden className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl" />
+              <div aria-hidden className="pointer-events-none absolute -bottom-28 left-10 h-64 w-64 rounded-full bg-fuchsia-200/30 blur-3xl" />
+              <div className="relative space-y-5">
+                <div className="flex flex-wrap items-center gap-2 text-[13px] text-neutral-600">
+                  <Compass className="h-4 w-4 text-orange-500" aria-hidden />
+                  <span className="font-semibold text-neutral-900">{data.employee.name}</span>
+                  <span>{data.employee.title}</span>
+                  <Pill className="bg-white/70">{data.employee.level}</Pill>
+                  <ArrowRight className="h-3.5 w-3.5 text-orange-500" aria-hidden />
+                  <Pill tone="orange" className="bg-orange-500/15">{data.targetLevel}</Pill>
+                  {data.employee.managerName ? <span className="text-neutral-500">· manager {data.employee.managerName}</span> : null}
                 </div>
-                <p className="text-lg font-semibold text-orange-950">{data.headline}</p>
+                <p className="max-w-5xl text-[24px] font-semibold leading-[1.28] tracking-[-0.022em] text-neutral-900 md:text-[29px]">{data.headline}</p>
               </div>
-            </CardContent>
-          </Card>
-
-          <section className="space-y-2">
-            <h2 className="text-lg font-semibold">Where you stand for {data.targetLevel}</h2>
-            <div className="overflow-x-auto rounded border">
-              <table className="w-full min-w-[640px] text-sm">
-                <thead className="bg-muted/50 text-left text-xs text-muted-foreground">
-                  <tr><th className="p-2">Dimension</th><th className="p-2">Next level expects</th><th className="p-2">Your evidence</th><th className="p-2">Status</th></tr>
-                </thead>
-                <tbody>
-                  {data.levelGaps.map((g) => (
-                    <tr key={g.dimension} className="border-t align-top">
-                      <td className="p-2 font-medium">{g.dimension}</td>
-                      <td className="p-2">{g.expectation}</td>
-                      <td className="p-2 text-muted-foreground">{g.evidence}</td>
-                      <td className="p-2"><span className={cn('rounded px-2 py-0.5 text-xs font-semibold', STATUS_STYLE[g.status])}>{g.status}</span></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
             </div>
-          </section>
+          </Reveal>
 
-          <section className="space-y-2">
-            <h2 className="text-lg font-semibold">Your best promotion bets</h2>
-            <div className="grid gap-3 lg:grid-cols-3">
-              {data.opportunities.map((o) => (
-                <Card key={o.rank} className={cn(o.rank === 1 && 'border-2 border-orange-400')}>
-                  <CardHeader className="pb-2">
-                    <Badge variant={o.rank === 1 ? 'default' : 'secondary'} className="w-fit">#{o.rank}</Badge>
-                    <CardTitle className="text-base">{o.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-2 text-sm">
-                    <p><span className="font-semibold">Why you: </span>{o.whyYou}</p>
-                    <p><span className="font-semibold">Your manager: </span>{o.managerImpact}</p>
-                    <p className="text-xs text-muted-foreground">{o.companyGoal} → {o.deptGoal}</p>
-                    <div className="flex flex-wrap gap-1">{o.ladderGapsClosed.map((s) => <Badge key={s} variant="teal">{s}</Badge>)}</div>
-                    {o.peopleToTalkTo.length ? (
-                      <div className="text-xs"><span className="font-semibold">Talk to: </span>{o.peopleToTalkTo.map((p) => `${p.name} (${p.why})`).join('; ')}</div>
-                    ) : null}
-                    <details className="text-xs">
-                      <summary className="cursor-pointer text-indigo-700">Evidence ({o.evidence.length})</summary>
-                      <ul className="mt-1 space-y-0.5">{o.evidence.map((e, i) => <li key={i}>{e.label} <code className="rounded bg-muted px-1">{e.source}</code></li>)}</ul>
-                    </details>
-                  </CardContent>
-                </Card>
+          <Reveal delay={160}>
+            <section className="space-y-5">
+              <SectionHeading eyebrow="The ladder" title={`Where you stand for ${data.targetLevel}`} />
+              <LevelGapTable data={data} />
+            </section>
+          </Reveal>
+
+          <section className="space-y-5">
+            <SectionHeading eyebrow="Opportunities" title="Your best promotion bets" description="Work the company needs that also closes your ladder gaps." />
+            <div className="grid gap-4 lg:grid-cols-3">
+              {data.opportunities.map((o, i) => (
+                <Reveal key={o.rank} delay={i * 70}>
+                  <OpportunityCard o={o} />
+                </Reveal>
               ))}
             </div>
           </section>
 
-          <section className="grid gap-3 md:grid-cols-2">
-            <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-base">Your 90-day plan</CardTitle></CardHeader>
-              <CardContent>
-                <ol className="space-y-2 text-sm">
-                  {data.plan90.map((p) => <li key={p.window}><span className="font-semibold">{p.window}: </span>{p.milestone}</li>)}
+          <section className="grid gap-4 md:grid-cols-[1.4fr_1fr]">
+            <Reveal>
+              <GlassCard className="h-full p-7">
+                <h3 className="text-[19px] font-semibold tracking-[-0.01em] text-neutral-900">Your 90-day plan</h3>
+                <ol className="relative mt-6 space-y-6 border-l border-black/[0.08] pl-7">
+                  {data.plan90.map((p, i) => (
+                    <li key={p.window} className="relative">
+                      <span
+                        aria-hidden
+                        className={cn(
+                          'absolute -left-[35px] top-0.5 flex h-4 w-4 items-center justify-center rounded-full border-2 border-white bg-neutral-300 shadow-[0_0_0_1px_rgba(0,0,0,0.06)]',
+                          i === 0 && 'bg-gradient-to-br from-indigo-400 to-violet-500',
+                        )}
+                      />
+                      <div className="text-[12px] font-semibold uppercase tracking-[0.12em] text-indigo-500/90">{p.window}</div>
+                      <p className="mt-1 text-[15px] leading-relaxed text-neutral-700">{p.milestone}</p>
+                    </li>
+                  ))}
                 </ol>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="pb-2"><CardTitle className="text-base">What your manager is measured on</CardTitle></CardHeader>
-              <CardContent>
-                <ul className="list-disc space-y-1 pl-5 text-sm">{data.managerMeasuredOn.map((m) => <li key={m}>{m}</li>)}</ul>
-              </CardContent>
-            </Card>
+              </GlassCard>
+            </Reveal>
+            <Reveal delay={80}>
+              <GlassCard className="h-full p-7">
+                <h3 className="text-[19px] font-semibold tracking-[-0.01em] text-neutral-900">What your manager is measured on</h3>
+                <ul className="mt-6 space-y-3.5">
+                  {data.managerMeasuredOn.map((m) => (
+                    <li key={m} className="flex gap-3 text-[15px] leading-relaxed text-neutral-700">
+                      <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-500/10 text-teal-600">
+                        <Check className="h-3 w-3" aria-hidden />
+                      </span>
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            </Reveal>
           </section>
         </>
       ) : null}

@@ -1,0 +1,339 @@
+{
+  "company": "OpenAI Codex",
+  "slug": "openai-codex",
+  "collectedAt": "2026-10-12",
+  "signals": [
+    {
+      "id": "codex-01",
+      "company": "OpenAI Codex",
+      "kind": "open_source",
+      "title": "OpenAI releases Codex CLI as open-source terminal agent",
+      "date": "2025-04-16",
+      "url": "https://techcrunch.com/2025/04/16/openai-debuts-codex-cli-an-open-source-coding-tool-for-terminals",
+      "summary": "TechCrunch reported OpenAI debuted Codex CLI, a lightweight open-source coding agent that runs locally in the terminal, alongside o3 and o4-mini. OpenAI also planned $1M in API credits ($25,000 blocks) for eligible open-source projects.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "codex-02",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "OpenAI launches Codex cloud software-engineering agent (codex-1) as research preview",
+      "date": "2025-05-16",
+      "url": "https://openai.com/index/introducing-codex/",
+      "summary": "OpenAI announced a cloud-based Codex agent powered by codex-1, a version of o3 tuned for software engineering, running each task in its own sandboxed environment to write features, fix bugs and propose PRs.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "codex-03",
+      "company": "OpenAI Codex",
+      "kind": "acquisition",
+      "title": "Team behind Xcode assistant Alex joins OpenAI's Codex division",
+      "date": "2025-09-05",
+      "url": "https://techcrunch.com/2025/09/05/openai-hires-the-team-behind-xcode-coding-assistant-alex-codes",
+      "summary": "TechCrunch reported OpenAI is hiring the team behind Alex (an Xcode AI tool); founder Daniel Edrisian said the team is joining Codex. This was a team hire, not a purchase of the company, and Alex stops new downloads after Oct 1.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "codex-04",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "GPT-5-Codex released for Codex",
+      "date": "2025-09-15",
+      "url": "https://www.techradar.com/pro/openai-launches-gpt-5-codex-with-a-74-5-percent-success-rate-on-real-world-coding",
+      "summary": "OpenAI released GPT-5-Codex, a GPT-5 version tuned for agentic coding and code review, reported at 74.5% on SWE-bench Verified, rolling out across CLI, IDE extension, web, GitHub and iOS.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "codex-05",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "Codex becomes generally available at DevDay with Slack integration, SDK and admin tools",
+      "date": "2025-10-06",
+      "url": "https://openai.com/index/codex-now-generally-available",
+      "summary": "At DevDay OpenAI declared Codex generally available and added a Slack integration, a Codex SDK to embed the agent in other tools, and admin controls/analytics for workspace administrators.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "codex-06",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "Codex desktop app for macOS launches for managing multiple agents",
+      "date": "2026-02-02",
+      "url": "https://www.implicator.ai/openai-launches-codex-desktop-app-for-macos-with-multi-agent-workflows-and-doubled-rate-limits/",
+      "summary": "OpenAI introduced a macOS Codex app for supervising multiple agents in parallel threads with worktree isolation and in-app diff review.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "codex-07",
+      "company": "OpenAI Codex",
+      "kind": "pricing",
+      "title": "Codex app launch ships with doubled rate limits on paid plans and trial access for Free/Go",
+      "date": "2026-02-02",
+      "url": "https://alternativeto.net/news/2026/2/openai-unveils-a-dedicated-codex-desktop-app-for-macos-and-anyone-can-try-it-for-free",
+      "summary": "Coverage of the app launch reports it is included with ChatGPT subscriptions, with limited-time access for Free and Go users and doubled rate limits on all paid ChatGPT plans.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "codex-08",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "Apple Xcode 26.3 adds agentic coding with OpenAI Codex and Claude Agent",
+      "date": "2026-02-03",
+      "url": "https://www.mactech.com/2026/02/03/apple-announces-xcode-26-3-which-introduces-support-for-agentic-coding/",
+      "summary": "Apple announced Xcode 26.3 with support for agentic coding, allowing agents such as Codex and Claude Agent to work inside Xcode, with capabilities also exposed via MCP.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "codex-09",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "GitHub adds Codex (and Claude) to Agent HQ in public preview",
+      "date": "2026-02-04",
+      "url": "https://github.blog/changelog/2026-02-04-claude-and-codex-are-now-available-in-public-preview-on-github/",
+      "summary": "GitHub made OpenAI Codex and Claude available as coding agents for Copilot Pro+ and Enterprise; issues can be assigned to an agent which opens a draft PR, and agents can be tagged in review comments with @codex.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "codex-10",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "GPT-5.3-Codex released",
+      "date": "2026-02-05",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex/",
+      "summary": "OpenAI released GPT-5.3-Codex, described in search coverage as its most capable agentic coding model to date at that time (page itself could not be fetched; date from multiple sources).",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "codex-11",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "GPT-5.3-Codex-Spark launches on Cerebras hardware",
+      "date": "2026-02-12",
+      "url": "https://cerebras.ai/blog/openai-codexspark",
+      "summary": "Cerebras and OpenAI launched GPT-5.3-Codex-Spark as a research preview, a speed-optimized model running at over 1,000 tokens/s, available to ChatGPT Pro users in the Codex app, CLI and VS Code extension.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "codex-12",
+      "company": "OpenAI Codex",
+      "kind": "research",
+      "title": "OpenAI details Codex App Server architecture powering all Codex surfaces",
+      "date": "2026-02-17",
+      "url": "https://www.infoq.com/news/2026/02/opanai-codex-app-server",
+      "summary": "InfoQ reported OpenAI's write-up of the App Server, a bidirectional JSON-RPC protocol that powers the CLI, VS Code extension, web app, macOS app and JetBrains/Xcode integrations; source is in the open-source Codex repo.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "codex-13",
+      "company": "OpenAI Codex",
+      "kind": "customer",
+      "title": "Fortune: Codex passes 1.6M weekly users; Cisco, Nvidia, Ramp, Rakuten, Harvey named",
+      "date": "2026-03-04",
+      "url": "https://fortune.com/2026/03/04/openai-codex-growth-enterprise-ai-agents/",
+      "summary": "Fortune reported Codex had more than 1.6M weekly active users, and that Cisco, Nvidia, Ramp, Rakuten and Harvey rolled it out across developer teams; Codex head Thibault Sottiaux said OpenAI wants it to be the standard enterprise agent.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "codex-14",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "OpenAI launches Codex Security application-security agent",
+      "date": "2026-03-06",
+      "url": "https://gigazine.net/gsc_news/en/20260309-codex-security",
+      "summary": "OpenAI announced Codex Security (evolved from Aardvark) as a research preview that builds a threat model, validates vulnerabilities in a sandbox and proposes fixes; OpenAI cited 792 critical and 10,561 high-severity findings across 1.2M+ beta commits.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "codex-15",
+      "company": "OpenAI Codex",
+      "kind": "acquisition",
+      "title": "OpenAI to acquire Astral (uv, Ruff, ty) to bring its team into Codex",
+      "date": "2026-03-19",
+      "url": "https://pydevtools.com/blog/openai-acquires-astral.md",
+      "summary": "OpenAI announced it will acquire Python tooling company Astral; the team joins Codex after closing, subject to regulatory approval, and OpenAI said it will keep supporting the open-source tools. Terms were not disclosed.",
+      "capability": "codebase_memory",
+      "verified": true
+    },
+    {
+      "id": "codex-16",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "OpenAI launches Codex partner program with Cognizant and CGI",
+      "date": "2026-04-21",
+      "url": "https://thenextweb.com/news/openai-codex-enterprise-partners-cognizant-cgi",
+      "summary": "OpenAI launched a formal Codex partner program with systems integrators; Cognizant is embedding Codex in its Software Engineering Group and CGI gets early access. Codex had 3M weekly active developers per the article.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "codex-17",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "Codex comes to AWS and Amazon Bedrock",
+      "date": "2026-04-28",
+      "url": "https://openai.com/index/openai-on-aws",
+      "summary": "As part of an expanded AWS partnership, Codex on AWS launched in limited preview, letting developers use existing AWS credentials and count usage toward AWS cloud commitments.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "codex-18",
+      "company": "OpenAI Codex",
+      "kind": "market_entry",
+      "title": "OpenAI says Codex passes 5M weekly users and expands to knowledge work",
+      "date": "2026-06-02",
+      "url": "https://constellationr.com/insights/news/openai-touts-broadening-codex-usage-5-million-weekly-active-users",
+      "summary": "OpenAI reported Codex surpassed 5M weekly active users, with knowledge workers about a fifth of users, positioning Codex beyond coding into research, reports and spreadsheets.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "codex-19",
+      "company": "OpenAI Codex",
+      "kind": "leadership",
+      "title": "OpenAI merges ChatGPT, Codex and API product teams under Greg Brockman",
+      "date": "2026-06-04",
+      "url": "https://www.thekeyexecutives.com/2026/06/04/openai-merges-chatgpt-and-codex-teams-under-president-greg-brockman/",
+      "summary": "Reported (first by WIRED) that OpenAI unified ChatGPT, Codex and the API under Brockman; former Codex head Thibault Sottiaux now leads core product and platform teams.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "codex-20",
+      "company": "OpenAI Codex",
+      "kind": "partnership",
+      "title": "OpenAI launches Patch the Planet with Trail of Bits using Codex and GPT-5.5-Cyber",
+      "date": "2026-06-22",
+      "url": "https://pulse2.com/openai-launches-patch-the-planet-to-help-secure-critical-open-source-software/",
+      "summary": "OpenAI announced Patch the Planet, a Daybreak initiative where Trail of Bits engineers work with Codex and GPT-5.5-Cyber across 19 open-source projects, with HackerOne and Calif supporting triage. Launch date varies by source (June 22-24).",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "codex-21",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "Codex app merged into the ChatGPT desktop app",
+      "date": "2026-07-09",
+      "url": "https://support.addigy.com/hc/en-us/articles/53439709931155-ChatGPT-and-Codex-Desktop-App-Merger-What-This-Means-for-Your-Fleet",
+      "summary": "An IT vendor note reports that on July 9, 2026 OpenAI merged the standalone Codex desktop app into the ChatGPT desktop app for macOS; no official OpenAI announcement was found.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "codex-22",
+      "company": "OpenAI Codex",
+      "kind": "contract",
+      "title": "GDIT to deploy Codex in secure federal environments",
+      "date": "2026-09-03",
+      "url": "https://www.gdit.com/about-gdit/press-releases/gdit-has-been-named-an-openai-select-partner-to-modernize-federal-systems-with-cutting-edge-ai-models/",
+      "summary": "GDIT named an OpenAI Select Partner and plans to deploy Codex in secure federal environments to review, test and modernize applications, including COBOL and Fortran legacy systems.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "codex-23",
+      "company": "OpenAI Codex",
+      "kind": "leadership",
+      "title": "Git AI founders join OpenAI's Codex team to measure coding-agent ROI",
+      "date": "2026-09-12",
+      "url": "https://thenewstack.io/openai-hires-git-ai/",
+      "summary": "The New Stack reported Git AI founders Aidan Cunniffe and Sasha Varlamov joined the Codex team to give businesses data on agent performance and returns; Thibault Sottiaux confirmed on X.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "codex-24",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "GPT-6 Sol and Luna released for Codex, ChatGPT Work and API",
+      "date": "2026-09-22",
+      "url": "https://datanorth.ai/news/openai-launches-gpt-6-sol-and-luna",
+      "summary": "OpenAI released GPT-6 Sol and Luna, available in Codex for Plus, Pro, Business, Enterprise and Edu users. Codex CLI changelog lists support from 0.157.0 on 2026-09-25.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "codex-25",
+      "company": "OpenAI Codex",
+      "kind": "talk",
+      "title": "DevDay: Codex gets reusable cloud environments, voice CLI, new code review and Codex Security Cloud",
+      "date": "2026-09-29",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "summary": "At DevDay OpenAI announced persistent, shareable cloud environments for Codex, a refreshed CLI with voice and an /agents view, code review on GitHub PRs and GitLab MRs, and Codex Security Cloud for scheduled repo scanning.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "codex-26",
+      "company": "OpenAI Codex",
+      "kind": "changelog",
+      "title": "Codex CLI 0.161.0 makes GPT-6.1 Sol default and adds Bedrock multi-agent support",
+      "date": "2026-10-07",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "summary": "Changelog entry: GPT-6.1 Sol becomes the default model, Bedrock multi-agent support is added, plus /mcp login and voice microphone selection.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "codex-27",
+      "company": "OpenAI Codex",
+      "kind": "pricing",
+      "title": "GPT-6.1 Sol Ultrafast arrives in Codex on a Pro $500 tier",
+      "date": "2026-10-08",
+      "url": "https://learn.chatgpt.com/docs/changelog",
+      "summary": "Changelog says Ultrafast mode for GPT-6.1 Sol is available on Pro $500 and eligible Enterprise and Edu plans, with Enterprise access off until a workspace owner enables it.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "codex-28",
+      "company": "OpenAI Codex",
+      "kind": "hiring",
+      "title": "OpenAI hiring across Codex core agents, applied AI, app and deployment roles",
+      "date": "2026-10-12",
+      "url": "https://openai.com/careers/software-engineer-codex-core-agents-san-francisco/",
+      "summary": "OpenAI careers listings (seen via search; page not fetchable) show open Codex roles in Core Agents, Applied AI (incl. Tokyo), Codex app frontend and AI deployment engineering in London. Date is the collection date, not a posting date.",
+      "capability": "enterprise",
+      "verified": true
+    }
+  ],
+  "timeMachine": [
+    {
+      "announcement": "Codex Security Cloud: scheduled/on-commit repo scanning with cloud-prepared fixes (DevDay)",
+      "date": "2026-09-29",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "precedingSignalIds": [
+        "codex-14",
+        "codex-20"
+      ],
+      "why": "Codex Security launched as a research preview in March and Patch the Planet (June) put Codex plus GPT-5.5-Cyber into open-source patching, pointing toward a cloud-run, always-on security product."
+    },
+    {
+      "announcement": "Reusable cloud environments and shared team workspaces for Codex (DevDay)",
+      "date": "2026-09-29",
+      "url": "https://techcrunch.com/2026/09/29/openai-gives-codex-reusable-cloud-environments-that-work-across-devices/",
+      "precedingSignalIds": [
+        "codex-12",
+        "codex-16",
+        "codex-17",
+        "codex-21"
+      ],
+      "why": "A single App Server harness across surfaces, enterprise SI/AWS distribution and the July app merge laid groundwork for persistent, device-portable and team-governed environments."
+    }
+  ]
+}

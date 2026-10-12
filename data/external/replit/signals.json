@@ -4,6 +4,17 @@
   "collectedAt": "2026-10-12",
   "signals": [
     {
+      "id": "replit-21",
+      "company": "Replit",
+      "kind": "customer",
+      "title": "Zillow non-engineers build production routing features with Replit",
+      "date": "2025-02-17",
+      "url": "https://venturebeat.com/ai/replit-and-anthropics-ai-just-helped-zillow-build-production-software-without-a-single-engineer/",
+      "summary": "VentureBeat reported that non-technical Zillow employees help build software on Replit, and their features are part of the customer routing system that connects over 100,000 home shoppers with agents. Zillow was also the only customer named in Replit's July 2025 Microsoft announcement.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
       "id": "replit-01",
       "company": "Replit",
       "kind": "pricing",
@@ -12,6 +23,17 @@
       "url": "https://replit.com/blog/effort-based-pricing",
       "summary": "Replit replaced its flat $0.25-per-checkpoint Agent charge with effort-based pricing, where simple changes may cost less and complex tasks bundled into one checkpoint may cost more. It also added per-request controls (a more capable model, extended thinking) to choose how much effort the Agent spends.",
       "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-22",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Replit and Microsoft partner to bring vibe coding to enterprise (Azure)",
+      "date": "2025-07-08",
+      "url": "https://replit.com/news/microsoft-partnership",
+      "summary": "Replit announced a strategic partnership with Microsoft integrating with Azure Container Apps, Azure Virtual Machines and Neon Serverless Postgres on Azure, with Azure Marketplace purchasing described as coming soon. The release states Replit is SOC 2 Type II compliant and cites over 500,000 business users.",
+      "capability": "enterprise",
       "verified": true
     },
     {
@@ -48,6 +70,17 @@
       "verified": true
     },
     {
+      "id": "replit-23",
+      "company": "Replit",
+      "kind": "contract",
+      "title": "Jordan Ministry of Education pilots Siraj AI learning assistant built with Replit",
+      "date": "2025-10-23",
+      "url": "https://replit.com/news/jordan-government",
+      "summary": "The Jordanian Ministry of Education began a pilot of Siraj, an Arabic, textbook-grounded AI learning assistant built with Replit, reaching 100,000+ students and teachers and 600,000+ interactions. After the pilot the Ministry plans a nationwide rollout to 1.6M students and 90,000 teachers.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
       "id": "replit-05",
       "company": "Replit",
       "kind": "partnership",
@@ -70,6 +103,39 @@
       "verified": true
     },
     {
+      "id": "replit-24",
+      "company": "Replit",
+      "kind": "open_source",
+      "title": "replit/replit-gemini-extension: Replit extension for Gemini CLI",
+      "date": "2026-01-28",
+      "url": "https://github.com/replit/replit-gemini-extension",
+      "summary": "Replit's GitHub org hosts an MIT-licensed extension that lets users create apps and automations with Replit from the Gemini CLI via MCP authentication. Date is the repository creation date per the GitHub API; it was last pushed 2026-09-29.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-25",
+      "company": "Replit",
+      "kind": "market_entry",
+      "title": "Mobile: Agent generates React Native iOS apps with Expo path to TestFlight and App Store",
+      "date": "2026-02-20",
+      "url": "https://replit.com/blog/building-mobile-apps-on-replit",
+      "summary": "Replit's product-team post says Agent is tuned to generate React Native iOS apps from a prompt, using Expo to guide apps to TestFlight and the App Store. Planned next: shared web and mobile projects, RevenueCat in-app payments and Android publishing.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "replit-26",
+      "company": "Replit",
+      "kind": "research",
+      "title": "We Built a Video Rendering Engine by Lying to the Browser About What Time It Is",
+      "date": "2026-02-26",
+      "url": "https://replit.com/blog/browsers-dont-want-to-be-cameras",
+      "summary": "Replit Engineering described a deterministic web-page-to-MP4 renderer built on a roughly 1,200-line injected virtual clock, WebCodecs video decoding and server-side FFmpeg audio mixing, with SSRF checks on requests. The post says Replit plans to open-source its implementation.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
       "id": "replit-07",
       "company": "Replit",
       "kind": "funding",
@@ -89,6 +155,50 @@
       "url": "https://docs.replit.com/updates/2026/03/13/changelog",
       "summary": "Replit's changelog announced Agent 4 as an 'AI creative partner' for apps, designs and slides, with a Design Canvas for mockups before code, Plan mode, parallel task execution and multiplayer collaboration. It also lets users pull data from BigQuery, Linear, Slack and Notion directly from chat.",
       "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "replit-27",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Replit named 2026 Google Cloud AI Tooling Partner of the Year",
+      "date": "2026-04-21",
+      "url": "https://replit.com/blog/google-cloud-partner-award-winner",
+      "summary": "Replit's blog says Google Cloud named it a 2026 partner award winner, and cites 50M+ users, use across 85% of the Fortune 500, and enterprise customers Databricks, Zillow, PayPal and Adobe. It notes availability on Google Cloud Marketplace and links to Cloud Run, GKE and BigQuery.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-28",
+      "company": "Replit",
+      "kind": "market_entry",
+      "title": "Replit Enterprise now self-serve (SSO, SCIM, pooled credits)",
+      "date": "2026-05-21",
+      "url": "https://replit.com/blog/enterprise-self-serve",
+      "summary": "Any organization can buy Replit Enterprise on the website with an annual credit commitment, unlimited seats by default and pooled credits, SSO/SCIM, RBAC and audit logs, paid by card or ACH. Deals above $200K or with custom terms still go to sales.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-29",
+      "company": "Replit",
+      "kind": "funding",
+      "title": "Visa makes undisclosed strategic investment in Replit",
+      "date": "2026-05-28",
+      "url": "https://techcrunch.com/2026/05/28/visa-invests-in-replit-to-power-agentic-payments-for-developers/",
+      "summary": "TechCrunch reported Visa invested an undisclosed amount, and the companies are exploring letting developers and their agents accept payments in Replit via Visa Intelligent Commerce and the Trusted Agent Protocol; no joint product has been announced. It says 1,000+ Visa employees have used Replit.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-30",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Microsoft Fabric collaboration: build enterprise data apps in Replit and deploy into Fabric",
+      "date": "2026-06-01",
+      "url": "https://replit.com/blog/microsoft-fabric",
+      "summary": "Amjad Masad's post announced a collaboration letting enterprises build AI-powered apps in Replit and deploy them within their Microsoft Fabric tenant, enabled by Rayfin, described as an open-source SDK and CLI for app backends. Replit docs describe the integration as preview with an approved-tester requirement.",
+      "capability": "enterprise",
       "verified": true
     },
     {
@@ -125,6 +235,17 @@
       "verified": true
     },
     {
+      "id": "replit-31",
+      "company": "Replit",
+      "kind": "talk",
+      "title": "Inaugural Vibecon held in New York",
+      "date": "2026-06-22",
+      "url": "https://replit.com/blog/vibecon",
+      "summary": "Replit recap of its first Vibecon, a two-day event in an industrial space on New York's Lower East Side with speakers including Spike Jonze, Refik Anadol and Reshma Saujani. The post announces no products; date is the recap publication date.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
       "id": "replit-12",
       "company": "Replit",
       "kind": "research",
@@ -158,6 +279,17 @@
       "verified": true
     },
     {
+      "id": "replit-32",
+      "company": "Replit",
+      "kind": "partnership",
+      "title": "Semgrep and Replit expand integration inside Security Center",
+      "date": "2026-08-11",
+      "url": "https://www.financialcontent.com/article/bizwire-2026-8-11-semgrep-and-replit-expand-integration-to-keep-pace-with-ai-generated-code-at-scale",
+      "summary": "A Business Wire release says Semgrep Guardian secrets detection now runs in Replit's Security Center for all users, and that combining Semgrep SAST with Agent LLM reasoning filters up to 93.3% of false positives. It builds on a 2025 integration using Semgrep Community Edition rules.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
       "id": "replit-15",
       "company": "Replit",
       "kind": "changelog",
@@ -166,6 +298,17 @@
       "url": "https://replit.com/blog/new-enterprise-governance-tools",
       "summary": "Replit announced audit logs with 50+ events and SIEM streaming, a beta Admin API, Workspace Settings for company-wide policy baselines, and a Compliance API. Audit logs and the Admin API were available at announcement; the other two were slated for later rollout.",
       "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-33",
+      "company": "Replit",
+      "kind": "research",
+      "title": "Black-box pen tests on Replit: white-box and black-box scans find different flaws",
+      "date": "2026-08-17",
+      "url": "https://replit.com/blog/black-box-pen-tests",
+      "summary": "Replit added black-box penetration testing, which probes a deployed app from outside with only its link, alongside white-box code scans in a Level 3 Security Center scan. Running both on the same apps surfaced different issues with little overlap.",
+      "capability": "code_review",
       "verified": true
     },
     {
@@ -191,6 +334,28 @@
       "verified": true
     },
     {
+      "id": "replit-34",
+      "company": "Replit",
+      "kind": "market_entry",
+      "title": "Replit opens London office, its first outside the US",
+      "date": "2026-09-08",
+      "url": "https://replit.com/news/replit-opens-london-office",
+      "summary": "Replit opened a King's Cross office as the hub for European operations, with London Mayor Sadiq Khan at the opening, and said it expects to double headcount and investment in the coming year. It also announced a pilot four-week vibe coding course for 100 NEET young people with The Lord Mayor's Appeal.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-35",
+      "company": "Replit",
+      "kind": "changelog",
+      "title": "Databricks integration generally available with native Lakebase support",
+      "date": "2026-09-10",
+      "url": "https://replit.com/blog/databricks2026",
+      "summary": "Replit's Databricks integration moved from June public preview to GA; Agent provisions a Lakebase database automatically, with isolated preview deploys and Unity Catalog governed migrations requiring team approval.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
       "id": "replit-18",
       "company": "Replit",
       "kind": "acquisition",
@@ -213,6 +378,17 @@
       "verified": true
     },
     {
+      "id": "replit-36",
+      "company": "Replit",
+      "kind": "open_source",
+      "title": "replit/dev-modules: OIDC modules for AWS, GCP, Azure, Vault and Infisical",
+      "date": "2026-10-08",
+      "url": "https://github.com/replit/dev-modules",
+      "summary": "MIT-licensed repository of prebuilt modules that configure cloud CLIs and SDKs with short-lived credentials via Replit as an OpenID Connect identity provider (workload identity federation). Date is the repository creation date per the GitHub API.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
       "id": "replit-20",
       "company": "Replit",
       "kind": "job_posting",
@@ -220,6 +396,28 @@
       "date": "2026-10-12",
       "url": "https://jobs.ashbyhq.com/replit",
       "summary": "Replit's Ashby board listed 69 open roles on 2026-10-12, led by Product Engineering (13), Support Delivery (8), Platform (6), SRE (6) and Sales (5). Titles include Agentic Commerce & Payments, Agentic Ads, Money Infrastructure, AI Agent Security Architect, Forward Deployed Engineer, Head of Corporate Development, and Japan/Tokyo/Singapore/London roles.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "replit-37",
+      "company": "Replit",
+      "kind": "leadership",
+      "title": "Leadership page lists President, CTO, CRO and Chief People Officer",
+      "date": "2026-10-12",
+      "url": "https://replit.com/about",
+      "summary": "Replit's About page (viewed 2026-10-12) lists Amjad Masad (Founder & CEO), Haya Odeh (Co-Founder, VP Design), Michele Catasta (President), Luis Hector Chavez (CTO), Ghazi Masood (CRO), Stacey La Torre (Chief People Officer), Scott Kennedy (VP Engineering), Jordan Walke (Head of Product) and Robert Kohse (General Counsel). No hire dates are given on the page.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "replit-38",
+      "company": "Replit",
+      "kind": "hiring",
+      "title": "Hiring mix: 69 open roles, 54 in Foster City; GTM and User Operations 22; London, Japan, Singapore",
+      "date": "2026-10-12",
+      "url": "https://jobs.ashbyhq.com/replit",
+      "summary": "Per Ashby's public job-board API on 2026-10-12, 69 roles span Engineering (38), GTM (11), User Operations (11), G&A (6), Brand & Creative (2) and Design (1). Locations: Foster City 54, NYC 6, Japan remote 3, London 2, Singapore 1, other US 3.",
       "capability": "enterprise",
       "verified": true
     }

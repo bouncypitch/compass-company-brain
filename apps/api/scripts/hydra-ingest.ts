@@ -16,6 +16,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { HydraDBClient } from '@hydradb/sdk';
 import { loadSignals, loadTalkClips, DATA_DIR, slugId } from '../src/brain/brain-data';
+import { buildTopology, topologyGraphPayload, topologyText } from '../src/brain/topology';
 
 const DB = process.env.HYDRA_DB_DATABASE || 'forgeline_brain';
 const client = new HydraDBClient({ token: process.env.HYDRA_DB_API_KEY ?? '' });
@@ -177,6 +178,14 @@ async function main(): Promise<void> {
     if (docs.length) await waitForIndexing('market', await ingestDocs('market', docs));
   }
   if (!only || only === 'memories') await ingestMemories();
+  if (!only || only === 'topology') {
+    const t = buildTopology();
+    const file = path.join(TMP, 'topology.md');
+    fs.mkdirSync(TMP, { recursive: true });
+    fs.writeFileSync(file, `# Forgeline company topology\n\nWho works where, who owns what, which goals each roadmap item advances, and which conversations discuss them.\n\n${topologyText(t)}\n`);
+    await waitForIndexing('company', await ingestDocs('company', [{ id: 'topology-forgeline', file, metadata: { kind: 'topology', source: 'internal' }, graph: topologyGraphPayload(t) }]));
+    console.log('topology', JSON.stringify(t.stats));
+  }
 }
 
 main().catch((err) => {

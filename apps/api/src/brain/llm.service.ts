@@ -78,6 +78,12 @@ export const CompassSchema = z.object({
 });
 export type CompassSynthesis = z.infer<typeof CompassSchema>;
 
+export const AskSchema = z.object({
+  answer: z.string().describe('Direct answer in 2-5 sentences, plain language, naming people, teams, roadmap ids and KRs.'),
+  citations: z.array(z.object({ label: z.string(), source: z.string().describe('doc path, signal id, ticket, KR or memory id from the context') })),
+  followUps: z.array(z.string()).describe('2-3 natural follow-up questions'),
+});
+
 export const DiffSchema = z.object({
   summary: z.string(),
   files: z.array(z.object({ path: z.string(), patch: z.string().describe('unified diff for this file') })),
@@ -124,7 +130,7 @@ export class LlmService {
       cutoff
         ? `TIME MACHINE MODE: today is ${cutoff}. You only know the signals provided, all dated before ${cutoff}. Do not use any outside knowledge of events after that date. Make forward-looking predictions.`
         : 'Use only the provided context, not outside knowledge.',
-      'Produce 4-6 competitor moves (at least one per company), 2-3 industry patterns that span multiple companies, and 2-3 strategic gaps for Forgeline ranked by urgency, each mapped to a roadmap item, code paths, and goal/KR ids from the internal docs.',
+      'Produce 7-9 competitor moves (at least one per company), 3-4 industry patterns that span multiple companies, and 3 strategic gaps for Forgeline ranked by urgency, each mapped to a roadmap item, code paths, and goal/KR ids from the internal docs. Use the full range of signal kinds: launches, hiring and leadership changes, contracts, research, market entries, acquisitions, partnerships and pricing.',
     ].join('\n');
     return this.parse(RadarSynthesisSchema, system, context, cutoff ? 'medium' : 'medium');
   }
@@ -141,9 +147,46 @@ export class LlmService {
     return this.parse(CompassSchema, system, context, 'medium');
   }
 
-  draftDiff(context: string): Promise<z.infer<typeof DiffSchema>> {
-    const system =
-      'You are a senior engineer at Forgeline. Draft a minimal, compiling pull request as unified diffs against the provided forgeline-core files. Follow the existing code style. Keep it focused: the first slice of the recommended capability, with clear TODOs for follow-ups.';
-    return this.parse(DiffSchema, system, context, 'medium');
+  answer(context: string): Promise<z.infer<typeof AskSchema>> {
+    const system = [
+      'You are Compass, the company brain of Forgeline (an AI coding-assistant startup). Answer employee questions using ONLY the provided context: HydraDB retrieval (documents, graph relations, memories), the company topology graph, and competitor signals.',
+      'Be concise and specific. Cite sources that appear in the context. If the context does not contain the answer, say what is missing.',
+      'Never reveal another employee\'s private reviews or feedback; use only public roles, ownership and work. Use they/them for anyone whose pronouns are not stated.',
+    ].join('\n');
+    return this.parse(AskSchema, system, context, 'low');
   }
+
+  /**
+   * Drafts the PR as plain unified diffs separated by "=== FILE: <path>" lines.
+   * Streamed with a large budget: diffs are long and structured JSON output
+   * truncated mid-string when thinking used most of a 16K budget.
+   */
+  async draftDiff(context: string): Promise<z.infer<typeof DiffSchema>> {
+    try {
+      const stream = this.client.messages.stream({
+        model: this.model,
+        max_tokens: 64000,
+        system:
+          'You are a senior engineer at Forgeline. Draft a minimal pull request against the provided forgeline-core files: the first slice of the recommended capability, following the existing code style, with clear TODOs for follow-ups. Output ONLY: one line "SUMMARY: <one sentence>", then for each changed or new file a line "=== FILE: <path>" followed by a unified diff for that file. No prose, no code fences.',
+        messages: [{ role: 'user', content: context }],
+        output_config: { effort: 'low' },
+      });
+      const message = await stream.finalMessage();
+      const text = message.content.map((b) => (b.type === 'text' ? b.text : '')).join('');
+      const summary = /SUMMARY:\s*(.*)/.exec(text)?.[1]?.trim() ?? '';
+      const files = text
+        .split(/^=== FILE:\s*/m)
+        .slice(1)
+        .map((chunk) => {
+          const [path, ...rest] = chunk.split('\n');
+          return { path: path.trim(), patch: rest.join('\n').replace(/```[a-z]*\n?/g, '').trim() };
+        })
+        .filter((f) => f.path && f.patch);
+      return { summary, files };
+    } catch (err) {
+      this.logger.error(`diff draft failed: ${(err as Error).message}`);
+      throw new ServiceUnavailableException(`Claude call failed: ${(err as Error).message}`);
+    }
+  }
+
 }

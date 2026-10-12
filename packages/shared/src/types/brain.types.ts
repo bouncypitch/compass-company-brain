@@ -47,7 +47,7 @@ export interface BrainTalkClip {
 export interface BrainGraphNode {
   id: string;
   label: string;
-  type: 'signal' | 'company' | 'move' | 'capability' | 'gap' | 'roadmap' | 'code' | 'goal' | 'person' | 'talk' | 'skill';
+  type: 'signal' | 'company' | 'move' | 'capability' | 'gap' | 'roadmap' | 'code' | 'goal' | 'person' | 'talk' | 'skill' | 'team' | 'doc' | 'customer' | 'ticket';
   detail?: string;
   url?: string;
 }
@@ -185,4 +185,35 @@ export interface AcceptRecommendationResult {
 export interface IndexingStatusResult {
   id: string;
   status: string;
+}
+
+export interface AskCitation {
+  label: string;
+  source: string;
+}
+
+export interface AskResult {
+  question: string;
+  answer: string;
+  citations: AskCitation[];
+  followUps: string[];
+  graphEvidence: { source: string; relation: string; target: string }[];
+  usedHydra: boolean;
+}
+
+export interface TopologyStats {
+  people: number;
+  teams: number;
+  goals: number;
+  roadmapItems: number;
+  codeModules: number;
+  docs: number;
+  customers: number;
+  tickets: number;
+  relations: number;
+}
+
+export interface TopologyResult {
+  graph: BrainGraph;
+  stats: TopologyStats;
 }

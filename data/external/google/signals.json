@@ -1,0 +1,328 @@
+{
+  "company": "Google",
+  "slug": "google",
+  "collectedAt": "2026-10-12",
+  "signals": [
+    {
+      "id": "google-01",
+      "company": "Google",
+      "kind": "research",
+      "title": "AlphaEvolve: Gemini-powered coding agent for algorithm design",
+      "date": "2025-05-14",
+      "url": "https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "summary": "DeepMind announced AlphaEvolve, reporting Borg scheduling algorithms recovering about 0.7% of Google's worldwide compute and a FlashAttention kernel speedup of up to 32.5%. It found a 48-multiplication method for 4x4 complex matrices.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "google-02",
+      "company": "Google",
+      "kind": "open_source",
+      "title": "Gemini CLI released as open source (Apache 2.0)",
+      "date": "2025-06-25",
+      "url": "https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/",
+      "summary": "Google launched Gemini CLI in preview under Apache 2.0, with a free tier of 60 requests/minute and 1,000 requests/day via a personal Google account (Gemini 2.5 Pro, 1M-token context).",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "google-03",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Firebase Studio adds Agent modes, MCP preview and Gemini CLI integration",
+      "date": "2025-07-10",
+      "url": "https://developers.googleblog.com/en/advancing-agentic-ai-development-with-firebase-studio/",
+      "summary": "Firebase Studio added Ask, Agent and Agent (Auto-run) modes, MCP support in preview, and Gemini CLI inside its terminal.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "google-04",
+      "company": "Google",
+      "kind": "leadership",
+      "title": "Google hires Windsurf CEO Varun Mohan, co-founder Douglas Chen and R&D staff into DeepMind",
+      "date": "2025-07-13",
+      "url": "https://d11.thedailystar.net/tech-startup/news/google-snatches-ai-coders-after-openai-tried-buy-their-startup-3938571",
+      "summary": "Per a Reuters report, Google hired Windsurf's CEO, co-founder and select R&D staff to work on Gemini coding tools, and paid a reported $2.4B in licensing fees for non-exclusive access to some Windsurf technology without taking a stake. Google said the team 'will advance our work in agentic coding'.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-05",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Jules exits public beta, with free and paid tiers",
+      "date": "2025-08-06",
+      "url": "https://blog.google/technology/google-labs/jules-now-available/",
+      "summary": "Google's async coding agent Jules left beta, powered by Gemini 2.5 Pro. Beta users produced over 140,000 publicly shared code improvements; AI Pro and Ultra tiers offer 5x and 20x the introductory limits.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-06",
+      "company": "Google",
+      "kind": "contract",
+      "title": "GSA OneGov 'Gemini for Government' agreement at $0.47 per agency",
+      "date": "2025-08-21",
+      "url": "https://ipwatchdog.com/2025/08/21/gsa-announces-gemini-government-agreement-trumps-ai-adoption-efforts/",
+      "summary": "GSA announced an agreement giving federal agencies Google's Gemini for Government AI suite at $0.47 per year per agency, valid through 2026. Coding tools are not specifically named in the coverage read.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "google-07",
+      "company": "Google",
+      "kind": "research",
+      "title": "Gemini 2.5 Deep Think reaches gold-medal level at ICPC World Finals",
+      "date": "2025-09-17",
+      "url": "https://deepmind.google/discover/blog/gemini-achieves-gold-level-performance-at-the-international-collegiate-programming-contest-world-finals/",
+      "summary": "An advanced Gemini 2.5 Deep Think solved 10 of 12 ICPC World Finals problems, including one no university team solved, placing second-equivalent among university teams.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "google-08",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Jules Tools CLI and Jules API preview",
+      "date": "2025-10-02",
+      "url": "https://blog.google/technology/google-labs/jules-tools-jules-api/",
+      "summary": "Google Labs released Jules Tools, a command-line interface, and opened the Jules API for connecting Jules to CI/CD or Slack-triggered tasks. Also added a memory feature, file selector and environment-variable management.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-09",
+      "company": "Google",
+      "kind": "research",
+      "title": "CodeMender: DeepMind AI agent for automated code security fixes",
+      "date": "2025-10-06",
+      "url": "https://deepmind.google/discover/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "summary": "DeepMind described CodeMender, built on Gemini Deep Think, which upstreamed 72 security fixes to open-source projects in six months. All patches are reviewed by human researchers before submission.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "google-10",
+      "company": "Google",
+      "kind": "partnership",
+      "title": "Gemini CLI extensions launch with partner ecosystem",
+      "date": "2025-10-08",
+      "url": "https://blog.google/technology/developers/gemini-cli-extensions/",
+      "summary": "Gemini CLI extensions launched with partners Dynatrace, Elastic, Figma, Harness, Postman, Shopify, Snyk and Stripe. Google said more than one million developers were building with Gemini CLI three months after launch.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "google-11",
+      "company": "Google",
+      "kind": "market_entry",
+      "title": "Vibe coding experience in Google AI Studio",
+      "date": "2025-10-26",
+      "url": "https://blog.google/technology/developers/introducing-vibe-coding-in-google-ai-studio/",
+      "summary": "Google introduced a redesigned Build experience in AI Studio to go from prompt to working AI app, with an App Gallery, Annotation Mode and bring-your-own-key fallback.",
+      "capability": "app_builder",
+      "verified": true
+    },
+    {
+      "id": "google-12",
+      "company": "Google",
+      "kind": "research",
+      "title": "Gemini 3 launch: 76.2% SWE-bench Verified, 54.2% Terminal-Bench 2.0",
+      "date": "2025-11-18",
+      "url": "https://blog.google/products/gemini/gemini-3/",
+      "summary": "Google reported Gemini 3 scoring 76.2% on SWE-bench Verified and 54.2% on Terminal-Bench 2.0, and called it its best vibe coding and agentic coding model.",
+      "capability": "own_models",
+      "verified": true
+    },
+    {
+      "id": "google-13",
+      "company": "Google",
+      "kind": "market_entry",
+      "title": "Google Antigravity agentic development platform enters public preview",
+      "date": "2025-11-20",
+      "url": "https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/",
+      "summary": "Antigravity launched free for individuals with an Editor View and a Manager Surface for coordinating multiple async agents across editor, terminal and browser, producing reviewable Artifacts. Supports Gemini 3 Pro, Claude Sonnet 4.5 and GPT-OSS.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "google-14",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Jules adds Suggested Tasks, Scheduled Tasks and Render integration",
+      "date": "2025-12-10",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/jules-proactive-updates/",
+      "summary": "Jules gained proactive features: Suggested Tasks (experimental, Pro/Ultra), recurring Scheduled Tasks, and automatic fixes for failed Render deployments. Google's Stitch team runs a daily pod of Jules agents.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-15",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Jules Planning Critic for auto-approved plans",
+      "date": "2026-01-26",
+      "url": "https://jules.google/docs/changelog/2026-01-26-1/",
+      "summary": "Jules added a secondary critic agent that reviews plans run without human approval; Google reports a 9.5% reduction in task failure rates.",
+      "capability": "code_review",
+      "verified": true
+    },
+    {
+      "id": "google-16",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Jules auto-fixes CI failures and can commit as the user",
+      "date": "2026-02-19",
+      "url": "https://jules.google/docs/changelog/2026-02-19/",
+      "summary": "Jules now watches failed GitHub Actions checks on its own PRs and attempts fixes, and users can choose commit attribution (Jules, user, or co-authored).",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-17",
+      "company": "Google",
+      "kind": "talk",
+      "title": "Google I/O 2026 developer keynote: Antigravity 2.0, Antigravity CLI, SDK, Managed Agents",
+      "date": "2026-05-19",
+      "url": "https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/",
+      "summary": "The I/O 2026 developer recap announced Antigravity 2.0 and Antigravity CLI with specialized subagents and terminal sandboxing, an Antigravity SDK, and Managed Agents in the Gemini API (a remote-sandbox agent via one API call).",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "google-18",
+      "company": "Google",
+      "kind": "pricing",
+      "title": "Antigravity plans: $100 Ultra tier added, top Ultra cut from $250 to $200",
+      "date": "2026-05-19",
+      "url": "https://en.wikipedia.org/wiki/Google_Antigravity",
+      "summary": "Per Wikipedia's Antigravity article (secondary source), Antigravity 2.0 launch coincided with a $100/month Ultra plan at 5x Pro limits and a cut of the top Ultra plan from $250 to $200/month.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "google-19",
+      "company": "Google",
+      "kind": "open_source",
+      "title": "Gemini CLI superseded by closed Antigravity CLI; repo stays Apache 2.0",
+      "date": "2026-05-20",
+      "url": "https://www.theregister.com/ai-ml/2026/05/20/bye-bye-gemini-cli-google-nudges-devs-toward-antigravity/5243605",
+      "summary": "The Register reported Gemini CLI and Code Assist IDE extensions stop serving individual/Pro/Ultra users on June 18, 2026; enterprise licence holders are exempt. The Gemini CLI repo remains Apache 2.0, while Antigravity CLI is not open source as published, drawing developer criticism.",
+      "capability": "editor_ux",
+      "verified": true
+    },
+    {
+      "id": "google-20",
+      "company": "Google",
+      "kind": "customer",
+      "title": "Google Cloud AlphaEvolve generally available; BASF, JetBrains, Kinaxis named",
+      "date": "2026-07-09",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/alphaevolve-on-cloud/",
+      "summary": "Google Cloud made AlphaEvolve generally available on Gemini Enterprise Agent Platform after a December 2025 private preview, naming BASF, JetBrains and Kinaxis as early adopters. No quantitative metrics were given.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "google-21",
+      "company": "Google",
+      "kind": "customer",
+      "title": "Alphabet Q2 2026 remarks: Antigravity above 2.4 million weekly active users",
+      "date": "2026-07-22",
+      "url": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/",
+      "summary": "Pichai's Q2 2026 remarks cited over 2.4 million Antigravity weekly active users and a Chrome team on track for 8x faster delivery via model-driven refactoring. Gemini 3.5 Pro was described as in testing.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "google-22",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Antigravity 2.5.0: enterprise sign-in for Gemini Enterprise accounts",
+      "date": "2026-07-31",
+      "url": "https://antigravity.google/docs/changelog/",
+      "summary": "Antigravity desktop v2.5.0 added enterprise sign-in for Gemini Enterprise accounts and Workforce Identity Federation.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "google-23",
+      "company": "Google",
+      "kind": "pricing",
+      "title": "Gemini 3.8 Flash launched with introductory $0.75/$3.75 per M-token pricing",
+      "date": "2026-09-02",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "summary": "Google launched Gemini 3.8 Flash as a coding and agentic model, priced $0.75 input / $3.75 output per million tokens until Dec 31, 2026, then $1.50 / $7.50. Demos were built in Antigravity; a Cyber variant targets vulnerability patching.",
+      "capability": "pricing_business",
+      "verified": true
+    },
+    {
+      "id": "google-24",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Antigravity 2.14.0: new permissions system, terminal and Git for Enterprise",
+      "date": "2026-09-15",
+      "url": "https://antigravity.google/docs/changelog/",
+      "summary": "Antigravity v2.14.0 shipped a new permissions system and terminal and Git support for Enterprise users.",
+      "capability": "enterprise",
+      "verified": true
+    },
+    {
+      "id": "google-25",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Antigravity 2.16.0: live subagent cards",
+      "date": "2026-09-22",
+      "url": "https://antigravity.google/docs/changelog/",
+      "summary": "Desktop v2.16.0 added live subagent cards and WSL support; v2.19.1 (Sept 30) added direct messaging of subagents.",
+      "capability": "multi_agent",
+      "verified": true
+    },
+    {
+      "id": "google-26",
+      "company": "Google",
+      "kind": "changelog",
+      "title": "Gemini API 'antigravity-preview-09-2026' managed agent",
+      "date": "2026-09-24",
+      "url": "https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026",
+      "summary": "Google's model docs list a managed agent that plans, runs code and manages files in a Google-hosted sandboxed Linux environment via the Interactions API, with improved prompt caching, native code search and line-range editing. Date is the page's last-updated date.",
+      "capability": "background_agents",
+      "verified": true
+    },
+    {
+      "id": "google-27",
+      "company": "Google",
+      "kind": "market_entry",
+      "title": "Antigravity app appears on Google Play for Googlebook",
+      "date": "2026-09-30",
+      "url": "https://9to5google.com/2026/09/30/google-antigravity-play-store/",
+      "summary": "9to5Google reported an Android build of Antigravity on Google Play, currently running only on Googlebook OS, alongside the Linux version and Antigravity CLI.",
+      "capability": "editor_ux",
+      "verified": true
+    }
+  ],
+  "timeMachine": [
+    {
+      "announcement": "Gemini API 'antigravity-preview-09-2026' managed agent (sandboxed, runs code and manages files)",
+      "date": "2026-09-24",
+      "url": "https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026",
+      "precedingSignalIds": [
+        "google-08",
+        "google-17",
+        "google-16"
+      ],
+      "why": "Jules API (Oct 2025) and CI auto-fix (Feb 2026) showed Google productizing hosted background agents, and I/O 2026 announced Managed Agents in the Gemini API; the September preview is the matured runtime."
+    },
+    {
+      "announcement": "Antigravity 2.14.0 brings terminal and Git for Enterprise with a new permissions system",
+      "date": "2026-09-15",
+      "url": "https://antigravity.google/docs/changelog/",
+      "precedingSignalIds": [
+        "google-19",
+        "google-22",
+        "google-20"
+      ],
+      "why": "Google kept enterprise customers on legacy tools at the May transition, then added enterprise sign-in in July; September closed the feature gap with terminal and Git support for Enterprise."
+    }
+  ]
+}

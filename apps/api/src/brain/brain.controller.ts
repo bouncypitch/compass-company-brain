@@ -1,7 +1,9 @@
-import { Controller, Get, HttpCode, HttpStatus, Param, Post, Query, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Query, Request, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import {
   AcceptRecommendationResult,
+  AskResult,
+  TopologyResult,
   BrainPerson,
   CompassResult,
   RadarResult,
@@ -11,6 +13,7 @@ import {
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { EmailVerifiedGuard } from '../auth/email-verified.guard';
 import { BrainService } from './brain.service';
+import { AskDto } from './dto/ask.dto';
 
 /** Company brain routes, scoped to an organization like every other vertical. */
 @ApiTags('brain')
@@ -76,5 +79,18 @@ export class BrainController {
     @Query('refresh') refresh?: string,
   ): Promise<CompassResult> {
     return this.brainService.getCompass(req.user.sub, organizationId, employeeId, refresh === 'true');
+  }
+
+  @Get('topology')
+  @ApiOperation({ summary: 'Company knowledge graph: people, teams, goals, roadmap, code, conversations' })
+  topology(@Request() req: { user: TokenPayload }, @Param('organizationId') organizationId: string): Promise<TopologyResult> {
+    return this.brainService.topology(req.user.sub, organizationId);
+  }
+
+  @Post('ask')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Ask the company brain (HydraDB retrieval + topology + Claude)' })
+  ask(@Request() req: { user: TokenPayload }, @Param('organizationId') organizationId: string, @Body() body: AskDto): Promise<AskResult> {
+    return this.brainService.ask(req.user.sub, organizationId, body.question);
   }
 }
