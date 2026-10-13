@@ -6,9 +6,9 @@
 
 Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB**, **Claude** and **App-Starter**.
 
-[**▶ Watch the demo video**](https://github.com/bouncypitch/compass-company-brain/releases/latest) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [Jordan's journey](https://bouncypitch.github.io/compass-company-brain/journey/) · [Keynote deck](https://bouncypitch.github.io/compass-company-brain/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
+[**▶ Watch the demo video**](https://youtu.be/B5Cdtfa5Ykk) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [Jordan's journey](https://bouncypitch.github.io/compass-company-brain/journey/) · [Keynote deck](https://bouncypitch.github.io/compass-company-brain/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
-<a href="https://github.com/bouncypitch/compass-company-brain/releases/latest"><img src="docs/media/thumbnail.png" alt="Compass demo video" width="860"></a>
+<a href="https://youtu.be/B5Cdtfa5Ykk"><img src="docs/media/youtube-thumbnail.png" alt="Compass demo video" width="860"></a>
 
 </div>
 
@@ -18,7 +18,7 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 | | |
 |---|---|
-| **▶ Demo video (4:39)** | [Compass-demo.mp4](https://github.com/bouncypitch/compass-company-brain/releases/latest/download/Compass-demo.mp4), on the [releases page](https://github.com/bouncypitch/compass-company-brain/releases/latest) |
+| **▶ Demo video (4:39)** | [Watch on YouTube](https://youtu.be/B5Cdtfa5Ykk), or download the [MP4](https://github.com/bouncypitch/compass-company-brain/releases/latest/download/Compass-demo.mp4) |
 | **🌐 Live demo** | [bouncypitch.github.io/compass-company-brain](https://bouncypitch.github.io/compass-company-brain/). Static and no login: click, hover and drag everything. |
 | **🧭 Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-company-brain/journey/), step by step |
 | **🎤 Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-company-brain/deck/). Use ← → to navigate. |

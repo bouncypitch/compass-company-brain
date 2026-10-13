@@ -7,7 +7,7 @@
 - **Live demo (static, no login):** https://bouncypitch.github.io/compass-company-brain/
   - Keynote deck: https://bouncypitch.github.io/compass-company-brain/deck/
   - Jordan's journey: https://bouncypitch.github.io/compass-company-brain/journey/
-- **Demo video:** YouTube link (paste here after upload); MP4 also at https://github.com/bouncypitch/compass-company-brain/releases/latest
+- **Demo video:** https://youtu.be/B5Cdtfa5Ykk (MP4 also at https://github.com/bouncypitch/compass-company-brain/releases/latest)
 - **Gallery images:** `docs/gallery/01…15.png` (1800×1200, 3:2)
 - **Built with:** HydraDB, Claude (Opus 5.5), App-Starter, NestJS, Next.js, PostgreSQL, Redis, React Flow, ElevenLabs, whisper.cpp, Playwright, TypeScript
 
