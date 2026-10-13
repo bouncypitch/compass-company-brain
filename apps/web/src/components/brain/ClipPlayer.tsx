@@ -6,6 +6,10 @@ import type { BrainTalkClip } from '@app-starter/shared';
 
 const fmt = (s: number): string => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
+// A static export served under a base path (GitHub Pages) sets NEXT_PUBLIC_BASE_PATH;
+// the web app leaves it unset and serves the recording from the site root.
+const TALK_SRC = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/talk.mp3`;
+
 /** Plays one cited moment of the hackathon talk recording, from its start second. */
 export const ClipPlayer = ({ clip }: { clip: BrainTalkClip }) => {
   const audio = useRef<HTMLAudioElement>(null);
@@ -40,7 +44,7 @@ export const ClipPlayer = ({ clip }: { clip: BrainTalkClip }) => {
       </div>
       <audio
         ref={audio}
-        src="/talk.mp3"
+        src={TALK_SRC}
         preload="none"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
