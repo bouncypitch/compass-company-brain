@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 1400 } });
+await p.goto('https://github.com/bouncypitch/compass-company-brain', { waitUntil: 'networkidle' });
+const el = p.locator('article.markdown-body').first();
+await el.evaluate((e) => e.scrollIntoView());
+await p.waitForTimeout(1500);
+await p.screenshot({ path: 'checkpoints/gh-readme-1.png' });
+await p.mouse.wheel(0, 1300);
+await p.waitForTimeout(1200);
+await p.screenshot({ path: 'checkpoints/gh-readme-2.png' });
+await b.close();

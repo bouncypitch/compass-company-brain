@@ -8,7 +8,7 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 [**▶ Watch the demo video**](https://youtu.be/B5Cdtfa5Ykk) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [Jordan's journey](https://bouncypitch.github.io/compass-company-brain/journey/) · [Keynote deck](https://bouncypitch.github.io/compass-company-brain/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
-<a href="https://youtu.be/B5Cdtfa5Ykk"><img src="docs/media/youtube-thumbnail.png" alt="Compass demo video" width="860"></a>
+<a href="https://youtu.be/B5Cdtfa5Ykk"><img src="docs/media/video-thumbnail.png" alt="Watch the Compass demo video" width="860"></a>
 
 </div>
 
@@ -16,13 +16,13 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 ## Try it
 
-| | |
+| Try it | Link |
 |---|---|
-| **▶ Demo video (4:39)** | [Watch on YouTube](https://youtu.be/B5Cdtfa5Ykk), or download the [MP4](https://github.com/bouncypitch/compass-company-brain/releases/latest/download/Compass-demo.mp4) |
-| **🌐 Live demo** | [bouncypitch.github.io/compass-company-brain](https://bouncypitch.github.io/compass-company-brain/). Static and no login: click, hover and drag everything. |
-| **🧭 Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-company-brain/journey/), step by step |
-| **🎤 Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-company-brain/deck/). Use ← → to navigate. |
-| **📝 Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery. The [one-page PDF](docs/Compass-one-pager.pdf) gives the overview. |
+| **Demo video (4:39)** | [Watch on YouTube](https://youtu.be/B5Cdtfa5Ykk), or download the [MP4](https://github.com/bouncypitch/compass-company-brain/releases/latest/download/Compass-demo.mp4) |
+| **Live demo** | [bouncypitch.github.io/compass-company-brain](https://bouncypitch.github.io/compass-company-brain/). Static and no login: click, hover and drag everything. |
+| **Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-company-brain/journey/), step by step |
+| **Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-company-brain/deck/). Use ← → to navigate. |
+| **Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery. The [one-page PDF](docs/Compass-one-pager.pdf) gives the overview. |
 
 > The hosted demo runs on a snapshot of real results (radar, time machine, promotion plan, company graph, drafted PR, Ask answers). Live answers to brand-new questions need the backend. See [Run it locally](#run-it-locally).
 
@@ -32,7 +32,7 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 1. **Where you stand:** the career ladder and Jordan's reviews give 40% readiness, with one clear gap.
 2. **Why now:** the market moved. The 235-signal heatmap shows 5 of 7 competitors converging on codebase memory, and the time machine shows it predicted their launches.
-3. **The opportunity:** R-14 Agent memory has no owner, blocks 5 goals and a $610K renewal, and lives in code Jordan already owns.
+3. **The opportunity:** R-14 Agent memory has no owner, blocks 7 goals and a $610K renewal, and lives in code Jordan already owns.
 4. **Make it yours:** one click claims R-14, writes the decision into HydraDB and drafts the PR.
 5. **Your 90 days, and who to talk to:** a dated plan, plus Jordan's live company graph (drag it around).
 
@@ -54,11 +54,11 @@ Compass connects three things no single person can see at once:
 
 ## What it does
 
-| | |
+| Feature | What it does |
 |---|---|
 | **Radar** | Tracks **7 real AI-coding competitors** (Cursor, Cognition, GitHub Copilot, Replit, OpenAI Codex, Google, Amazon) through **235 verified public signals** — launches, hiring, leadership changes, government contracts, research papers, acquisitions, market entries, pricing. Every signal links to its source. Predicts each competitor's next move with confidence and finds industry-wide patterns. |
 | **Time machine** | Hides every signal after Aug 1, predicts, then reveals what actually shipped. It called Cursor's Rollouts/Security Review, Google's Antigravity enterprise push and Replit's governance tools — weeks early. |
-| **Strategy → pull request** | Maps market moves onto the (fictional) startup Forgeline's roadmap, KRs and code: *"R-14 Agent memory is unowned and blocks 5 goals and a $610K renewal."* One click writes the decision back into HydraDB and drafts a 4-file PR against the real codebase. |
+| **Strategy → pull request** | Maps market moves onto the (fictional) startup Forgeline's roadmap, KRs and code: *"R-14 Agent memory is unowned and blocks 7 goals and a $610K renewal."* One click writes the decision back into HydraDB and drafts a 4-file PR against the real codebase. |
 | **Compass (promotion coach)** | For any engineer: ladder gaps with cited evidence, ranked opportunities that close those gaps *and* move the KRs their manager is measured on, people to talk to, and a 90-day plan. |
 | **Ask the brain — by voice** | Ask anything, typed or spoken, and get cited answers with the HydraDB graph paths it followed — including from **today's keynote recording**, with the exact moment playable. |
 | **Company graph** | 25 people, 9 teams, 15 KRs, 18 roadmap items, 15 code modules, conversations, customers and tickets — **267 relationships**, explorable with focus mode. |
