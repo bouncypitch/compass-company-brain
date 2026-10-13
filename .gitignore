@@ -141,3 +141,7 @@ apps/web/public/talk.mp3
 data/external/talk/transcript.json
 data/external/talk/clips.json
 data/external/talk/whisper.log
+demo/video/clips/
+demo/video/out/
+demo/video/audio*/
+demo/video/gallery/raw-*
