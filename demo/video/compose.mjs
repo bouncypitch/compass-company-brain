@@ -9,7 +9,7 @@ import { execFileSync } from 'child_process';
 const [video = 'clips/deck.webm', timelinePath = 'clips/timeline.json', out = 'out/compass-demo.mp4'] = process.argv.slice(2);
 fs.mkdirSync('out', { recursive: true });
 const timeline = JSON.parse(fs.readFileSync(timelinePath, 'utf8'));
-const durations = JSON.parse(fs.readFileSync('audio/durations.json', 'utf8'));
+const durations = JSON.parse(fs.readFileSync(`${process.env.AUDIO_DIR || 'audio'}/durations.json`, 'utf8'));
 const LEAD = 0.5; // narration starts shortly after each slide appears
 // Optional cuts (absolute recording seconds) remove dead air such as waiting on a live API call.
 const cuts = (timeline.cuts ?? []).slice().sort((a, b) => a.from - b.from);

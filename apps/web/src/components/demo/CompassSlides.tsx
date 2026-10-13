@@ -6,18 +6,18 @@ import { cn } from '@/lib/utils';
 import { useDemo } from './DemoContext';
 import { Glass, Rise, SlideFrame, SlideLoading, truncate } from './primitives';
 
-const STATUS_TONE: Record<LevelGap['status'], string> = {
+export const STATUS_TONE: Record<LevelGap['status'], string> = {
   met: 'bg-emerald-500/10 text-emerald-700',
   partial: 'bg-amber-500/10 text-amber-700',
   gap: 'bg-rose-500/10 text-rose-700',
 };
-const STATUS_DOT: Record<LevelGap['status'], string> = {
+export const STATUS_DOT: Record<LevelGap['status'], string> = {
   met: 'bg-emerald-500',
   partial: 'bg-amber-500',
   gap: 'bg-rose-500',
 };
 
-const initials = (name: string): string =>
+export const initials = (name: string): string =>
   name
     .split(/\s+/)
     .map((w) => w[0])
@@ -32,7 +32,7 @@ const splitFirstSentence = (text: string): [string, string] => {
 };
 
 /** "L5 — Staff Engineer (H1 2027 cycle)" → "L5". */
-const levelCode = (level: string): string => level.split(/\s|—/)[0];
+export const levelCode = (level: string): string => level.split(/\s|—/)[0];
 
 export const CompassSlide = () => {
   const { compass } = useDemo();
@@ -126,10 +126,10 @@ export const CompassSlide = () => {
 const MILESTONE_ICONS: LucideIcon[] = [FileText, Users, Rocket, Trophy];
 
 /** "Week 2 (by 10/21 roadmap review)" → "Week 2". */
-const shortWindow = (window: string): string => window.replace(/\s*\(.*\)\s*$/, '');
+export const shortWindow = (window: string): string => window.replace(/\s*\(.*\)\s*$/, '');
 
 /** First clause of a milestone, kept to a glanceable length. */
-const shortMilestone = (milestone: string): string => {
+export const shortMilestone = (milestone: string): string => {
   const sentence = milestone.split(/(?<=\.)\s/)[0].replace(/\.$/, '');
   // Prefer a natural clause break (colon, dash, bracket) over a mid-phrase cut.
   const clause = sentence

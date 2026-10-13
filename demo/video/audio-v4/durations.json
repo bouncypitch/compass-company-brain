@@ -1,0 +1,50 @@
+{
+  "title": {
+    "file": "audio-v4/00-title.mp3",
+    "duration": 5.34059
+  },
+  "keynote": {
+    "file": "audio-v4/01-keynote.mp3",
+    "duration": 5.665669
+  },
+  "keynote2": {
+    "file": "audio-v4/02-keynote2.mp3",
+    "duration": 6.130068
+  },
+  "ask": {
+    "file": "audio-v4/03-ask.mp3",
+    "duration": 7.941224
+  },
+  "standing": {
+    "file": "audio-v4/04-standing.mp3",
+    "duration": 16.718367
+  },
+  "market": {
+    "file": "audio-v4/05-market.mp3",
+    "duration": 13.096054
+  },
+  "converge": {
+    "file": "audio-v4/06-converge.mp3",
+    "duration": 12.120816
+  },
+  "opportunity": {
+    "file": "audio-v4/07-opportunity.mp3",
+    "duration": 12.956735
+  },
+  "claim": {
+    "file": "audio-v4/08-claim.mp3",
+    "duration": 9.334422
+  },
+  "plan": {
+    "file": "audio-v4/09-plan.mp3",
+    "duration": 8.544943
+  },
+  "people": {
+    "file": "audio-v4/10-people.mp3",
+    "duration": 12.399456
+  },
+  "done": {
+    "file": "audio-v4/11-done.mp3",
+    "duration": 7.616145
+  }
+}

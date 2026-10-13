@@ -1,0 +1,14 @@
+[
+  {"id":"title","text":"This is Compass. A company brain that doesn't just answer questions. It acts."},
+  {"id":"keynote","text":"This afternoon's keynote set the bar for a company brain. So let's ask Compass what it said."},
+  {"id":"keynote2","text":"Not just answer, but act. So we built a brain that acts, for every engineer. Meet Jordan."},
+  {"id":"ask","text":"Jordan is a senior engineer on the Platform team, and asks the question every engineer asks. How do I get promoted to Staff?"},
+  {"id":"standing","text":"Compass starts with where Jordan stands. It reads the career ladder and Jordan's own reviews. Strong technical depth, but the calibration committee named three gaps: cross-team leadership, a design doc other teams adopt, and impact measured in business outcomes."},
+  {"id":"market","text":"Then it looks outside. Compass tracks seven real competitors through two hundred and thirty-five verified public signals. Hover over any cell, and you see the actual launches, hires and contracts behind it."},
+  {"id":"converge","text":"Five of seven are converging on codebase memory. And Compass has earned some trust: with data only up to August first, it predicted moves that Cursor, Google and Replit shipped weeks later."},
+  {"id":"opportunity","text":"Back inside Forgeline, the matching roadmap item, R-14, has no owner. It blocks five goals, and a six-hundred-and-ten-thousand-dollar renewal. And it lives in code Jordan already owns."},
+  {"id":"claim","text":"So Jordan claims it. One click writes the decision into the company brain in HydraDB, and drafts the first pull request against the real codebase."},
+  {"id":"plan","text":"Compass turns that into a ninety-day plan. A one-pager this week, an RFC before the roadmap sync, and shipped results by January."},
+  {"id":"people","text":"And it shows Jordan who to talk to. Priya, Jordan's manager, is measured on these goals. Sam owns the agent loop. Grace reviews the RFC. It's the company graph, live, and you can pull it apart."},
+  {"id":"done","text":"From a competitor's launch, to the roadmap, to Jordan's promotion. Compass. Built with HydraDB, Claude, and App-Starter."}
+]

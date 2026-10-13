@@ -7,6 +7,8 @@ import {
   type BrainCapability,
   type BrainSignal,
   type CompetitorMove,
+  type IndustryPattern,
+  type RadarResult,
   type TimeMachineReveal,
 } from '@app-starter/shared';
 import { cn } from '@/lib/utils';
@@ -39,7 +41,16 @@ interface ActiveCell {
   colIndex: number;
 }
 
-export const LandscapeSlide = () => {
+export const LandscapeSlide = () => (
+  <SlideFrame title="Where everyone is moving.">
+    <Rise delay={120} className="h-full">
+      <LandscapeHeatmap />
+    </Rise>
+  </SlideFrame>
+);
+
+/** Capability × competitor heatmap with signal popovers; `highlight` accents one row. */
+export const LandscapeHeatmap = ({ highlight }: { highlight?: BrainCapability }) => {
   const { radar } = useDemo();
   const [active, setActive] = useState<ActiveCell | null>(null);
   const data = radar.data;
@@ -75,75 +86,83 @@ export const LandscapeSlide = () => {
   };
 
   return (
-    <SlideFrame title="Where everyone is moving.">
-      <Rise delay={120} className="h-full">
-        <Glass className="relative h-full px-8 py-6">
-          <div
-            role="grid"
-            aria-label="Signals by capability and competitor"
-            className="grid h-full gap-2"
-            style={{
-              gridTemplateColumns: `200px repeat(${companies.length}, minmax(0, 1fr))`,
-              gridTemplateRows: `auto repeat(${capabilities.length}, minmax(0, 1fr))`,
-            }}
-            onMouseLeave={() => setActive(null)}
-          >
-            <div role="row" className="contents">
-              <div role="columnheader" />
-              {companies.map((c) => (
-                <div
-                  role="columnheader"
-                  key={c}
-                  className="flex items-center justify-center gap-2 pb-1 text-[15px] font-semibold text-neutral-700"
-                >
-                  <CompanyDot company={c} className="h-2 w-2" />
-                  <span className="truncate">{c}</span>
-                </div>
-              ))}
+    <Glass className="relative h-full px-8 py-6">
+      <div
+        role="grid"
+        aria-label="Signals by capability and competitor"
+        className="grid h-full gap-2"
+        style={{
+          gridTemplateColumns: `200px repeat(${companies.length}, minmax(0, 1fr))`,
+          gridTemplateRows: `auto repeat(${capabilities.length}, minmax(0, 1fr))`,
+        }}
+        onMouseLeave={() => setActive(null)}
+      >
+        <div role="row" className="contents">
+          <div role="columnheader" />
+          {companies.map((c) => (
+            <div
+              role="columnheader"
+              key={c}
+              className="flex items-center justify-center gap-2 pb-1 text-[15px] font-semibold text-neutral-700"
+            >
+              <CompanyDot company={c} className="h-2 w-2" />
+              <span className="truncate">{c}</span>
             </div>
-            {capabilities.map((cap, rowIndex) => (
-              <div role="row" key={cap} className="contents">
-                <div
-                  role="rowheader"
-                  className="flex items-center text-[16px] font-medium text-neutral-600"
-                >
+          ))}
+        </div>
+        {capabilities.map((cap, rowIndex) => (
+          <div role="row" key={cap} className="contents">
+            <div
+              role="rowheader"
+              className={cn(
+                'flex items-center text-[16px] font-medium text-neutral-600',
+                cap === highlight && 'font-semibold text-indigo-700',
+              )}
+            >
+              {cap === highlight ? (
+                <span className="-ml-3 rounded-full bg-indigo-500/10 px-3 py-1 ring-1 ring-indigo-500/25">
                   {BRAIN_CAPABILITY_LABELS[cap]}
-                </div>
-                {companies.map((company, colIndex) => {
-                  const cell = data.landscape.find(
-                    (c) => c.capability === cap && c.company === company,
-                  );
-                  const count = cell?.signalIds.length ?? 0;
-                  const strength = Math.min(3, cell?.strength ?? 0);
-                  const isOpen = active?.capability === cap && active.company === company;
-                  return (
-                    <button
-                      key={company}
-                      type="button"
-                      role="gridcell"
-                      aria-label={`${company}, ${BRAIN_CAPABILITY_LABELS[cap]}: ${count} signals`}
-                      onMouseEnter={() => handleOpen(cap, company, rowIndex, colIndex)}
-                      onFocus={() => handleOpen(cap, company, rowIndex, colIndex)}
-                      onClick={() => handleOpen(cap, company, rowIndex, colIndex)}
-                      className={cn(
-                        'flex items-center justify-center rounded-2xl text-[20px] font-semibold tabular-nums outline-none transition duration-200 hover:scale-[1.04] focus-visible:ring-2 focus-visible:ring-indigo-400',
-                        CELL[strength],
-                        isOpen && 'scale-[1.06] ring-2 ring-white',
-                      )}
-                    >
-                      {count || '·'}
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
+                </span>
+              ) : (
+                BRAIN_CAPABILITY_LABELS[cap]
+              )}
+            </div>
+            {companies.map((company, colIndex) => {
+              const cell = data.landscape.find(
+                (c) => c.capability === cap && c.company === company,
+              );
+              const count = cell?.signalIds.length ?? 0;
+              const strength = Math.min(3, cell?.strength ?? 0);
+              const isOpen = active?.capability === cap && active.company === company;
+              return (
+                <button
+                  key={company}
+                  type="button"
+                  role="gridcell"
+                  aria-label={`${company}, ${BRAIN_CAPABILITY_LABELS[cap]}: ${count} signals`}
+                  onMouseEnter={() => handleOpen(cap, company, rowIndex, colIndex)}
+                  onFocus={() => handleOpen(cap, company, rowIndex, colIndex)}
+                  onClick={() => handleOpen(cap, company, rowIndex, colIndex)}
+                  className={cn(
+                    'flex items-center justify-center rounded-2xl text-[20px] font-semibold tabular-nums outline-none transition duration-200 hover:scale-[1.04] focus-visible:ring-2 focus-visible:ring-indigo-400',
+                    CELL[strength],
+                    cap === highlight &&
+                      count > 0 &&
+                      'ring-2 ring-indigo-400/50 ring-offset-2 ring-offset-white/60',
+                    isOpen && 'scale-[1.06] ring-2 ring-white',
+                  )}
+                >
+                  {count || '·'}
+                </button>
+              );
+            })}
           </div>
-          {active ? (
-            <CellPopover cell={active} rows={capabilities.length} cols={companies.length} />
-          ) : null}
-        </Glass>
-      </Rise>
-    </SlideFrame>
+        ))}
+      </div>
+      {active ? (
+        <CellPopover cell={active} rows={capabilities.length} cols={companies.length} />
+      ) : null}
+    </Glass>
   );
 };
 
@@ -185,17 +204,61 @@ const CellPopover = ({ cell, rows, cols }: { cell: ActiveCell; rows: number; col
   );
 };
 
-export const ConvergenceSlide = () => {
-  const { radar } = useDemo();
-  const data = radar.data;
-  if (!data) return <SlideLoading />;
+/** The pattern behind our top gap (fallback: the widest one) and every tracked company. */
+export const pickConvergence = (
+  data: RadarResult,
+): { pattern: IndustryPattern; all: string[] } | null => {
   // Lead with the capability behind our top gap; fall back to the widest pattern.
   const focusCap = data.gaps[0]?.capability;
   const pattern =
     data.patterns.find((p) => p.capability === focusCap) ??
     [...data.patterns].sort((a, b) => b.companies.length - a.companies.length)[0];
-  if (!pattern) return <SlideLoading label="No patterns yet" />;
-  const all = [...new Set(data.landscape.map((c) => c.company))];
+  if (!pattern) return null;
+  return { pattern, all: [...new Set(data.landscape.map((c) => c.company))] };
+};
+
+export const ConvergenceSlide = () => {
+  const { radar } = useDemo();
+  const data = radar.data;
+  if (!data) return <SlideLoading />;
+  const picked = pickConvergence(data);
+  if (!picked) return <SlideLoading label="No patterns yet" />;
+  const { pattern, all } = picked;
+  const capLabel = BRAIN_CAPABILITY_LABELS[pattern.capability];
+
+  return (
+    <SlideFrame
+      title={
+        <>
+          <span className="demo-gradient-text">
+            {pattern.companies.length} of {all.length}
+          </span>{' '}
+          are converging on {capLabel.toLowerCase()}.
+        </>
+      }
+    >
+      <div className="flex h-full flex-col">
+        <ConvergenceRing pattern={pattern} all={all} className="max-w-[1000px] flex-1" />
+        <Rise delay={900}>
+          <p className="mx-auto mt-4 max-w-[1000px] text-center text-[20px] leading-snug text-neutral-500">
+            {leadSentence(pattern.summary, 120)}
+          </p>
+        </Rise>
+      </div>
+    </SlideFrame>
+  );
+};
+
+/** Radial diagram: converging companies flow into the capability at the centre. */
+export const ConvergenceRing = ({
+  pattern,
+  all,
+  className,
+}: {
+  pattern: IndustryPattern;
+  all: string[];
+  className?: string;
+}) => {
   const converging = new Set(pattern.companies);
   const capLabel = BRAIN_CAPABILITY_LABELS[pattern.capability];
   // Converging companies first so they sit across the top of the ring.
@@ -217,101 +280,83 @@ export const ConvergenceSlide = () => {
   });
 
   return (
-    <SlideFrame
-      title={
-        <>
-          <span className="demo-gradient-text">
-            {pattern.companies.length} of {all.length}
-          </span>{' '}
-          are converging on {capLabel.toLowerCase()}.
-        </>
-      }
-    >
-      <div className="flex h-full flex-col">
-        <div className="relative mx-auto min-h-0 w-full max-w-[1000px] flex-1">
-          <svg
-            aria-hidden
-            className="absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <ellipse
-              cx={cx}
-              cy={cy}
-              rx={40}
-              ry={40}
-              fill="none"
-              stroke="#6366f1"
-              strokeOpacity={0.08}
-              strokeWidth={1}
-              vectorEffect="non-scaling-stroke"
-            />
-            {points.map((p, i) =>
-              p.isIn ? (
-                <g key={p.company}>
-                  <line
-                    x1={p.x}
-                    y1={p.y}
-                    x2={cx}
-                    y2={cy}
-                    className="demo-fade"
-                    style={{ '--d': `${300 + i * 140}ms` } as CSSProperties}
-                    stroke={companyColor(p.company)}
-                    strokeOpacity={0.35}
-                    strokeWidth={2}
-                    vectorEffect="non-scaling-stroke"
-                  />
-                  <line
-                    x1={p.x}
-                    y1={p.y}
-                    x2={cx}
-                    y2={cy}
-                    className="demo-flow"
-                    stroke={companyColor(p.company)}
-                    strokeWidth={2.5}
-                    strokeLinecap="round"
-                    vectorEffect="non-scaling-stroke"
-                  />
-                </g>
-              ) : null,
-            )}
-          </svg>
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="demo-glow flex h-[176px] w-[176px] flex-col items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-pink-500 px-4 text-center text-white">
-              <span className="text-[24px] font-semibold leading-tight tracking-[-0.02em]">
-                {capLabel}
-              </span>
-            </div>
-          </div>
-          {points.map((p, i) => (
-            <div
-              key={p.company}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${p.x}%`, top: `${p.y}%` }}
-            >
-              <Rise delay={200 + i * 110}>
-                <span
-                  className={cn(
-                    'flex items-center gap-2.5 whitespace-nowrap rounded-full border px-5 py-2.5 text-[19px] font-semibold shadow-[0_8px_24px_-12px_rgba(15,23,42,0.3)]',
-                    p.isIn
-                      ? 'border-black/[0.05] bg-white text-neutral-800'
-                      : 'border-dashed border-black/10 bg-white/40 text-neutral-400 shadow-none',
-                  )}
-                >
-                  <CompanyDot company={p.company} className={cn(!p.isIn && 'opacity-30')} />
-                  {p.company}
-                </span>
-              </Rise>
-            </div>
-          ))}
+    <div className={cn('relative mx-auto min-h-0 w-full', className)}>
+      <svg
+        aria-hidden
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <ellipse
+          cx={cx}
+          cy={cy}
+          rx={40}
+          ry={40}
+          fill="none"
+          stroke="#6366f1"
+          strokeOpacity={0.08}
+          strokeWidth={1}
+          vectorEffect="non-scaling-stroke"
+        />
+        {points.map((p, i) =>
+          p.isIn ? (
+            <g key={p.company}>
+              <line
+                x1={p.x}
+                y1={p.y}
+                x2={cx}
+                y2={cy}
+                className="demo-fade"
+                style={{ '--d': `${300 + i * 140}ms` } as CSSProperties}
+                stroke={companyColor(p.company)}
+                strokeOpacity={0.35}
+                strokeWidth={2}
+                vectorEffect="non-scaling-stroke"
+              />
+              <line
+                x1={p.x}
+                y1={p.y}
+                x2={cx}
+                y2={cy}
+                className="demo-flow"
+                stroke={companyColor(p.company)}
+                strokeWidth={2.5}
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+              />
+            </g>
+          ) : null,
+        )}
+      </svg>
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="demo-glow flex h-[176px] w-[176px] flex-col items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-pink-500 px-4 text-center text-white">
+          <span className="text-[24px] font-semibold leading-tight tracking-[-0.02em]">
+            {capLabel}
+          </span>
         </div>
-        <Rise delay={900}>
-          <p className="mx-auto mt-4 max-w-[1000px] text-center text-[20px] leading-snug text-neutral-500">
-            {leadSentence(pattern.summary, 120)}
-          </p>
-        </Rise>
       </div>
-    </SlideFrame>
+      {points.map((p, i) => (
+        <div
+          key={p.company}
+          className="absolute -translate-x-1/2 -translate-y-1/2"
+          style={{ left: `${p.x}%`, top: `${p.y}%` }}
+        >
+          <Rise delay={200 + i * 110}>
+            <span
+              className={cn(
+                'flex items-center gap-2.5 whitespace-nowrap rounded-full border px-5 py-2.5 text-[19px] font-semibold shadow-[0_8px_24px_-12px_rgba(15,23,42,0.3)]',
+                p.isIn
+                  ? 'border-black/[0.05] bg-white text-neutral-800'
+                  : 'border-dashed border-black/10 bg-white/40 text-neutral-400 shadow-none',
+              )}
+            >
+              <CompanyDot company={p.company} className={cn(!p.isIn && 'opacity-30')} />
+              {p.company}
+            </span>
+          </Rise>
+        </div>
+      ))}
+    </div>
   );
 };
 
@@ -350,7 +395,11 @@ const tokens = (text: string): Set<string> =>
   );
 
 /** Best-matching (prediction, reveal) pair per company, strongest matches first. */
-const pairPredictions = (moves: CompetitorMove[], reveals: TimeMachineReveal[], limit: number) => {
+export const pairPredictions = (
+  moves: CompetitorMove[],
+  reveals: TimeMachineReveal[],
+  limit: number,
+) => {
   const best = new Map<
     string,
     { move: CompetitorMove; reveal: TimeMachineReveal; score: number }

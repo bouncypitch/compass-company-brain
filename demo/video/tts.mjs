@@ -5,11 +5,12 @@ dotenv.config({ path: '../../apps/api/.env' });
 const key = process.env.ELEVENLABS_API_KEY;
 const voice = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const only = process.argv.slice(2);
-fs.mkdirSync('audio', { recursive: true });
-const lines = JSON.parse(fs.readFileSync('narration.json', 'utf8'));
+const DIR = process.env.AUDIO_DIR || 'audio';
+fs.mkdirSync(DIR, { recursive: true });
+const lines = JSON.parse(fs.readFileSync(process.env.NARRATION || 'narration.json', 'utf8'));
 const out = {};
 for (const [i, l] of lines.entries()) {
-  const file = `audio/${String(i).padStart(2, '0')}-${l.id}.mp3`;
+  const file = `${DIR}/${String(i).padStart(2, '0')}-${l.id}.mp3`;
   if (!only.length || only.includes(l.id) || !fs.existsSync(file)) {
     const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice}?output_format=mp3_44100_128`, {
       method: 'POST',
@@ -23,5 +24,5 @@ for (const [i, l] of lines.entries()) {
   out[l.id] = { file, duration: dur };
   console.log(l.id.padEnd(12), dur.toFixed(1) + 's');
 }
-fs.writeFileSync('audio/durations.json', JSON.stringify(out, null, 2));
+fs.writeFileSync(`${DIR}/durations.json`, JSON.stringify(out, null, 2));
 console.log('total', Object.values(out).reduce((s, x) => s + x.duration, 0).toFixed(1) + 's');

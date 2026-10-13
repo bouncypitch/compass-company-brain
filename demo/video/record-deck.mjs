@@ -10,7 +10,7 @@ import { BASE, login } from '../lib.mjs';
 const OUT = path.resolve('clips');
 fs.mkdirSync(OUT, { recursive: true });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const durations = JSON.parse(fs.readFileSync('audio/durations.json', 'utf8'));
+const durations = JSON.parse(fs.readFileSync(`${process.env.AUDIO_DIR || 'audio'}/durations.json`, 'utf8'));
 const ORDER = ['title', 'example', 'problem', 'market', 'landscape', 'convergence', 'timemachine', 'gap', 'story', 'compass', 'plan', 'ask', 'keynote', 'keynote2', 'live', 'live2', 'org', 'close'];
 // Steps that are not deck slides: same page state (keynote2, live2) or the real app (live*).
 const VIRTUAL = new Set(['keynote2', 'live', 'live2']);

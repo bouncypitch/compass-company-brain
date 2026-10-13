@@ -13,13 +13,13 @@ const STEPS = ['Writing to HydraDB…', 'Linking goals & owners…', 'Drafting P
 const STEP_MS = 9000;
 
 /** "R-14 Agent memory" → ["R-14", "Agent memory"]. */
-const splitRoadmap = (item: string): [string, string] => {
+export const splitRoadmap = (item: string): [string, string] => {
   const idx = item.indexOf(' ');
   return idx < 0 ? [item, ''] : [item.slice(0, idx), item.slice(idx + 1)];
 };
 
 /** "forgeline-core/ingest/ (repoIndexer, fileWatcher)" → "forgeline-core/ingest/". */
-const shortPath = (path: string): string => path.replace(/\s*\(.*\)\s*$/, '');
+export const shortPath = (path: string): string => path.replace(/\s*\(.*\)\s*$/, '');
 
 export const GapSlide = () => {
   const { radar, organizationId } = useDemo();
@@ -218,12 +218,15 @@ const lineTone = (line: string): string => {
   return 'text-neutral-600';
 };
 
-const DiffCard = ({
+/** Draft-PR diff with file tabs; `indexingLabel` overrides the status pill text. */
+export const DiffCard = ({
   result,
   indexing,
+  indexingLabel,
 }: {
   result: AcceptRecommendationResult;
   indexing: string;
+  indexingLabel?: string;
 }) => {
   const [tab, setTab] = useState(0);
   const file = result.diff[tab] ?? result.diff[0];
@@ -241,7 +244,7 @@ const DiffCard = ({
           )}
         >
           {isIndexed ? null : <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
-          Saved to brain ✓ indexing: {indexing}
+          {indexingLabel ?? `Saved to brain ✓ indexing: ${indexing}`}
         </span>
       </div>
       <div

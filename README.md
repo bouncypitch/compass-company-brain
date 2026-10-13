@@ -1,256 +1,142 @@
-# App Starter
+<div align="center">
 
-A multi-tenant SaaS starter. NestJS and Next.js in a Turborepo, with the parts
-every SaaS needs already wired together: authentication, organizations with
-roles and invites, per-tenant custom domains, and a notification engine.
+# Compass
 
-Billing is deliberately not included — payment provider and pricing model vary
-too much between products for a starter to choose for you.
+### The company brain that turns market moves into roadmaps — and roadmaps into promotions.
 
-It ships with one small example vertical — Projects — so the patterns are
-visible end to end without burying them in a domain you have to delete.
+Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB**, **Claude** and **App-Starter**.
 
-## What you get
+[**▶ Watch the demo video**](https://github.com/bouncypitch/compass-company-brain/releases/latest) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
-|                    |                                                                                   |
-| ------------------ | --------------------------------------------------------------------------------- |
-| **Auth**           | Email + password, OTP, Google OAuth, email verification, JWT with refresh cookies |
-| **Multi-tenancy**  | Organizations with `OWNER` / `ADMIN` / `MEMBER`, invite links, member management  |
-| **Custom domains** | Per-tenant domains with DNS verification and white-label branding                 |
-| **Notifications**  | Email and in-app, with per-user channel preferences                               |
-| **Admin**          | User search, quarantine, and impersonation — both fully audited                   |
-| **Storage**        | Provider interface with local and S3/R2 implementations                           |
+<a href="https://github.com/bouncypitch/compass-company-brain/releases/latest"><img src="docs/media/thumbnail.png" alt="Compass demo video" width="860"></a>
 
-## Requirements
+</div>
 
-- Node 22+ (`.nvmrc` pins it)
-- pnpm 8+
-- Docker with Compose, or Podman — PostgreSQL and Redis are both required, and
-  `docker compose` runs them for you
+---
 
-## Setup
+## The idea
 
-```bash
-git clone <this-repo>
-cd app-starter
-pnpm bootstrap
+Every company already has a brain. It's just scattered — across Slack, roadmaps, code, performance reviews and the market outside. And every engineer asks the same question: **"what should I work on to get promoted?"**
+
+Compass connects three things no single person can see at once:
+
+1. **The market** — what competitors are actually shipping, hiring for and winning.
+2. **The company** — goals, KRs, roadmap, code ownership, conversations and customers.
+3. **The person** — the career ladder and each engineer's own reviews and strengths.
+
+…and then it **acts**: it finds the unowned work that matters, drafts the pull request, and tells each engineer which piece is their path to the next level.
+
+<p align="center"><img src="docs/media/example.gif" alt="A real example: a competitor signal becomes a roadmap gap, a pull request and a promotion path" width="860"></p>
+
+## What it does
+
+| | |
+|---|---|
+| **Radar** | Tracks **7 real AI-coding competitors** (Cursor, Cognition, GitHub Copilot, Replit, OpenAI Codex, Google, Amazon) through **235 verified public signals** — launches, hiring, leadership changes, government contracts, research papers, acquisitions, market entries, pricing. Every signal links to its source. Predicts each competitor's next move with confidence and finds industry-wide patterns. |
+| **Time machine** | Hides every signal after Aug 1, predicts, then reveals what actually shipped. It called Cursor's Rollouts/Security Review, Google's Antigravity enterprise push and Replit's governance tools — weeks early. |
+| **Strategy → pull request** | Maps market moves onto the (fictional) startup Forgeline's roadmap, KRs and code: *"R-14 Agent memory is unowned and blocks 5 goals and a $610K renewal."* One click writes the decision back into HydraDB and drafts a 4-file PR against the real codebase. |
+| **Compass (promotion coach)** | For any engineer: ladder gaps with cited evidence, ranked opportunities that close those gaps *and* move the KRs their manager is measured on, people to talk to, and a 90-day plan. |
+| **Ask the brain — by voice** | Ask anything, typed or spoken, and get cited answers with the HydraDB graph paths it followed — including from **today's keynote recording**, with the exact moment playable. |
+| **Company graph** | 25 people, 9 teams, 15 KRs, 18 roadmap items, 15 code modules, conversations, customers and tickets — **267 relationships**, explorable with focus mode. |
+
+<p align="center">
+  <img src="docs/media/convergence.gif" width="49%" alt="5 of 7 competitors converging on codebase memory">
+  <img src="docs/media/time-machine.png" width="49%" alt="Time machine: predicted vs shipped">
+</p>
+<p align="center">
+  <img src="docs/media/story.png" width="49%" alt="From a competitor's launch to Jordan's promotion">
+  <img src="docs/media/compass.png" width="49%" alt="Jordan's promotion plan">
+</p>
+
+## How it works
+
+```mermaid
+flowchart LR
+  subgraph Sources
+    M[235 public competitor signals]
+    K[Keynote recording<br/>whisper.cpp transcript]
+    I[OKRs · ladder · roadmap<br/>Slack · 1:1s · customer notes]
+    C[forgeline-core code<br/>+ CODEOWNERS]
+    R[Per-employee reviews<br/>& feedback]
+  end
+  subgraph HydraDB
+    KN[(company<br/>knowledge)]
+    MK[(market<br/>knowledge)]
+    ME[(mem_* per-person<br/>memory)]
+    G{{Declared graph<br/>bring-your-own-graph}}
+  end
+  M --> MK
+  K --> MK
+  I --> KN
+  C --> KN
+  R --> ME
+  I -. topology .-> G
+  M -. Company→Signal→Capability .-> G
+  KN & MK & ME & G --> Q[Hybrid query<br/>graph_context · thinking mode]
+  Q --> L[Claude Opus 5.5<br/>structured outputs]
+  L --> O1[Radar & time machine]
+  L --> O2[Gaps → drafted PR]
+  L --> O3[Promotion plans]
+  L --> O4[Cited answers]
+  O2 -- accepted priority written back --> KN
 ```
 
-Or skip the local toolchain entirely: `.devcontainer/` is configured, so
-**Code → Codespaces → Create codespace** on GitHub — or **Reopen in Container**
-in VS Code — gives you Node, pnpm, and Docker already installed and runs
-`pnpm bootstrap` for you. Nothing to install but the editor. In a
-browser-based Codespace, set `NEXT_PUBLIC_API_URL` to the forwarded URL for
-port 3001 and mark that port **Public**; `localhost` works as-is everywhere
-else.
+- **HydraDB is the memory.**
+  - A shared `company` collection holds OKRs, the ladder, the roadmap, Slack threads, 1:1s, customer notes and the code.
+  - A `market` collection holds the competitor signals and the keynote transcript.
+  - Per-employee `mem_*` memory collections hold each person's history.
+  - **Bring-your-own-graph** declares the spine the demo must always show. The market side is Company → Signal → Capability. The company side is a deterministic topology built from systems of record: people → teams → managers, owners → KRs → goals, roadmap → code, and conversations → people / roadmap items / tickets.
+  - Queries use hybrid search with `graph_context` in thinking mode, and the UI renders HydraDB's own graph paths.
+- **Claude** reasons over the retrieval with schema-validated structured outputs: competitor moves, gaps, promotion plans, cited answers. It also streams the drafted PR.
+- **The brain learns:** accepting a recommendation writes it back into HydraDB with its graph edges, and the UI shows the indexing status move from `queued` to `completed`.
+- **Built for live demos:** every result is cached per organization, so the demo replays instantly. New questions run live.
+- **Honest by design:**
+  - Competitor data is public and cited, with no speculation about named individuals.
+  - The time machine uses a hard cutoff.
+  - The promotion coach never reveals other people's private feedback.
+  - Forgeline and its people are fictional.
 
-`pnpm bootstrap` copies the env files, installs dependencies, starts Postgres,
-Redis, and Mailpit, applies migrations, and seeds. It is safe to re-run — it
-never overwrites an env file that already exists.
+Ontology research behind the graph design: [`docs/company-brain-ontology.md`](docs/company-brain-ontology.md).
 
-Then:
+## Repository map
+
+```
+apps/api/src/brain/        NestJS module: HydraDB wrapper, Claude service, topology builder, endpoints
+apps/api/scripts/          hydra-ingest.ts (loads everything into HydraDB), seed-forgeline-users.ts
+apps/web/src/components/   brain/ (product UI) · demo/ (keynote deck) · journey/ (Jordan's journey)
+data/external/<company>/   verified competitor signals (signals.json) with time-machine candidates
+data/internal/             fictional Forgeline: OKRs, ladder, roadmap, Slack, 1:1s, customer notes, people
+data/memories/             per-employee reviews & feedback
+data/codebase/             forgeline-core — the codebase the brain drafts PRs against
+demo/video/                Playwright recorder, ElevenLabs narration, ffmpeg compositor for the demo video
+```
+
+## Run it locally
+
+Requirements: Node 22+, pnpm 10, PostgreSQL and Redis (Homebrew works: `brew install postgresql@17 redis`), API keys for **HydraDB** and **Anthropic**.
 
 ```bash
+git clone https://github.com/bouncypitch/compass-company-brain.git && cd compass-company-brain
+cp apps/api/.env.example apps/api/.env && cp apps/web/.env.example apps/web/.env.local
+# add HYDRA_DB_API_KEY and ANTHROPIC_API_KEY to apps/api/.env
+pnpm install
+pnpm --filter @app-starter/api exec prisma migrate deploy
+pnpm --filter @app-starter/api run prisma:seed
+cd apps/api && pnpm exec ts-node scripts/seed-forgeline-users.ts && pnpm exec ts-node scripts/hydra-ingest.ts && cd ../..
 pnpm dev
 ```
 
-|                    |                                |
-| ------------------ | ------------------------------ |
-| Web                | http://localhost:3000          |
-| API                | http://localhost:3001          |
-| API docs (Swagger) | http://localhost:3001/api/docs |
-| Mailpit            | http://localhost:8025          |
+Open http://localhost:3000 and sign in as **jordan@forgeline.dev** / `Password123!`:
+- **/demo** — keynote deck
+- **/journey** — Jordan's promotion journey
+- **/brain** — the full product: Radar, Compass, Story, Ask, Org map
 
-Mailpit is a local inbox that catches every email the app sends — verification
-links, password resets, OTP codes, invites — so you can click through those
-flows without a mail provider. Nothing leaves your machine.
+## Built with
 
-The seed creates two accounts:
+[HydraDB](https://hydradb.com) · [Claude](https://www.anthropic.com) (Opus 5.5) · [App-Starter](https://github.com/digohq/app-starter) (NestJS, Next.js, Prisma, PostgreSQL, Redis) · React Flow · ElevenLabs (narration) · whisper.cpp (keynote transcript) · Playwright + ffmpeg (video)
 
-```
-owner@example.com  / Password123!   (also a global admin)
-member@example.com / Password123!
-```
+## Credits
 
-If you would rather set up by hand, see [Manual setup](#manual-setup). If
-something breaks, [`docs/troubleshooting.md`](docs/troubleshooting.md) has the
-failures you are most likely to hit and what actually fixes them.
-
-### Then build something
-
-[**`docs/first-feature.md`**](docs/first-feature.md) walks through adding one
-feature end to end with a coding assistant — the prompt to write, the ten files
-that should come back, and how to tell whether what you got is right. Start
-there if this is your first time in a codebase this size.
-
-Google sign-in, S3/R2 storage, a real SMTP provider, and custom domains are
-all optional and off by default.
-[`docs/integrations.md`](docs/integrations.md) covers what each one needs, how
-to get credentials, and what breaks without it.
-[`docs/providers.md`](docs/providers.md) recommends who to host them with.
-
-## Architecture
-
-```
-app-starter/
-├── apps/
-│   ├── api/                  NestJS + Prisma
-│   │   ├── prisma/           schema, migrations, seed
-│   │   └── src/
-│   │       ├── auth/         JWT, OAuth, OTP, guards
-│   │       ├── organizations/  tenants, members, invites, domains
-│   │       ├── projects/     the example vertical
-│   │       ├── notifications/  engine, templates, channels
-│   │       ├── users/        profiles
-│   │       ├── admin-*/      platform admin and impersonation
-│   │       └── common/       storage, guards, filters, utils
-│   └── web/                  Next.js App Router
-│       └── src/
-│           ├── app/          routes
-│           ├── components/   ui/ is the shared component set
-│           ├── hooks/
-│           └── lib/          API clients
-├── packages/shared/          types and constants used by both apps
-└── docker/postgres/
-```
-
-### Why one repository
-
-Two deployable apps, one repository. `apps/api` owns the database and business
-logic, `apps/web` owns the UI, and `packages/shared` holds the types and
-constants both import — as a workspace dependency, so a change to it is visible
-to both apps in the same commit with nothing to publish.
-
-The point is that a feature is **one change**. The migration, the endpoint, the
-DTO, the API client, and the screen land in a single commit: reviewable as a
-unit, revertible as a unit, and verified together by one `pnpm type-check`.
-Rename a shared field and both sides fail to compile immediately, rather than
-drifting apart until something breaks in an environment.
-
-**This matters most when you are building with a coding agent.** In one
-repository the agent can read the schema, the service, the DTO, the client, and
-the component in a single pass, so asking for a whole vertical slice — "add
-project archiving", schema through UI — produces a coherent change. Split
-across repositories, the same work becomes two conversations against two
-partial views, and the seam between them is where the mismatches land. Ask for
-the full slice, put anything crossing the boundary in `packages/shared`, and
-let the type checker confirm the two halves agree.
-
-[ADR 0009](docs/adr/0009-monorepo-over-separate-repositories.md) has the
-reasoning and the costs.
-
-Why the other pieces are what they are is recorded in
-[`docs/adr/`](docs/adr/README.md) — the framework choices, the
-frontend/backend split, the multi-tenancy model below, and why billing is
-left out.
-
-### How multi-tenancy works
-
-`Organization` is the tenant. Everything scoped to one carries an
-`organizationId`, and every query filters on it — a valid id from another
-tenant reads as 404 rather than revealing that the record exists.
-`ProjectsService` is the reference implementation; copy its shape.
-
-Role checks live in the service layer rather than a guard, because the
-organization id usually arrives as a route parameter that has to be resolved
-against the caller before a decision can be made. See
-[`docs/roles-and-permissions-guide.md`](docs/roles-and-permissions-guide.md).
-
-## Making it yours
-
-1. **Rename.** Replace `app-starter` in `package.json` files, `docker-compose.yml`,
-   and the `@app-starter/*` import scope. Update `apps/api/src/config/branding.ts`.
-2. **Replace Projects.** Delete `apps/api/src/projects` and
-   `apps/web/src/app/organizations/[organizationId]/projects`, then build your
-   own vertical on the same shape.
-3. **Add billing if you need it.** `Organization` is where it attaches — it
-   already has the identity and the membership list a seat count would use.
-   [ADR 0008](docs/adr/0008-no-billing-in-the-starter.md) explains why it is
-   left out and suggests a shape for entitlements.
-4. **Wire up the integrations you need** — Google sign-in, object storage,
-   SMTP, custom domains. See [`docs/integrations.md`](docs/integrations.md).
-5. **Before deploying,** read the checklist at the end of
-   [SECURITY.md](SECURITY.md).
-
-## Commands
-
-Run from the repository root:
-
-|                   |                                                     |
-| ----------------- | --------------------------------------------------- |
-| `pnpm dev`        | Start the API and web app                           |
-| `pnpm build`      | Build everything                                    |
-| `pnpm test`       | Run all tests                                       |
-| `pnpm verify`     | Type-check, lint, and test — the definition of done |
-| `pnpm lint`       | Lint everything                                     |
-| `pnpm type-check` | Type-check everything                               |
-| `pnpm clean`      | Remove build artifacts                              |
-| `pnpm format`     | Format with Prettier                                |
-
-Target one package with `--filter`:
-
-```bash
-pnpm --filter @app-starter/api dev
-pnpm --filter @app-starter/web test
-```
-
-### Database
-
-```bash
-cd apps/api
-pnpm exec prisma migrate dev --name describe_your_change   # create a migration
-pnpm exec prisma studio                                     # browse the data
-pnpm run prisma:seed                                        # re-seed
-```
-
-## Manual setup
-
-If you prefer not to use `pnpm bootstrap`:
-
-```bash
-cp .env.example .env
-cp apps/api/.env.example apps/api/.env
-cp apps/api/.env.test.example apps/api/.env.test
-cp apps/web/.env.example apps/web/.env.local
-
-pnpm install
-docker compose up -d
-
-pnpm --filter @app-starter/api exec prisma migrate deploy
-pnpm --filter @app-starter/api run prisma:seed
-```
-
-The root `.env` only sets the ports the containers publish; application
-configuration lives in the per-app files.
-
-Database defaults: `localhost:5432`, database / user / password all
-`app_starter`. See [`docker/postgres/README.md`](docker/postgres/README.md).
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). The conventions the codebase follows
-are in [AGENTS.md](AGENTS.md), which doubles as context for coding assistants.
-
-## Security
-
-Please report vulnerabilities privately. See [SECURITY.md](SECURITY.md).
-
-## Provenance
-
-This started as Digo, an event-management platform we built for the tech
-community to share their events. The event domain was removed and what
-remained — authentication, organizations, notifications, custom domains,
-storage, and the admin surfaces — was generalised into a starter. The Projects
-example was written from scratch.
-
-The parts carried over have production mileage behind them. The parts that are
-new do not, though they are covered by tests.
-
-Much of the extraction was done with heavy AI assistance (Claude). The full
-suite passes — API unit and end-to-end, web, lint, type-check, build — and the
-result has been reviewed, but read what you are adopting before you build on
-it, as you would with any starter.
-
-## License
-
-[MIT](LICENSE)
+- Built on **[App-Starter](https://github.com/digohq/app-starter)** by Digo, under the MIT License. Its original README is in [`docs/APP-STARTER.md`](docs/APP-STARTER.md).
+- Competitor data comes from public sources, cited per signal.
+- Keynote audio clips are from the Company Brain Hackathon keynote, used with thanks to the organizers.
