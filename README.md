@@ -6,13 +6,25 @@
 
 Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB**, **Claude** and **App-Starter**.
 
-[**▶ Watch the demo video**](https://github.com/bouncypitch/compass-company-brain/releases/latest) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
+[**▶ Watch the demo video**](https://github.com/bouncypitch/compass-company-brain/releases/latest) · [**Try the live demo**](https://bouncypitch.github.io/compass-company-brain/) · [Jordan's journey](https://bouncypitch.github.io/compass-company-brain/journey/) · [Keynote deck](https://bouncypitch.github.io/compass-company-brain/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
 <a href="https://github.com/bouncypitch/compass-company-brain/releases/latest"><img src="docs/media/thumbnail.png" alt="Compass demo video" width="860"></a>
 
 </div>
 
 ---
+
+## Try it
+
+| | |
+|---|---|
+| **▶ Demo video (4:39)** | [Compass-demo.mp4](https://github.com/bouncypitch/compass-company-brain/releases/latest/download/Compass-demo.mp4), on the [releases page](https://github.com/bouncypitch/compass-company-brain/releases/latest) |
+| **🌐 Live demo** | [bouncypitch.github.io/compass-company-brain](https://bouncypitch.github.io/compass-company-brain/). Static and no login: click, hover and drag everything. |
+| **🧭 Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-company-brain/journey/), step by step |
+| **🎤 Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-company-brain/deck/). Use ← → to navigate. |
+| **📝 Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery |
+
+> The hosted demo runs on a snapshot of real results (radar, time machine, promotion plan, company graph, drafted PR, Ask answers). Live answers to brand-new questions need the backend. See [Run it locally](#run-it-locally).
 
 ## The 3-minute story
 
@@ -59,6 +71,16 @@ Compass connects three things no single person can see at once:
   <img src="docs/media/story.png" width="49%" alt="From a competitor's launch to Jordan's promotion">
   <img src="docs/media/compass.png" width="49%" alt="Jordan's promotion plan">
 </p>
+
+## Gallery
+
+<p align="center">
+  <img src="docs/gallery/02-the-brain.png" width="32%"> <img src="docs/gallery/03-it-was-listening.png" width="32%"> <img src="docs/gallery/05-research-agents.png" width="32%">
+  <img src="docs/gallery/07-validated-against-the-future.png" width="32%"> <img src="docs/gallery/08-high-impact-project.png" width="32%"> <img src="docs/gallery/09-make-it-yours.png" width="32%">
+  <img src="docs/gallery/10-your-90-days.png" width="32%"> <img src="docs/gallery/11-who-to-talk-to.png" width="32%"> <img src="docs/gallery/12-the-company-graph.png" width="32%">
+</p>
+
+All 15 images are in [`docs/gallery/`](docs/gallery).
 
 ## How it works
 
@@ -138,7 +160,7 @@ cd apps/api && pnpm exec ts-node scripts/seed-forgeline-users.ts && pnpm exec ts
 pnpm dev
 ```
 
-Open http://localhost:3000 and sign in as **jordan@forgeline.dev** / `Password123!`:
+Open http://localhost:3000 and sign in as **jordan@forgeline.dev** / `Password123!` (also `priya@forgeline.dev`, Jordan's manager). The static demo is built with `pnpm --filter @app-starter/static-demo build` ([details](apps/static-demo/README.md)).
 - **/demo** — keynote deck
 - **/journey** — Jordan's promotion journey (sign in as Jordan)
 - **/brain** — the full product: Radar, Compass, Story, Ask, Org map
