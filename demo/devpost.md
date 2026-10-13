@@ -5,6 +5,18 @@
 ## Inspiration
 Every company already has a brain — it's just scattered across Slack, roadmaps, code, reviews and the market outside. And every engineer asks the same question: *what should I work on to get promoted?* No single person can connect the market, the roadmap, the code and their own growth. A company brain can.
 
+## Demo
+- Video: https://github.com/bouncypitch/compass-company-brain/releases/latest
+- Live static demo: https://bouncypitch.github.io/compass-company-brain/
+- Code: https://github.com/bouncypitch/compass-company-brain
+
+**The story:** Jordan, a senior engineer, asks *"How do I get promoted to Staff?"* Compass answers by connecting:
+- the career ladder and Jordan's reviews,
+- what 7 competitors are shipping,
+- the unowned roadmap item that blocks the company's goals.
+
+Then it acts: Jordan claims the work, Compass drafts the pull request, and lays out a 90-day plan with the people to talk to. It even cites today's keynote, at the exact moment in the recording.
+
 ## What it does
 - **Radar:** tracks 7 real AI-coding competitors (Cursor, Cognition, GitHub Copilot, Replit, OpenAI Codex, Google, Amazon) through **235 verified public signals** — launches, hiring, leadership changes, government contracts, research, acquisitions, market entries, pricing — every one linked to its source. It predicts each competitor's next move with confidence and finds industry patterns (5 of 7 converging on codebase memory).
 - **Time machine:** hides every signal after Aug 1, predicts, then reveals what actually shipped (it called Cursor's Rollouts/Security Review, Google's Antigravity enterprise push, Replit's governance tools).

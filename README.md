@@ -14,6 +14,18 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 ---
 
+## The 3-minute story
+
+**Jordan Rivera**, a senior engineer, asks Compass: *"How do I get promoted to Staff?"* Compass answers by walking the whole company brain:
+
+1. **Where you stand:** the career ladder and Jordan's reviews give 40% readiness, with one clear gap.
+2. **Why now:** the market moved. The 235-signal heatmap shows 5 of 7 competitors converging on codebase memory, and the time machine shows it predicted their launches.
+3. **The opportunity:** R-14 Agent memory has no owner, blocks 5 goals and a $610K renewal, and lives in code Jordan already owns.
+4. **Make it yours:** one click claims R-14, writes the decision into HydraDB and drafts the PR.
+5. **Your 90 days, and who to talk to:** a dated plan, plus Jordan's live company graph (drag it around).
+
+It opens with the hackathon's own keynote. Asked what a company brain should ultimately do, Compass finds the exact moment in the recording: *"…not to just ask questions, but also then to take action."*
+
 ## The idea
 
 Every company already has a brain. It's just scattered — across Slack, roadmaps, code, performance reviews and the market outside. And every engineer asks the same question: **"what should I work on to get promoted?"**
@@ -128,7 +140,7 @@ pnpm dev
 
 Open http://localhost:3000 and sign in as **jordan@forgeline.dev** / `Password123!`:
 - **/demo** — keynote deck
-- **/journey** — Jordan's promotion journey
+- **/journey** — Jordan's promotion journey (sign in as Jordan)
 - **/brain** — the full product: Radar, Compass, Story, Ask, Org map
 
 ## Built with
