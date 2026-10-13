@@ -22,7 +22,7 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 | **🌐 Live demo** | [bouncypitch.github.io/compass-company-brain](https://bouncypitch.github.io/compass-company-brain/). Static and no login: click, hover and drag everything. |
 | **🧭 Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-company-brain/journey/), step by step |
 | **🎤 Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-company-brain/deck/). Use ← → to navigate. |
-| **📝 Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery |
+| **📝 Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery. The [one-page PDF](docs/Compass-one-pager.pdf) gives the overview. |
 
 > The hosted demo runs on a snapshot of real results (radar, time machine, promotion plan, company graph, drafted PR, Ask answers). Live answers to brand-new questions need the backend. See [Run it locally](#run-it-locally).
 

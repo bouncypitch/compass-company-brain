@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+import path from 'path';
+const b = await chromium.launch();
+const p = await b.newPage();
+await p.goto(`file://${path.resolve('onepager.html')}`);
+await p.waitForTimeout(500);
+await p.pdf({ path: '../../docs/Compass-one-pager.pdf', format: 'Letter', printBackground: true, pageRanges: '1', margin: { top: '0', bottom: '0', left: '0', right: '0' } });
+await p.setViewportSize({ width: 816, height: 1056 });
+await p.screenshot({ path: 'out/onepager-preview.png', fullPage: false });
+const h = await p.evaluate(() => document.querySelector('.page').scrollHeight);
+console.log('page content height px', h, '(1056 = one page)');
+await b.close();
