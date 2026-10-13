@@ -9,10 +9,12 @@ const firstSeen = {};
 for (let f = 0; f * 3 < raw.length; f++) {
   const [r, g, b] = raw.subarray(f * 3, f * 3 + 3);
   if (b < 190) continue; // not a marker frame
-  const idx = Math.round(r / 80) + 4 * Math.round(g / 80);
+  const idx = Math.round(r / 60) + 5 * Math.round(g / 60);
   if (idx >= 0 && idx < tl.slides.length && firstSeen[idx] === undefined) firstSeen[idx] = f / FPS;
 }
 tl.slides.forEach((s, i) => { if (firstSeen[i] !== undefined) { s.wallStart = s.start; s.start = firstSeen[i]; } });
+// Audio cues recorded in wall time: re-anchor to the detected start of their slide.
+(tl.cues ?? []).forEach((c) => { const s = tl.slides.find((x) => x.id === c.slideId); if (s?.wallStart !== undefined) c.at = s.start + (c.wallAt - s.wallStart); });
 const missing = tl.slides.filter((s, i) => firstSeen[i] === undefined).map((s) => s.id);
 tl.wallTrimStart = tl.trimStart;
 tl.trimStart = firstSeen[0] ?? tl.trimStart;

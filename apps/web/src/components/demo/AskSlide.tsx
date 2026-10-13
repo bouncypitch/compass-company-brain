@@ -1,5 +1,7 @@
 'use client';
 
+import type React from 'react';
+
 import { useEffect, useRef, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowRight, ArrowUp, Loader2, Mic, Search, Sparkles } from 'lucide-react';
@@ -7,6 +9,7 @@ import type { AskResult } from '@app-starter/shared';
 import { brainApiExtras } from '@/lib/brain-api';
 import { cn } from '@/lib/utils';
 import { useDemo } from './DemoContext';
+import { ClipPlayer } from '@/components/brain/ClipPlayer';
 import { Glass, Rise, SlideFrame } from './primitives';
 import { useSpeechInput } from './useSpeechInput';
 
@@ -18,7 +21,12 @@ const SUGGESTIONS = [
 
 const TYPE_MS = 28;
 
-export const AskSlide = () => {
+interface AskSlideProps {
+  suggestions?: string[];
+  title?: React.ReactNode;
+}
+
+const AskPanel = ({ suggestions = SUGGESTIONS, title }: AskSlideProps) => {
   const { organizationId } = useDemo();
   const [question, setQuestion] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -66,7 +74,11 @@ export const AskSlide = () => {
     <SlideFrame
       title={
         <>
-          Ask the brain <span className="demo-gradient-text">anything</span>.
+          {title ?? (
+            <>
+              Ask the brain <span className="demo-gradient-text">anything</span>.
+            </>
+          )}
         </>
       }
     >
@@ -136,7 +148,7 @@ export const AskSlide = () => {
         </Rise>
         {!hasAnswer && !ask.isPending ? (
           <Rise delay={220} className="flex flex-wrap justify-center gap-3">
-            {SUGGESTIONS.map((s) => (
+            {suggestions.map((s) => (
               <button
                 key={s}
                 type="button"
@@ -211,6 +223,13 @@ const Answer = ({ result }: { result: AskResult }) => (
         ))}
       </div>
     ) : null}
+    {result.talkClips?.length ? (
+      <div className="space-y-2">
+        {result.talkClips.map((clip) => (
+          <ClipPlayer key={clip.id} clip={clip} />
+        ))}
+      </div>
+    ) : null}
     {result.citations.length ? (
       <div className="flex flex-wrap gap-2">
         {result.citations.slice(0, 6).map((c) => (
@@ -224,4 +243,20 @@ const Answer = ({ result }: { result: AskResult }) => (
       </div>
     ) : null}
   </Glass>
+);
+
+export const AskSlide = () => <AskPanel />;
+
+export const KEYNOTE_QUESTION = "What did today's keynote say a company brain should ultimately do, and does Compass do it?";
+
+/** Same Ask experience, preset to a question answered from the keynote recording. */
+export const KeynoteSlide = () => (
+  <AskPanel
+    suggestions={[KEYNOTE_QUESTION]}
+    title={
+      <>
+        It was <span className="demo-gradient-text">listening</span>, too.
+      </>
+    }
+  />
 );

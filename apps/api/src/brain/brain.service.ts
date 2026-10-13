@@ -248,15 +248,21 @@ export class BrainService {
     const topology = buildTopology();
     const hydra = await this.hydra.query(question, { company: 1, market: 0.6 }, 'knowledge');
     const signals = loadSignals();
+    const talk = loadTalkClips();
     const context = [
       `<question>${question}</question>`,
+      `<compass_capabilities note="what this company brain itself does today">\n- Radar: reads public competitor signals and predicts competitor moves with cited evidence.\n- Accept recommendation: one click writes the accepted priority back into HydraDB (the brain learns) and drafts a pull request against forgeline-core (e.g. a 4-file PR adding src/memory/memoryStore.ts for R-14).\n- Compass: builds promotion plans per engineer (ladder gaps, best-fit unowned work, 90-day plan).\n- Ask: answers questions with citations and HydraDB graph paths, including from the keynote recording.\n</compass_capabilities>`,
       hydra.text ? `<hydradb_retrieval>\n${hydra.text}\n</hydradb_retrieval>` : '',
       `<company_topology>\n${topologyText(topology)}\n</company_topology>`,
       `<forgeline_internal>\n${readInternalDocs()}\n</forgeline_internal>`,
       `<competitor_signals>\n${signals.map(signalLine).join('\n')}\n</competitor_signals>`,
+      talk.length
+        ? `<keynote_talk_clips source="Company Brain Hackathon keynote and panel, 2026-10-12">\n${talk.map((c) => `[${c.id} @${c.startSec}s-${c.endSec}s] ${c.text}`).join('\n')}\n</keynote_talk_clips>`
+        : '',
     ].join('\n\n');
-    const out = await this.llm.answer(context);
-    const result: AskResult = { question, ...out, graphEvidence: hydra.triplets.slice(0, 12), usedHydra: hydra.ok };
+    const { talkClipIds, ...out } = await this.llm.answer(context);
+    const clips = talkClipIds.map((id) => talk.find((c) => c.id === id)).filter((c): c is NonNullable<typeof c> => !!c).slice(0, 2);
+    const result: AskResult = { question, ...out, graphEvidence: hydra.triplets.slice(0, 12), usedHydra: hydra.ok, talkClips: clips };
     await this.save(organizationId, BrainInsightKind.ASK, askKey, result);
     return result;
   }

@@ -28,6 +28,12 @@ timeline.slides.forEach((s) => {
   const idx = audioInputs.length / 2 + 2; // inputs 0..2 are bg, video, mask
   delays.push(`[${idx}:a]adelay=${Math.round((mapT(s.start) - timeline.trimStart + LEAD) * 1000)}|${Math.round((mapT(s.start) - timeline.trimStart + LEAD) * 1000)}[a${idx}]`);
 });
+(timeline.cues ?? []).filter((c) => c.at !== undefined).forEach((c) => {
+  audioInputs.push('-i', c.file);
+  const idx = audioInputs.length / 2 + 2;
+  const ms = Math.round((mapT(c.at) - timeline.trimStart) * 1000);
+  delays.push(`[${idx}:a]adelay=${ms}|${ms},volume=1.15[a${idx}]`);
+});
 const labels = delays.map((d) => d.match(/\[(a\d+)\]$/)[1]);
 const total = keep.reduce((sum, [a, b]) => sum + (b - a), 0);
 const filter = [

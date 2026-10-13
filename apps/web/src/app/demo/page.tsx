@@ -9,10 +9,16 @@ import { organizationsApi } from '@/lib/organizations-api';
 /** Opens the live demo deck for the caller's first organization. */
 export default function DemoRedirectPage() {
   const router = useRouter();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['user-organizations'],
     queryFn: () => organizationsApi.getUserOrganizations(),
+    retry: false,
   });
+
+  // Signed out: send the visitor to log in, then straight back here.
+  useEffect(() => {
+    if (isError) router.replace(`/login?redirect=${encodeURIComponent('/demo')}`);
+  }, [isError, router]);
 
   useEffect(() => {
     const first = data?.organizations[0];

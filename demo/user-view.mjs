@@ -1,0 +1,16 @@
+import { launch, BASE } from './lib.mjs';
+const { browser, page } = await launch();
+await page.goto(`${BASE}/demo`);
+await page.waitForURL(/login/);
+await page.getByPlaceholder('you@example.com').last().fill('member@example.com');
+const pw = page.getByPlaceholder('Enter your password');
+if (!(await pw.isVisible().catch(() => false))) await page.getByRole('button', { name: /password/i }).first().click().catch(() => {});
+await page.getByPlaceholder('Enter your password').fill('Password123!');
+await page.getByPlaceholder('Enter your password').press('Enter');
+await page.waitForTimeout(6000);
+console.log('landed on', page.url());
+await page.screenshot({ path: 'checkpoints/user-after-login.png' });
+for (let i = 0; i < 11; i++) await page.keyboard.press('ArrowRight');
+await page.waitForTimeout(1500);
+await page.screenshot({ path: 'checkpoints/user-keynote-slide.png' });
+await browser.close();

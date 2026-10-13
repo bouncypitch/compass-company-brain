@@ -3,52 +3,72 @@
     "file": "audio/00-title.mp3",
     "duration": 6.548027
   },
+  "example": {
+    "file": "audio/01-example.mp3",
+    "duration": 22.569796
+  },
   "problem": {
-    "file": "audio/01-problem.mp3",
-    "duration": 15.51093
+    "file": "audio/02-problem.mp3",
+    "duration": 13.931973
   },
   "market": {
-    "file": "audio/02-market.mp3",
-    "duration": 18.204444
+    "file": "audio/03-market.mp3",
+    "duration": 18.390204
   },
   "landscape": {
-    "file": "audio/03-landscape.mp3",
-    "duration": 10.959819
+    "file": "audio/04-landscape.mp3",
+    "duration": 10.681179
   },
   "convergence": {
-    "file": "audio/04-convergence.mp3",
-    "duration": 10.913379
+    "file": "audio/05-convergence.mp3",
+    "duration": 10.588299
   },
   "timemachine": {
-    "file": "audio/05-timemachine.mp3",
-    "duration": 14.442812
+    "file": "audio/06-timemachine.mp3",
+    "duration": 14.303492
   },
   "gap": {
-    "file": "audio/06-gap.mp3",
-    "duration": 21.223039
+    "file": "audio/07-gap.mp3",
+    "duration": 20.851519
   },
   "story": {
-    "file": "audio/07-story.mp3",
-    "duration": 11.656417
+    "file": "audio/08-story.mp3",
+    "duration": 10.03102
   },
   "compass": {
-    "file": "audio/08-compass.mp3",
-    "duration": 20.61932
+    "file": "audio/09-compass.mp3",
+    "duration": 22.709116
   },
   "plan": {
-    "file": "audio/09-plan.mp3",
-    "duration": 4.87619
+    "file": "audio/10-plan.mp3",
+    "duration": 4.411791
   },
   "ask": {
-    "file": "audio/10-ask.mp3",
-    "duration": 13.699773
+    "file": "audio/11-ask.mp3",
+    "duration": 14.210612
+  },
+  "keynote": {
+    "file": "audio/12-keynote.mp3",
+    "duration": 9.798821
+  },
+  "keynote2": {
+    "file": "audio/13-keynote2.mp3",
+    "duration": 4.597551
+  },
+  "live": {
+    "file": "audio/14-live.mp3",
+    "duration": 10.3561
+  },
+  "live2": {
+    "file": "audio/15-live2.mp3",
+    "duration": 8.591383
   },
   "org": {
-    "file": "audio/11-org.mp3",
-    "duration": 12.817415
+    "file": "audio/16-org.mp3",
+    "duration": 11.842177
   },
   "close": {
-    "file": "audio/12-close.mp3",
-    "duration": 10.588299
+    "file": "audio/17-close.mp3",
+    "duration": 10.03102
   }
 }

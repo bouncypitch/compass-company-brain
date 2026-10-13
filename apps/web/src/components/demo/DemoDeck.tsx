@@ -12,7 +12,8 @@ import { ConvergenceSlide, LandscapeSlide, TimeMachineSlide } from './RadarSlide
 import { GapSlide } from './GapSlide';
 import { OrgSlide, StorySlide } from './GraphSlides';
 import { CompassSlide, PlanSlide } from './CompassSlides';
-import { AskSlide } from './AskSlide';
+import { AskSlide, KeynoteSlide } from './AskSlide';
+import { ExampleSlide } from './ExampleSlide';
 
 interface SlideDef {
   id: string;
@@ -23,6 +24,7 @@ interface SlideDef {
 /** Deck order; ids are stable for `?s=<id>` links and the recorder's `data-slide`. */
 export const DEMO_SLIDES: SlideDef[] = [
   { id: 'title', label: 'Compass', Component: TitleSlide },
+  { id: 'example', label: 'A real example', Component: ExampleSlide },
   { id: 'problem', label: 'The problem', Component: ProblemSlide },
   { id: 'market', label: 'The market', Component: MarketSlide },
   { id: 'landscape', label: 'Landscape', Component: LandscapeSlide },
@@ -33,6 +35,7 @@ export const DEMO_SLIDES: SlideDef[] = [
   { id: 'compass', label: 'Compass', Component: CompassSlide },
   { id: 'plan', label: '90-day plan', Component: PlanSlide },
   { id: 'ask', label: 'Ask', Component: AskSlide },
+  { id: 'keynote', label: 'Keynote', Component: KeynoteSlide },
   { id: 'org', label: 'Company graph', Component: OrgSlide },
   { id: 'close', label: 'Close', Component: CloseSlide },
 ];

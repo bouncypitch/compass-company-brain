@@ -1,15 +1,74 @@
 [
-  {"id":"title","text":"This is Compass. A company brain that turns market moves into roadmaps, and roadmaps into promotions."},
-  {"id":"problem","text":"Every company already has a brain. It's just scattered: across Slack threads, roadmaps, code, performance reviews, and the market outside. And every engineer is asking the same question. What should I work on to get promoted?"},
-  {"id":"market","text":"Compass starts outside the building. It tracks seven real A.I. coding competitors, through two hundred and thirty-five verified public signals: launches, hiring, leadership moves, government contracts, research papers, acquisitions and pricing. Every one links to its source."},
-  {"id":"landscape","text":"HydraDB stores each signal with a declared graph, connecting it to the company, and to the capability it points at. So the brain can see where the whole market is moving."},
-  {"id":"convergence","text":"And the pattern is clear. Five of seven competitors are converging on persistent codebase memory: agents that remember your repo, your conventions, and your past mistakes."},
-  {"id":"timemachine","text":"But can you trust it? We hid every signal after August first, and asked the brain to predict. It called Cursor's agent-to-merge pipeline, Google's enterprise push for Antigravity, and Replit's governance layer, weeks before they shipped."},
-  {"id":"gap","text":"Then it looks inward. Our own roadmap item for agent memory, R-14, has no owner. And it blocks task success, win rate, and two at-risk renewals. One click accepts the recommendation. The brain writes the decision back into its own memory in HydraDB, and drafts the pull request against our actual code."},
-  {"id":"story","text":"Here's the whole chain, in one graph. From a competitor's public signal, to the capability, to our gap, our roadmap, our code, our goals. And finally, to a person."},
-  {"id":"compass","text":"That person is Jordan, a senior engineer who wants Staff. Compass knows the career ladder, the company goals, what Jordan's manager is measured on, and Jordan's own reviews. Its advice: claim R-14. It closes Jordan's gaps for Staff, sits in code Jordan already owns, and moves the metrics Jordan's manager cares about."},
-  {"id":"plan","text":"And it turns that into a ninety-day plan that Jordan's manager can sign off on."},
-  {"id":"ask","text":"Anyone can ask the brain anything. Who owns agent memory, and what's blocked on it? The answer comes from documents, conversations, tickets, code and memories, with citations, and the graph paths HydraDB followed."},
-  {"id":"org","text":"Underneath it all is the company graph. People, teams, goals, roadmap, code, conversations and customers, declared to HydraDB. Click anyone, and see everything they're connected to."},
-  {"id":"close","text":"Compass. The brain saw the market move, changed the roadmap, and told every engineer which part is their promotion. Built with HydraDB, Claude, and App-Starter."}
+  {
+    "id": "title",
+    "text": "This is Compass. A company brain that turns market moves into roadmaps, and roadmaps into promotions."
+  },
+  {
+    "id": "example",
+    "text": "Here's a real example. On September twenty-fifth, GitHub put Copilot Memory into its autofix agent. Compass connected that to our own roadmap: agent memory, R-14, has no owner, and it blocks five goals and a six-hundred-ten-thousand-dollar renewal. One click drafts the pull request. And it's exactly the project that gets Jordan to Staff."
+  },
+  {
+    "id": "problem",
+    "text": "Every company already has a brain. It's just scattered: across Slack threads, roadmaps, code, performance reviews, and the market outside. And every engineer is asking the same question. What should I work on to get promoted?"
+  },
+  {
+    "id": "market",
+    "text": "Compass starts outside the building. It tracks seven real A.I. coding competitors, through two hundred and thirty-five verified public signals: launches, hiring, leadership moves, government contracts, research papers, acquisitions and pricing. Every one links to its source."
+  },
+  {
+    "id": "landscape",
+    "text": "HydraDB stores each signal with a declared graph, connecting it to the company, and to the capability it points at. So the brain can see where the whole market is moving."
+  },
+  {
+    "id": "convergence",
+    "text": "And the pattern is clear. Five of seven competitors are converging on persistent codebase memory: agents that remember your repo, your conventions, and your past mistakes."
+  },
+  {
+    "id": "timemachine",
+    "text": "But can you trust it? We hid every signal after August first, and asked the brain to predict. It called Cursor's agent-to-merge pipeline, Google's enterprise push for Antigravity, and Replit's governance layer, weeks before they shipped."
+  },
+  {
+    "id": "gap",
+    "text": "Then it looks inward. Our own roadmap item for agent memory, R-14, has no owner. And it blocks task success, win rate, and two at-risk renewals. One click accepts the recommendation. The brain writes the decision back into its own memory in HydraDB, and drafts the pull request against our actual code."
+  },
+  {
+    "id": "story",
+    "text": "Here's the whole chain, in one graph. From a competitor's public signal, to the capability, to our gap, our roadmap, our code, our goals. And finally, to a person."
+  },
+  {
+    "id": "compass",
+    "text": "That person is Jordan, a senior engineer who wants Staff. Compass knows the career ladder, the company goals, what Jordan's manager is measured on, and Jordan's own reviews. Its advice: claim R-14. It closes Jordan's gaps for Staff, sits in code Jordan already owns, and moves the metrics Jordan's manager cares about."
+  },
+  {
+    "id": "plan",
+    "text": "And it turns that into a ninety-day plan that Jordan's manager can sign off on."
+  },
+  {
+    "id": "ask",
+    "text": "Anyone can ask the brain anything. Who owns agent memory, and what's blocked on it? The answer comes from documents, conversations, tickets, code and memories, with citations, and the graph paths HydraDB followed."
+  },
+  {
+    "id": "keynote",
+    "text": "And it was listening this afternoon, too. Ask what today's keynote said a company brain should ultimately do, and Compass finds the exact moment in the recording."
+  },
+  {
+    "id": "keynote2",
+    "text": "Ask, and then act. That's exactly the bar Compass was built for."
+  },
+  {
+    "id": "live",
+    "text": "And this isn't a slide deck. Here's the live product, built on App-Starter and running on HydraDB right now. The radar, the competitive landscape, and one-click pull requests."
+  },
+  {
+    "id": "live2",
+    "text": "Switch to Compass, and every engineer sees their own plan. Open the company graph, and everyone they work with is one click away."
+  },
+  {
+    "id": "org",
+    "text": "Underneath it all is the company graph. People, teams, goals, roadmap, code, conversations and customers, declared to HydraDB. Click anyone, and see everything they're connected to."
+  },
+  {
+    "id": "close",
+    "text": "Compass. The brain saw the market move, changed the roadmap, and told every engineer which part is their promotion. Built with HydraDB, Claude, and App-Starter."
+  }
 ]

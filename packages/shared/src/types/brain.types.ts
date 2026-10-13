@@ -199,6 +199,8 @@ export interface AskResult {
   followUps: string[];
   graphEvidence: { source: string; relation: string; target: string }[];
   usedHydra: boolean;
+  /** Moments of the hackathon keynote recording the answer cites (playable). */
+  talkClips?: BrainTalkClip[];
 }
 
 export interface TopologyStats {

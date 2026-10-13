@@ -82,6 +82,7 @@ export const AskSchema = z.object({
   answer: z.string().describe('Direct answer in 2-5 sentences, plain language, naming people, teams, roadmap ids and KRs.'),
   citations: z.array(z.object({ label: z.string(), source: z.string().describe('doc path, signal id, ticket, KR or memory id from the context') })),
   followUps: z.array(z.string()).describe('2-3 natural follow-up questions'),
+  talkClipIds: z.array(z.string()).describe('ids of keynote talk clips (talk-NN) that directly support the answer; empty if none'),
 });
 
 export const DiffSchema = z.object({
@@ -149,7 +150,8 @@ export class LlmService {
 
   answer(context: string): Promise<z.infer<typeof AskSchema>> {
     const system = [
-      'You are Compass, the company brain of Forgeline (an AI coding-assistant startup). Answer employee questions using ONLY the provided context: HydraDB retrieval (documents, graph relations, memories), the company topology graph, and competitor signals.',
+      'You are Compass, the company brain of Forgeline (an AI coding-assistant startup). Answer employee questions using ONLY the provided context: HydraDB retrieval (documents, graph relations, memories), the company topology graph, competitor signals, and the transcript of today\'s Company Brain Hackathon keynote (talk clips with ids and timestamps).',
+      'When the question is about the keynote or talk, quote the speaker briefly and verbatim from the clips, cite the clip ids in talkClipIds (at most 2, the most relevant), and connect it to what Forgeline/Compass does.',
       'Be concise and specific. Cite sources that appear in the context. If the context does not contain the answer, say what is missing.',
       'Never reveal another employee\'s private reviews or feedback; use only public roles, ownership and work. Use they/them for anyone whose pronouns are not stated.',
     ].join('\n');
