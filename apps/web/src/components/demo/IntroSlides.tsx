@@ -4,6 +4,8 @@ import type { CSSProperties } from 'react';
 import {
   Brain,
   ClipboardCheck,
+  Mail,
+  Mic,
   Code2,
   Map as MapIcon,
   MessageSquare,
@@ -96,6 +98,8 @@ const SOURCES: Source[] = [
   },
   { label: 'Customers', icon: Users, color: '#0ea5e9', x: 30, y: 90, sx: -220, sy: 170, sr: 14 },
   { label: 'Competitors', icon: Swords, color: '#6366f1', x: 12, y: 58, sx: -300, sy: 50, sr: -16 },
+  { label: 'Email', icon: Mail, color: '#8b5cf6', x: 50, y: 6, sx: 0, sy: -200, sr: 8 },
+  { label: 'Meetings', icon: Mic, color: '#ef4444', x: 50, y: 98, sx: 0, sy: 220, sr: -8 },
 ];
 
 export const ProblemSlide = () => (

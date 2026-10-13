@@ -1,0 +1,62 @@
+{
+  "title": {
+    "file": "audio-v5/00-title.mp3",
+    "duration": 5.10839
+  },
+  "brain": {
+    "file": "audio-v5/01-brain.mp3",
+    "duration": 20.758639
+  },
+  "keynote": {
+    "file": "audio-v5/02-keynote.mp3",
+    "duration": 7.291066
+  },
+  "keynote2": {
+    "file": "audio-v5/03-keynote2.mp3",
+    "duration": 5.479909
+  },
+  "ask": {
+    "file": "audio-v5/04-ask.mp3",
+    "duration": 8.034104
+  },
+  "standing": {
+    "file": "audio-v5/05-standing.mp3",
+    "duration": 8.544943
+  },
+  "market": {
+    "file": "audio-v5/06-market.mp3",
+    "duration": 24.566712
+  },
+  "converge": {
+    "file": "audio-v5/07-converge.mp3",
+    "duration": 8.962902
+  },
+  "validate": {
+    "file": "audio-v5/08-validate.mp3",
+    "duration": 26.006349
+  },
+  "opportunity": {
+    "file": "audio-v5/09-opportunity.mp3",
+    "duration": 26.424308
+  },
+  "claim": {
+    "file": "audio-v5/10-claim.mp3",
+    "duration": 9.891701
+  },
+  "plan": {
+    "file": "audio-v5/11-plan.mp3",
+    "duration": 8.730703
+  },
+  "people": {
+    "file": "audio-v5/12-people.mp3",
+    "duration": 8.730703
+  },
+  "graph": {
+    "file": "audio-v5/13-graph.mp3",
+    "duration": 25.58839
+  },
+  "done": {
+    "file": "audio-v5/14-done.mp3",
+    "duration": 7.430385
+  }
+}

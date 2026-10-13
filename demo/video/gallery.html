@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1800px;height:1200px;overflow:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;-webkit-font-smoothing:antialiased;color:#1d1d1f;
+background:radial-gradient(900px 600px at 5% 0%,#e3e7ff 0%,transparent 60%),radial-gradient(800px 600px at 100% 5%,#fde2f1 0%,transparent 55%),radial-gradient(1000px 700px at 70% 115%,#d4f7ec 0%,transparent 60%),#fbfbfd}
+.cap{position:absolute;left:140px;right:140px;top:62px}
+.k{font-size:22px;letter-spacing:.22em;text-transform:uppercase;color:#6366f1;font-weight:700}
+h1{font-size:54px;letter-spacing:-.035em;margin:10px 0 0;line-height:1.08;font-weight:700}
+.shot{position:absolute;left:140px;top:250px;width:1520px;height:950px;border-radius:28px 28px 0 0;overflow:hidden;box-shadow:0 40px 90px -30px rgba(15,23,42,.35),0 8px 24px -8px rgba(15,23,42,.12);background:#fff}
+.shot img{width:1520px;display:block}
+.grad{background:linear-gradient(90deg,#5b5bf0,#a050e6 50%,#e0508f);-webkit-background-clip:text;color:transparent}
+</style></head><body>
+<div class="cap"><div class="k" id="k"></div><h1 id="t"></h1></div>
+<div class="shot"><img id="img"></div>
+<script>
+const q=new URLSearchParams(location.search);
+document.getElementById('k').textContent=q.get('k');
+document.getElementById('t').innerHTML=q.get('t');
+document.getElementById('img').src=q.get('img');
+</script></body></html>

@@ -1,0 +1,90 @@
+{
+  "slides": [
+    {
+      "id": "title",
+      "start": 2.85,
+      "wallStart": 2.852
+    },
+    {
+      "id": "brain",
+      "start": 10.9,
+      "wallStart": 9.666
+    },
+    {
+      "id": "keynote",
+      "start": 37.1,
+      "wallStart": 32.749
+    },
+    {
+      "id": "keynote2",
+      "start": 66.05,
+      "wallStart": 60.938
+    },
+    {
+      "id": "ask",
+      "start": 73.9,
+      "wallStart": 68.587
+    },
+    {
+      "id": "standing",
+      "start": 84.1,
+      "wallStart": 77.684
+    },
+    {
+      "id": "market",
+      "start": 95.6,
+      "wallStart": 88.998
+    },
+    {
+      "id": "converge",
+      "start": 123.55,
+      "wallStart": 116.324
+    },
+    {
+      "id": "validate",
+      "start": 136.55,
+      "wallStart": 127.941
+    },
+    {
+      "id": "opportunity",
+      "start": 166,
+      "wallStart": 156.931
+    },
+    {
+      "id": "claim",
+      "start": 196,
+      "wallStart": 186.702
+    },
+    {
+      "id": "plan",
+      "start": 211.2,
+      "wallStart": 200.764
+    },
+    {
+      "id": "people",
+      "start": 223.5,
+      "wallStart": 212.68
+    },
+    {
+      "id": "graph",
+      "start": 239.55,
+      "wallStart": 227.109
+    },
+    {
+      "id": "done",
+      "start": 270.85,
+      "wallStart": 255.994
+    }
+  ],
+  "cues": [
+    {
+      "slideId": "keynote",
+      "wallAt": 42.83,
+      "file": "audio/keynote-quote.mp3",
+      "at": 47.181
+    }
+  ],
+  "trimStart": 2.85,
+  "end": 281.72,
+  "wallTrimStart": 2.851
+}

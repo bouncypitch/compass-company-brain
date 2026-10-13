@@ -1,0 +1,62 @@
+[
+  {
+    "id": "title",
+    "text": "This is Compass. A company brain that doesn't just answer questions. It acts."
+  },
+  {
+    "id": "brain",
+    "text": "Every company already has a brain. It's just scattered. So Compass builds one. Slack threads, email, meeting recordings, docs, code, reviews and the market are ingested into HydraDB, as a retrieval index and a knowledge graph, so every answer is grounded, cited, and connected."
+  },
+  {
+    "id": "keynote",
+    "text": "Here's an example. We recorded this afternoon's keynote. So let's ask Compass what it said a company brain should do."
+  },
+  {
+    "id": "keynote2",
+    "text": "Not just answer, but act. That's what Compass is built for. Meet Jordan."
+  },
+  {
+    "id": "ask",
+    "text": "Jordan is a senior engineer on the Platform team, and asks the question every engineer asks. How do I get promoted to Staff?"
+  },
+  {
+    "id": "standing",
+    "text": "Compass starts with where Jordan stands: the career ladder, and Jordan's own reviews. Strong technical depth, but only forty percent ready for Staff."
+  },
+  {
+    "id": "market",
+    "text": "Then it looks outside. Research agents fan out in parallel, one per competitor, each chasing a different intent: product launches, hiring and leadership moves, government contracts, research papers, acquisitions and pricing. Every finding is verified against its source, then scored into this landscape. The darker the cell, the more evidence a competitor is moving there."
+  },
+  {
+    "id": "converge",
+    "text": "From that, Compass sees where the competition is going, and where Forgeline can win. Five of seven competitors are converging on codebase memory."
+  },
+  {
+    "id": "validate",
+    "text": "How do we know it works? We validated Compass against the future. We hid every signal after August first, and asked it to predict each competitor's next move from the earlier data alone. Then we checked what actually shipped. It called Cursor's agent-to-merge pipeline, Google's enterprise push for Antigravity, Replit's governance tools, and Codex's enterprise workspaces, all launched after the cutoff."
+  },
+  {
+    "id": "opportunity",
+    "text": "Now Compass proposes high-impact projects for Jordan. It weighs the competitive landscape, Jordan's skills, what Jordan's manager is rated on, the department's objectives, and the company's north star, and looks for the strongest alignment between personal and company goals. The winner: R-14, agent memory. Unowned, blocking seven goals and a six-hundred-and-ten-thousand-dollar renewal, in code Jordan already owns."
+  },
+  {
+    "id": "claim",
+    "text": "So Jordan claims it. One click writes the decision into the company brain in HydraDB, and drafts the first pull request against the real codebase."
+  },
+  {
+    "id": "plan",
+    "text": "Compass turns that into a ninety-day plan. A one-pager this week, an RFC before the roadmap sync, and shipped results by January."
+  },
+  {
+    "id": "people",
+    "text": "And it shows Jordan who to talk to. Priya, the manager, is measured on these goals. Sam owns the agent loop. Grace reviews the RFC."
+  },
+  {
+    "id": "graph",
+    "text": "Underneath it all is the company graph. Zoomed out, it's the whole company: people, teams, goals, roadmap, code, conversations and customers, two hundred and sixty-seven relationships in HydraDB. Zoom into a team, and you see its people and the goals they own. Zoom into Jordan: team, manager, goals and code. And zoom into R-14, to see every goal it moves and every conversation about it."
+  },
+  {
+    "id": "done",
+    "text": "From a competitor's launch, to the roadmap, to Jordan's promotion. Compass. Built with HydraDB, Claude, and App-Starter."
+  }
+]
