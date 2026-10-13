@@ -1,0 +1,818 @@
+{
+  "Who owns agent memory, and what is blocked on it?": {
+    "answer": "Nobody officially owns agent memory yet: R-14 (persistent codebase memory across sessions) is still marked UNOWNED. It was accepted as a Q4 priority on 10/12, but Platform and Agent Eng each say the other should own it, and Marcus Oyelaran says Agent Eng can't lead it this quarter. Elena Marchetti has asked Arjun Malhotra to name an owner before the 10/21 roadmap sync. Priya Shah plans to propose Jordan Rivera, who owns ingest/retrieval, with Sam Okafor as agent-side co-lead and Grace Liu reviewing. Blocked on it: AE-KR1 (task success is 54% against a 65% target; about 31% of failures are forgotten context), AE-KR2 (41 repeat-mistake tickets/month against a target of 19), PE-KR1 and R-01 (both capped by the session-keyed index cache), GTM-KR1 (memory was cited in 5 of 9 Q3 losses, including Tallgrass), and GTM-KR3/CG-2 renewals (Halvorsen on 12/15, Kestrel on 11/30) plus Brightwater's +120-seat expansion. It also slows R-09 sandbox cold starts.",
+    "question": "Who owns agent memory, and what is blocked on it?",
+    "citations": [
+      {
+        "label": "Roadmap: R-14 unowned, sync action",
+        "source": "internal/roadmap.md"
+      },
+      {
+        "label": "Accepted priority, owner UNOWNED",
+        "source": "priority-gap-agent-memory"
+      },
+      {
+        "label": "OKR cross-dept dependencies",
+        "source": "internal/okrs.md"
+      },
+      {
+        "label": "AE-KR1 failure breakdown",
+        "source": "internal/slack/2026-10-06-agent-eng-failure-analysis.md"
+      },
+      {
+        "label": "Session-keyed cache blocks R-01/PE-KR1",
+        "source": "internal/slack/2026-09-24-eng-platform-reindex.md"
+      },
+      {
+        "label": "Halvorsen churn risk",
+        "source": "internal/customer-notes/halvorsen-logistics-churn-risk.md"
+      },
+      {
+        "label": "Repeat-mistake tickets",
+        "source": "internal/slack/2026-10-02-support-escalations-repeat-mistakes.md"
+      },
+      {
+        "label": "Sandbox cold start tie-in",
+        "source": "internal/slack/2026-10-08-proj-cloud-sandbox.md"
+      },
+      {
+        "label": "Competitor memory features",
+        "source": "copilot-09"
+      }
+    ],
+    "followUps": [
+      "What would Phase 1 of R-14 include and by when?",
+      "Which competitors already ship persistent codebase memory?",
+      "What's the interim workaround for Halvorsen before their renewal?"
+    ],
+    "usedHydra": true,
+    "graphEvidence": [
+      {
+        "source": "sam okafor",
+        "target": "agent",
+        "relation": "owns"
+      },
+      {
+        "source": "sam okafor",
+        "target": "r-14",
+        "relation": "requested"
+      },
+      {
+        "source": "r-14",
+        "target": "agent memory",
+        "relation": "unowned since"
+      },
+      {
+        "source": "sam okafor",
+        "target": "agent",
+        "relation": "owns"
+      },
+      {
+        "source": "sam okafor",
+        "target": "r-14",
+        "relation": "requested"
+      },
+      {
+        "source": "r-14",
+        "target": "agent memory",
+        "relation": "unowned since"
+      },
+      {
+        "source": "sam okafor",
+        "target": "agent",
+        "relation": "owns"
+      },
+      {
+        "source": "sam okafor",
+        "target": "r-14",
+        "relation": "requested"
+      },
+      {
+        "source": "r-14",
+        "target": "agent memory",
+        "relation": "unowned since"
+      },
+      {
+        "source": "sam okafor",
+        "target": "agent",
+        "relation": "owns"
+      },
+      {
+        "source": "sam okafor",
+        "target": "r-14",
+        "relation": "requested"
+      },
+      {
+        "source": "r-14",
+        "target": "agent memory",
+        "relation": "unowned since"
+      }
+    ],
+    "cached": true
+  },
+  "Why did we lose Tallgrass Financial?": {
+    "answer": "We lost Tallgrass Financial (140 seats, $420K ACV, 2-year) to Cursor on 2026-09-17 because our agent has no persistent codebase memory, even though Forgeline scored highest on the security review. The champion, their Director of Platform Eng, said: \"By week two, Cursor remembered our conventions. Forgeline was like onboarding a new contractor every morning.\" Lena Park's bake-off evidence backs this up. The same `tglog` correction had to be given 14 times. The agent re-imported from `legacy/` in 5 of 23 PRs. Every `fl` session re-indexed the 1.8M LOC monorepo, with about an 11-minute median wait. Task completion was 57% for Forgeline versus 68% for Cursor. The loss codes are primary: no persistent memory (R-14, unowned), and secondary: indexing latency (R-01, Jordan Rivera). It was the 5th of 9 Q3 competitive losses with this reason, which hits GTM-KR1 (19% vs a 35% target), GTM-KR2 and CG-1. R-14 was accepted as a Q4 priority on 2026-10-12, but it still needs an owner before the 10/21 roadmap sync.",
+    "question": "Why did we lose Tallgrass Financial?",
+    "citations": [
+      {
+        "label": "Closed-Lost: Tallgrass Financial (Derek Mbeki, Lena Park)",
+        "source": "internal/customer-notes/tallgrass-financial-lost-deal.md"
+      },
+      {
+        "label": "#deals-competitive Tallgrass thread",
+        "source": "internal/slack/2026-09-18-deals-competitive-tallgrass.md"
+      },
+      {
+        "label": "Lena's 7 bake-off pattern",
+        "source": "internal/one-on-ones/2026-10-05-lena-park-ben-castellano.md"
+      },
+      {
+        "label": "GTM-KR1 status and Q3 loss reasons",
+        "source": "internal/okrs.md"
+      },
+      {
+        "label": "Accepted priority: agent memory (R-14)",
+        "source": "priority-gap-agent-memory"
+      },
+      {
+        "label": "Cursor Memories / persistent context",
+        "source": "cursor-02"
+      }
+    ],
+    "followUps": [
+      "Who is the likely owner for R-14, and what is the plan before 10/21?",
+      "Which other deals are at risk for the same memory reason?",
+      "How would a persistent commit-keyed index fix the 11-minute re-index wait?"
+    ],
+    "talkClips": [],
+    "usedHydra": true,
+    "graphEvidence": [
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "420k acv",
+        "relation": "has acv"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "cursor",
+        "relation": "lost to"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "2-year term",
+        "relation": "has deal term"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "target": "derek mbeki",
+        "relation": "involves"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "target": "derek mbeki",
+        "relation": "involves"
+      },
+      {
+        "source": "tallgrass financial",
+        "target": "closed-lost: tallgrass financial",
+        "relation": "described_in"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "target": "lena park",
+        "relation": "involves"
+      }
+    ],
+    "cached": true
+  },
+  "Which roadmap items have no owner?": {
+    "question": "Which roadmap items have no owner?",
+    "answer": "Per the FY26-Q4 roadmap (owned by Elena Marchetti), three items have no owner, all in the Later bucket: R-14 Agent memory (persistent codebase memory; spans Platform + Agent Eng; linked to AE-KR1, AE-KR2, GTM-KR1, PE-KR1), R-15 Voice pairing mode (no linked KR, hack-week idea), and R-17 Jira/Linear two-way sync (PR-KR2, a Brightwater ask). R-16 Self-hosted models is listed as Grace Liu (exploring) in the roadmap, though the topology graph marks it UNOWNED. Every Now/Next item (R-01 through R-13) has a named owner, which satisfies the PR-KR3 rule. R-14 is the urgent one: it was accepted as a Q4 priority on 10/12 but still needs a lead, and Elena's action to have Arjun name an owner before the 10/21 sync is still open.",
+    "citations": [
+      {
+        "label": "Roadmap FY26-Q4, Later table",
+        "source": "internal/roadmap.md"
+      },
+      {
+        "label": "Topology: R-15/R-16/R-17 owner UNOWNED",
+        "source": "topology-forgeline"
+      },
+      {
+        "label": "Accepted priority R-14, owner unowned",
+        "source": "priority-gap-agent-memory"
+      },
+      {
+        "label": "Cross-dept dependency on R-14, unassigned",
+        "source": "internal/okrs.md"
+      }
+    ],
+    "followUps": [
+      "Who is the best-fit owner for R-14 before the 10/21 sync?",
+      "Why do Platform and Agent Eng each say R-14 belongs to the other team?",
+      "Should R-17 be prioritized given Brightwater's renewal risk?"
+    ],
+    "graphEvidence": [
+      {
+        "source": "pr-kr3",
+        "relation": "has metric",
+        "target": "roadmap items with owner and linked kr"
+      },
+      {
+        "source": "elena marchetti",
+        "relation": "owns",
+        "target": "pr-kr3"
+      },
+      {
+        "source": "r-14",
+        "relation": "is unowned",
+        "target": "unowned"
+      },
+      {
+        "source": "forgeline",
+        "relation": "has roadmap item",
+        "target": "r-14"
+      },
+      {
+        "source": "r-09",
+        "relation": "tracks",
+        "target": "forgeline-core"
+      },
+      {
+        "source": "ben castellano",
+        "relation": "mentions workaround",
+        "target": ".forgeline/rules.md"
+      },
+      {
+        "source": "r-14",
+        "relation": "addresses",
+        "target": "context forgotten across sessions"
+      },
+      {
+        "source": "forgeline-core",
+        "relation": "lacks",
+        "target": "persistent memory"
+      },
+      {
+        "source": "no persistent codebase memory every agent session starts cold",
+        "relation": "prioritizes",
+        "target": "r-14 agent memory  persistent codebase memory across sessions"
+      },
+      {
+        "source": "ben castellano",
+        "relation": "will bring to",
+        "target": "roadmap sync"
+      },
+      {
+        "source": "r-15: voice pairing mode",
+        "relation": "has_owner",
+        "target": "unowned"
+      },
+      {
+        "source": "r-14",
+        "relation": "is",
+        "target": "agent memory"
+      }
+    ],
+    "usedHydra": true,
+    "talkClips": []
+  },
+  "What did today's keynote say a company brain should ultimately do, and does Compass do it?": {
+    "answer": "The keynote said a company brain should be \"the center of the company's data\" that humans and agents can query, and that \"ultimately, what we want is not to just ask questions, but also then to take action\", meaning agentic workflows (talk-19). Judging also rewarded this: \"in addition to just pulling information out, we want to encourage you to actually take some kind of action\" (talk-08). Compass does both. Ask answers questions with citations and HydraDB graph paths. Radar, Accept recommendation, and the promotion planner act on that data. Accepting a recommendation writes the priority back into HydraDB, so the brain learns, and drafts a forgeline-core PR. One example is a 4-file PR adding src/memory/memoryStore.ts for R-14 (Agent memory), which is unowned and tied to AE-KR1, AE-KR2, GTM-KR1 and PE-KR1. One gap: the panel stressed governance over who sees what (talk-23), and the context does not describe any role-based access controls in Compass.",
+    "question": "What did today's keynote say a company brain should ultimately do, and does Compass do it?",
+    "citations": [
+      {
+        "label": "Keynote: brain as data center, ask then act",
+        "source": "talk-19"
+      },
+      {
+        "label": "Judging criteria: take an action",
+        "source": "talk-08"
+      },
+      {
+        "label": "Panel: governance on who can ask",
+        "source": "talk-23"
+      },
+      {
+        "label": "R-14 Agent memory, unowned, linked KRs",
+        "source": "internal/roadmap.md"
+      },
+      {
+        "label": "AE-KR1 / GTM-KR1 depend on R-14",
+        "source": "internal/okrs.md"
+      }
+    ],
+    "followUps": [
+      "Who would be the best owner for R-14 if we accept the Compass recommendation?",
+      "How could Compass add the governance the panel described, so answers depend on who is asking?",
+      "What does the drafted R-14 memoryStore PR change in forgeline-core?"
+    ],
+    "talkClips": [
+      {
+        "id": "talk-19",
+        "text": "it can be both sides, it can be the agent side too, but it's also more about putting documents and other information into the brain, having it be structured, and then giving humans and agents and anybody really the opportunity to then ask questions of that data. And ultimately, what we want is not to just ask questions, but also then to take action. So that's when you get into agentic workflow. And so I see the company brain really being like the center of the company's data, or whatever data you have, and then humans and agents accessing that data. So that's where I see there being a ton of opportunity. And I think that's where we'll be spending a lot of time over the next few years, working on how to use that information and when. And that's what this is about. A couple of, we did kind of another hackathon",
+        "endSec": 1010,
+        "startSec": 957
+      },
+      {
+        "id": "talk-08",
+        "text": "That's why it's only 25%, but it does matter. Use of some kind of brain, all right? We did call this a company brain, but you don't get extra credit for doing a company brain. That's just the main focus. But if you want to do a personal brain or whatever brain, you can do that, and we'll get to that in a moment. If there's any sort of agentic capabilities, so in addition to just pulling information out, we want to encourage you to actually take some kind of action, okay? It could be simple, but try to have some sort of action. The information comes out, right? Like I'm asking myself a question. You know, what time should I leave for the... What time should I fly somewhere? Okay, take an action. Like, okay, now I'm gonna go try to book that flight, right? So try to take an action. It could be simple. Creativity and real world value, all right? So try to execute, that's the goal. With AI tools these days,",
+        "endSec": 426,
+        "startSec": 371
+      }
+    ],
+    "usedHydra": true,
+    "graphEvidence": [
+      {
+        "source": "company brain",
+        "target": "amenity",
+        "relation": "related to"
+      },
+      {
+        "source": "company brain",
+        "target": "company",
+        "relation": "focus of"
+      },
+      {
+        "source": "company brain",
+        "target": "agentic workflow",
+        "relation": "enables"
+      },
+      {
+        "source": "company brain",
+        "target": "governance",
+        "relation": "related to"
+      },
+      {
+        "source": "company brain",
+        "target": "additional calling",
+        "relation": "has capability"
+      },
+      {
+        "source": "company brain",
+        "target": "company data",
+        "relation": "is"
+      },
+      {
+        "source": "company brain",
+        "target": "unstructured data",
+        "relation": "may contain"
+      },
+      {
+        "source": "company brain",
+        "target": "plug-in",
+        "relation": "uses"
+      },
+      {
+        "source": "company brain",
+        "target": "tool call",
+        "relation": "accessed via"
+      },
+      {
+        "source": "company brain",
+        "target": "unstructured data",
+        "relation": "tends to be"
+      },
+      {
+        "source": "forgeline-core/src/agent/agentloop.ts",
+        "target": "plan-act-observe loop",
+        "relation": "implements"
+      },
+      {
+        "source": "dana whitfield",
+        "target": "forgeline",
+        "relation": "is ceo of"
+      }
+    ],
+    "cached": true
+  },
+  "Why did we lose Tallgrass Financial, and what would have changed the outcome?": {
+    "question": "Why did we lose Tallgrass Financial, and what would have changed the outcome?",
+    "answer": "We lost Tallgrass Financial (140 seats, $420K ACV, 2-year) to Cursor on 2026-09-17 despite scoring highest on the security review. The primary loss reason was no persistent codebase memory: the champion said \"Forgeline was like onboarding a new contractor every morning.\" Lena Park's bake-off log shows the same `tglog` correction given 14 times, `legacy/` imports in 5 of 23 PRs, and ~11 min of full re-indexing per `fl` session. Task completion was Cursor 68% vs. Forgeline 57%. What would have changed the outcome is R-14 (agent memory) being owned and shipped: a commit-keyed persistent index (which also unblocks Jordan Rivera's R-01) plus a memory store fed by PR reviews and ADRs. R-14 has sat in Later and unowned since July because Platform and Agent Eng each thought the other owned it. Memory came up in 5 of 9 Q3 competitive losses, which hurts GTM-KR1 (Ben Castellano), GTM-KR2 (Derek Mbeki) and CG-1. R-14 was accepted as a Q4 priority on 10/12 but still needs a named owner before the 10/21 roadmap sync.",
+    "citations": [
+      {
+        "label": "Tallgrass closed-lost notes",
+        "source": "internal/customer-notes/tallgrass-financial-lost-deal.md"
+      },
+      {
+        "label": "#deals-competitive Tallgrass thread",
+        "source": "internal/slack/2026-09-18-deals-competitive-tallgrass.md"
+      },
+      {
+        "label": "Session-keyed re-index root cause",
+        "source": "internal/slack/2026-09-24-eng-platform-reindex.md"
+      },
+      {
+        "label": "Roadmap R-14 unowned",
+        "source": "internal/roadmap.md"
+      },
+      {
+        "label": "Accepted priority: agent memory",
+        "source": "priority-gap-agent-memory"
+      },
+      {
+        "label": "Q3 loss reasons / GTM-KR1",
+        "source": "internal/okrs.md"
+      }
+    ],
+    "followUps": [
+      "Who is being proposed as the R-14 owner and what's the timeline?",
+      "Are other open deals like Brightwater at risk for the same reason?",
+      "Which competitors already ship persistent codebase memory?"
+    ],
+    "graphEvidence": [
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "has acv",
+        "target": "420k acv"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "lost to",
+        "target": "cursor"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "has deal term",
+        "target": "2-year term"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "relation": "involves",
+        "target": "derek mbeki"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "relation": "involves",
+        "target": "derek mbeki"
+      },
+      {
+        "source": "tallgrass financial",
+        "relation": "described_in",
+        "target": "closed-lost: tallgrass financial"
+      },
+      {
+        "source": "closed-lost: tallgrass financial",
+        "relation": "involves",
+        "target": "lena park"
+      }
+    ],
+    "usedHydra": true,
+    "talkClips": []
+  },
+  "Which competitors are moving into government and regulated customers?": {
+    "question": "Which competitors are moving into government and regulated customers?",
+    "answer": "Cognition is moving fastest: it launched Cognition for Government (Windsurf FedRAMP High, Devin in AWS GovCloud) in Feb 2026, put its full platform into FedRAMP High in-process status in July, signed a DOE Genesis Mission MOU, and is hiring federal roles. It is also pushing regulated finance through partners like Infosys, Goldman Sachs, Citi and LTM. Amazon's Kiro holds FedRAMP High and DoD IL-4/5 in GovCloud, OpenAI Codex is going into secure federal environments via GDIT, and Cursor is hiring federal, healthcare and life-sciences sales. GitHub Copilot added data residency but isn't FedRAMP-authorized itself; Google (GSA Gemini for Government) and Replit (Jordan Ministry of Education) have government deals not specific to coding. This targets Forgeline's enterprise-trust wedge (on-prem/VPC, policy, audit: R-02, R-03, R-11) and accounts like Brightwater Bank and Kestrel Health under CG-1, GTM-KR1 and GTM-KR3. We have no internal note on a Forgeline FedRAMP or GovCloud plan.",
+    "citations": [
+      {
+        "label": "Cognition for Government",
+        "source": "cognition-05"
+      },
+      {
+        "label": "Devin FedRAMP High In-Process",
+        "source": "cognition-16"
+      },
+      {
+        "label": "Cognition DOE Genesis MOU",
+        "source": "cognition-36"
+      },
+      {
+        "label": "Cognition federal hiring",
+        "source": "cognition-24"
+      },
+      {
+        "label": "Kiro FedRAMP High / DoD IL-4/5",
+        "source": "amazon-17"
+      },
+      {
+        "label": "GDIT deploys Codex in federal environments",
+        "source": "codex-22"
+      },
+      {
+        "label": "Cursor federal/healthcare sales hiring",
+        "source": "cursor-20"
+      },
+      {
+        "label": "Copilot data residency, not FedRAMP",
+        "source": "copilot-27"
+      },
+      {
+        "label": "Google GSA Gemini for Government",
+        "source": "google-06"
+      },
+      {
+        "label": "Enterprise trust wedge",
+        "source": "internal/company.md"
+      }
+    ],
+    "followUps": [
+      "Do we have any FedRAMP or GovCloud plans on the roadmap?",
+      "Which of our regulated accounts (Brightwater, Kestrel) face Cognition or Cursor competition?",
+      "How does R-11 policy packs compare with Copilot's Agent Control Plane?"
+    ],
+    "graphEvidence": [
+      {
+        "source": "brightwater",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "kestrel",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "halvorsen",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "no persistent codebase memory every agent session starts cold",
+        "relation": "prioritizes",
+        "target": "r-14 agent memory  persistent codebase memory across sessions"
+      },
+      {
+        "source": "kestrel",
+        "relation": "is customer",
+        "target": "lena park"
+      },
+      {
+        "source": "ostrander games",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "kestrel health",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "brightwater bank",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "halvorsen logistics",
+        "relation": "is customer of",
+        "target": "forgeline"
+      },
+      {
+        "source": "lena park",
+        "relation": "offers to arrange",
+        "target": "customer interviews"
+      },
+      {
+        "source": "forgeline",
+        "relation": "has customer",
+        "target": "enterprise customers"
+      },
+      {
+        "source": "lena park",
+        "relation": "can arrange interviews",
+        "target": "customer interviews"
+      }
+    ],
+    "usedHydra": true,
+    "talkClips": []
+  },
+  "What is Priya Shah measured on this quarter, and how is it trending?": {
+    "answer": "Priya Shah (EM, Platform Eng) is measured on the four Platform Eng KRs for FY26-Q4. As of the 2026-10-09 check-in: PE-KR1 p95 indexing time on >1M LOC repos is 9.5 min (from 14, target 4) 🟡, owned by Jordan Rivera. PE-KR2 context hit@10 on FL-Bench-Enterprise is 74% (from 71%, target 85%) 🟡, also Jordan. PE-KR3 enterprise uptime is 99.86% (target 99.9%) 🟢, owned by Luis Romero. PE-KR4 cloud sandbox design partners is 1 of 5 🔴, owned by Nadia Haddad. Priya has said PE-KR1 and PE-KR2 share one root cause: the indexer starts from scratch every session. That points to the unowned R-14 agent memory work. PE-KR4 is understaffed at 1.5 engineers, and Nadia forecasts only 2–3 partners; Priya's request for +1 headcount is likely approved only for Q1.",
+    "question": "What is Priya Shah measured on this quarter, and how is it trending?",
+    "citations": [
+      {
+        "label": "FY26-Q4 OKRs, Platform Eng table",
+        "source": "internal/okrs.md"
+      },
+      {
+        "label": "Priya on her own KRs (1:1, 2026-10-08)",
+        "source": "internal/one-on-ones/2026-10-08-jordan-rivera-priya-shah.md"
+      },
+      {
+        "label": "R-09 status + staffing",
+        "source": "internal/slack/2026-10-08-proj-cloud-sandbox.md"
+      },
+      {
+        "label": "Re-index root cause",
+        "source": "internal/slack/2026-09-24-eng-platform-reindex.md"
+      },
+      {
+        "label": "R-14 unowned in Later",
+        "source": "internal/roadmap.md"
+      }
+    ],
+    "followUps": [
+      "Who is likely to own R-14, and how would it move PE-KR1 and PE-KR2?",
+      "What would it take to get PE-KR4 to 5 design partners this quarter?",
+      "How does R-01 incremental indexing contribute to PE-KR1?"
+    ],
+    "talkClips": [],
+    "usedHydra": true,
+    "graphEvidence": [
+      {
+        "source": "priya shah",
+        "target": "pe-kr4",
+        "relation": "measured on"
+      },
+      {
+        "source": "priya shah",
+        "target": "pe-kr3",
+        "relation": "measured on"
+      },
+      {
+        "source": "priya shah",
+        "target": "pe-kr2",
+        "relation": "measured on"
+      },
+      {
+        "source": "priya shah",
+        "target": "pe-kr1",
+        "relation": "measured on"
+      },
+      {
+        "source": "priya shah",
+        "target": "platform eng",
+        "relation": "member_of"
+      },
+      {
+        "source": "priya shah",
+        "target": "arjun malhotra",
+        "relation": "reports_to"
+      },
+      {
+        "source": "priya shah",
+        "target": "arjun malhotra",
+        "relation": "reports_to"
+      },
+      {
+        "source": "priya shah",
+        "target": "arjun malhotra",
+        "relation": "reports_to"
+      },
+      {
+        "source": "priya shah",
+        "target": "platform eng",
+        "relation": "member_of"
+      },
+      {
+        "source": "priya shah",
+        "target": "platform eng",
+        "relation": "member_of"
+      },
+      {
+        "source": "priya shah",
+        "target": "1:1 document",
+        "relation": "is"
+      },
+      {
+        "source": "priya shah",
+        "target": "forgeline-core/retrieval",
+        "relation": "code_owner_of"
+      }
+    ],
+    "cached": true
+  },
+  "Which roadmap items have no owner and which goals do they block?": {
+    "question": "Which roadmap items have no owner and which goals do they block?",
+    "answer": "Four roadmap items have no owner, all in Later: R-14 Agent memory, R-15 Voice pairing mode, R-17 Jira/Linear two-way sync, and R-16 Self-hosted models, which has only Grace Liu \"exploring\" (the topology graph marks it UNOWNED). R-14 is the one that matters. It is linked to AE-KR1 (Sam Okafor, 54% vs a 65% target), AE-KR2 (Ian Fletcher, 41 vs 19 repeat-mistake tickets), GTM-KR1 (Ben Castellano, 19% vs 35% win rate) and PE-KR1 (Jordan Rivera). The accepted priority doc also ties it to GTM-KR3, CG-1 and CG-2 through the at-risk Halvorsen, Brightwater and Kestrel renewals, and it blocks R-01's session-scoped cache. The other three gaps are smaller: R-17 maps to PR-KR2 (Kai Nakamura), R-16 to CG-1, and R-15 has no linked KR. On ownership for R-14, Elena asked Arjun to name an owner before the 10/21 sync, and Priya has proposed Jordan Rivera, with Sam Okafor as co-author; both are still open.",
+    "citations": [
+      {
+        "label": "Roadmap FY26-Q4 (Later items, sync notes)",
+        "source": "internal/roadmap.md"
+      },
+      {
+        "label": "OKRs and cross-dept dependencies",
+        "source": "internal/okrs.md"
+      },
+      {
+        "label": "Accepted priority: agent memory",
+        "source": "priority-gap-agent-memory"
+      },
+      {
+        "label": "Topology: R-14/R-15/R-16/R-17 UNOWNED",
+        "source": "topology-forgeline"
+      },
+      {
+        "label": "Jordan ↔ Priya 1:1 action items",
+        "source": "internal/one-on-ones/2026-10-08-jordan-rivera-priya-shah.md"
+      }
+    ],
+    "followUps": [
+      "What would a Phase 1 plan for R-14 look like before Halvorsen's Dec 15 renewal?",
+      "Which competitors already ship persistent codebase memory?",
+      "Who is best placed to own R-17 Jira/Linear sync?"
+    ],
+    "graphEvidence": [
+      {
+        "source": "pr-kr3",
+        "relation": "has metric",
+        "target": "roadmap items with owner and linked kr"
+      },
+      {
+        "source": "r-14",
+        "relation": "is unowned",
+        "target": "unowned"
+      },
+      {
+        "source": "elena marchetti",
+        "relation": "owns",
+        "target": "pr-kr3"
+      },
+      {
+        "source": "forgeline",
+        "relation": "has roadmap item",
+        "target": "r-14"
+      },
+      {
+        "source": "ben castellano",
+        "relation": "mentions workaround",
+        "target": ".forgeline/rules.md"
+      },
+      {
+        "source": "r-14",
+        "relation": "addresses",
+        "target": "context forgotten across sessions"
+      },
+      {
+        "source": "jordan rivera",
+        "relation": "lacks",
+        "target": "cross-team leadership"
+      },
+      {
+        "source": "r-14",
+        "relation": "blocks",
+        "target": "ben"
+      },
+      {
+        "source": "no persistent codebase memory every agent session starts cold",
+        "relation": "prioritizes",
+        "target": "r-14 agent memory  persistent codebase memory across sessions"
+      },
+      {
+        "source": "r-14",
+        "relation": "blocks",
+        "target": "marcus"
+      },
+      {
+        "source": "elena marchetti",
+        "relation": "owns",
+        "target": "forgeline product  engineering roadmap fy26-q4"
+      },
+      {
+        "source": "priya shah",
+        "relation": "is",
+        "target": "1:1 document"
+      }
+    ],
+    "usedHydra": true,
+    "talkClips": []
+  }
+}

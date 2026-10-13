@@ -1,0 +1,6 @@
+:HL["/compass-company-brain/_next/static/chunks/c82a14c5dd93136b.css","style"]
+:HL["/compass-company-brain/_next/static/chunks/55889f57f88859e6.css","style"]
+:HL["/compass-company-brain/_next/static/chunks/51a823f991a0e397.css","style"]
+:HL["/compass-company-brain/_next/static/chunks/4dd9ae69b4a5b37c.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap","style"]
+0:{"buildId":"m0YN6NBqxbLkd9UNYgyjx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"journey","paramType":null,"paramKey":"journey","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

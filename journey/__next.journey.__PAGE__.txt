@@ -1,0 +1,12 @@
+1:"$Sreact.fragment"
+2:I[99146,["/compass-company-brain/_next/static/chunks/483a12865e0bba97.js","/compass-company-brain/_next/static/chunks/1d3be43a6dda29b7.js"],"ClientPageRoot"]
+3:I[57772,["/compass-company-brain/_next/static/chunks/4ae26712a0d1f404.js","/compass-company-brain/_next/static/chunks/b16a14c306441a52.js","/compass-company-brain/_next/static/chunks/0507913b6cec6e63.js"],"default"]
+6:I[2718,["/compass-company-brain/_next/static/chunks/483a12865e0bba97.js","/compass-company-brain/_next/static/chunks/1d3be43a6dda29b7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/compass-company-brain/_next/static/chunks/55889f57f88859e6.css","style"]
+:HL["/compass-company-brain/_next/static/chunks/51a823f991a0e397.css","style"]
+:HL["/compass-company-brain/_next/static/chunks/4dd9ae69b4a5b37c.css","style"]
+0:{"buildId":"m0YN6NBqxbLkd9UNYgyjx","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/compass-company-brain/_next/static/chunks/55889f57f88859e6.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/compass-company-brain/_next/static/chunks/51a823f991a0e397.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/compass-company-brain/_next/static/chunks/4dd9ae69b4a5b37c.css","precedence":"next"}],["$","script","script-0",{"src":"/compass-company-brain/_next/static/chunks/b16a14c306441a52.js","async":true}],["$","script","script-1",{"src":"/compass-company-brain/_next/static/chunks/0507913b6cec6e63.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
