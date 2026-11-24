@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 const b = await chromium.launch();
 const p = await b.newPage({ viewport: { width: 1280, height: 1400 } });
-await p.goto('https://github.com/bouncypitch/compass-company-brain', { waitUntil: 'networkidle' });
+await p.goto('https://github.com/bouncypitch/compass-career-roadmap-agent', { waitUntil: 'networkidle' });
 const el = p.locator('article.markdown-body').first();
 await el.evaluate((e) => e.scrollIntoView());
 await p.waitForTimeout(1500);

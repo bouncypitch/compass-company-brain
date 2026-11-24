@@ -7,7 +7,7 @@ const path = require('path');
  * (`@/` → ../web/src), except the network layer: `@/lib/brain-api` resolves to
  * ./src/lib/brain-api.ts, which serves the recorded snapshot in public/snapshot.
  */
-const BASE_PATH = '/compass-company-brain';
+const BASE_PATH = '/compass-career-roadmap-agent';
 const STATIC_BRAIN_API = './src/lib/brain-api.ts';
 
 /** @type {import('next').NextConfig} */
