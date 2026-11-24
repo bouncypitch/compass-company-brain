@@ -6,7 +6,7 @@
 
 Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB**, **Claude** and **App-Starter**.
 
-[**▶ Watch the demo video**](https://youtu.be/B5Cdtfa5Ykk) · [**Try the live demo**](https://bouncypitch.github.io/compass-career-roadmap-agent/) · [Jordan's journey](https://bouncypitch.github.io/compass-career-roadmap-agent/journey/) · [Keynote deck](https://bouncypitch.github.io/compass-career-roadmap-agent/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
+[**▶ Watch the demo video**](https://youtu.be/B5Cdtfa5Ykk) · [**Try the live demo**](https://bouncypitch.github.io/career-roadmap-agent/) · [Jordan's journey](https://bouncypitch.github.io/career-roadmap-agent/journey/) · [Keynote deck](https://bouncypitch.github.io/career-roadmap-agent/deck/) · [How it works](#how-it-works) · [Run it locally](#run-it-locally)
 
 <a href="https://youtu.be/B5Cdtfa5Ykk"><img src="docs/media/video-thumbnail.png" alt="Watch the Compass demo video" width="860"></a>
 
@@ -18,10 +18,10 @@ Built in one day at the **Company Brain Hackathon** (Oct 12, 2026) on **HydraDB*
 
 | Try it | Link |
 |---|---|
-| **Demo video (4:39)** | [Watch on YouTube](https://youtu.be/B5Cdtfa5Ykk), or download the [MP4](https://github.com/bouncypitch/compass-career-roadmap-agent/releases/latest/download/Compass-demo.mp4) |
-| **Live demo** | [bouncypitch.github.io/compass-career-roadmap-agent](https://bouncypitch.github.io/compass-career-roadmap-agent/). Static and no login: click, hover and drag everything. |
-| **Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/compass-career-roadmap-agent/journey/), step by step |
-| **Keynote deck** | [15 visual slides](https://bouncypitch.github.io/compass-career-roadmap-agent/deck/). Use ← → to navigate. |
+| **Demo video (4:39)** | [Watch on YouTube](https://youtu.be/B5Cdtfa5Ykk), or download the [MP4](https://github.com/bouncypitch/career-roadmap-agent/releases/latest/download/Compass-demo.mp4) |
+| **Live demo** | [bouncypitch.github.io/career-roadmap-agent](https://bouncypitch.github.io/career-roadmap-agent/). Static and no login: click, hover and drag everything. |
+| **Jordan's journey** | ["How do I get promoted to Staff?"](https://bouncypitch.github.io/career-roadmap-agent/journey/), step by step |
+| **Keynote deck** | [15 visual slides](https://bouncypitch.github.io/career-roadmap-agent/deck/). Use ← → to navigate. |
 | **Submission** | [SUBMISSION.md](SUBMISSION.md) has the description, links and gallery. The [one-page PDF](docs/Compass-one-pager.pdf) gives the overview. |
 
 > The hosted demo runs on a snapshot of real results (radar, time machine, promotion plan, company graph, drafted PR, Ask answers). Live answers to brand-new questions need the backend. See [Run it locally](#run-it-locally).
@@ -150,7 +150,7 @@ demo/video/                Playwright recorder, ElevenLabs narration, ffmpeg com
 Requirements: Node 22+, pnpm 10, PostgreSQL and Redis (Homebrew works: `brew install postgresql@17 redis`), API keys for **HydraDB** and **Anthropic**.
 
 ```bash
-git clone https://github.com/bouncypitch/compass-career-roadmap-agent.git && cd compass-career-roadmap-agent
+git clone https://github.com/bouncypitch/career-roadmap-agent.git && cd career-roadmap-agent
 cp apps/api/.env.example apps/api/.env && cp apps/web/.env.example apps/web/.env.local
 # add HYDRA_DB_API_KEY and ANTHROPIC_API_KEY to apps/api/.env
 pnpm install

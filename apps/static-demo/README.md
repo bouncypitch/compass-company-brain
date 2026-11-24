@@ -1,7 +1,7 @@
 # @app-starter/static-demo
 
 A static, backend-free build of the Compass demo for GitHub Pages
-(`https://bouncypitch.github.io/compass-career-roadmap-agent/`). No login, no API, no keys.
+(`https://bouncypitch.github.io/career-roadmap-agent/`). No login, no API, no keys.
 
 | Path       | What it renders                                               |
 | ---------- | ------------------------------------------------------------- |
@@ -32,7 +32,7 @@ folder to the root of the `gh-pages` branch (it already contains `.nojekyll`).
   - `ask` returns the recorded answer for an exact (case/space-insensitive)
     match in `ask.json`, otherwise the closest suggested question's answer,
     prefixed with a one-line static-demo note.
-- **Base path.** `basePath: '/compass-career-roadmap-agent'`, `trailingSlash`, and
+- **Base path.** `basePath: '/career-roadmap-agent'`, `trailingSlash`, and
   `NEXT_PUBLIC_BASE_PATH` (used by the snapshot loader and `ClipPlayer` for
   `talk.mp3`). The web app leaves the variable unset, so it is unaffected.
 - **Styles.** `tailwind.config.js` reuses `apps/web/tailwind.config.ts` and
@@ -51,8 +51,8 @@ cp ../../data/snapshot/*.json public/snapshot/
 The export only works under its base path, so serve it from a parent folder:
 
 ```sh
-mkdir -p /tmp/pages && rm -rf /tmp/pages/compass-career-roadmap-agent
-cp -R out /tmp/pages/compass-career-roadmap-agent
+mkdir -p /tmp/pages && rm -rf /tmp/pages/career-roadmap-agent
+cp -R out /tmp/pages/career-roadmap-agent
 cd /tmp/pages && python3 -m http.server 8090
-# open http://localhost:8090/compass-career-roadmap-agent/
+# open http://localhost:8090/career-roadmap-agent/
 ```

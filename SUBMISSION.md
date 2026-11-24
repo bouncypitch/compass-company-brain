@@ -3,11 +3,11 @@
 ## Basics
 - **Project name:** Compass
 - **Tagline:** The company brain that turns market moves into roadmaps — and roadmaps into promotions.
-- **GitHub:** https://github.com/bouncypitch/compass-career-roadmap-agent
-- **Live demo (static, no login):** https://bouncypitch.github.io/compass-career-roadmap-agent/
-  - Keynote deck: https://bouncypitch.github.io/compass-career-roadmap-agent/deck/
-  - Jordan's journey: https://bouncypitch.github.io/compass-career-roadmap-agent/journey/
-- **Demo video:** https://youtu.be/B5Cdtfa5Ykk (MP4 also at https://github.com/bouncypitch/compass-career-roadmap-agent/releases/latest)
+- **GitHub:** https://github.com/bouncypitch/career-roadmap-agent
+- **Live demo (static, no login):** https://bouncypitch.github.io/career-roadmap-agent/
+  - Keynote deck: https://bouncypitch.github.io/career-roadmap-agent/deck/
+  - Jordan's journey: https://bouncypitch.github.io/career-roadmap-agent/journey/
+- **Demo video:** https://youtu.be/B5Cdtfa5Ykk (MP4 also at https://github.com/bouncypitch/career-roadmap-agent/releases/latest)
 - **Gallery images:** `docs/gallery/01…15.png` (1800×1200, 3:2)
 - **Built with:** HydraDB, Claude (Opus 5.5), App-Starter, NestJS, Next.js, PostgreSQL, Redis, React Flow, ElevenLabs, whisper.cpp, Playwright, TypeScript
 
@@ -74,6 +74,6 @@ Compass is a company brain for **Forgeline**, a fictional AI coding-assistant st
 - **Title:** Compass — the company brain that turns market moves into promotions (Company Brain Hackathon)
 - **Description:**
   Jordan asks "How do I get promoted to Staff?" Compass, a company brain built on HydraDB and Claude, answers by connecting today's keynote, 235 verified competitor signals from 7 AI-coding companies, Forgeline's roadmap and code, and Jordan's own reviews. Then it acts: it claims the highest-alignment project, drafts the pull request and lays out a 90-day plan.
-  Code: https://github.com/bouncypitch/compass-career-roadmap-agent
-  Live demo: https://bouncypitch.github.io/compass-career-roadmap-agent/
+  Code: https://github.com/bouncypitch/career-roadmap-agent
+  Live demo: https://bouncypitch.github.io/career-roadmap-agent/
 - **Visibility:** Unlisted or Public (both work for DevPost).

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import '@/app/globals.css';
 import { Providers } from './providers';
 
-const SITE_URL = 'https://bouncypitch.github.io/compass-career-roadmap-agent/';
+const SITE_URL = 'https://bouncypitch.github.io/career-roadmap-agent/';
 const TITLE = 'Compass';
 const DESCRIPTION =
   'The company brain that turns market moves into roadmaps — and roadmaps into promotions.';

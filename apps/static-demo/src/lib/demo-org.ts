@@ -1,5 +1,5 @@
 /** Organization the snapshot was recorded from; the static data layer ignores it. */
 export const DEMO_ORGANIZATION_ID = 'feccc495-f539-4650-ac3a-1bdf9f066056';
 
-export const REPO_URL = 'https://github.com/bouncypitch/compass-career-roadmap-agent';
-export const VIDEO_URL = 'https://github.com/bouncypitch/compass-career-roadmap-agent/releases/latest';
+export const REPO_URL = 'https://github.com/bouncypitch/career-roadmap-agent';
+export const VIDEO_URL = 'https://github.com/bouncypitch/career-roadmap-agent/releases/latest';
